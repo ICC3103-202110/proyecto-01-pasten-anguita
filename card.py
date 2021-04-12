@@ -23,8 +23,5 @@ class Card:
 
     #metodos
 
-#objetos
-card1 = Card("Duque")
-card2 = Card("Duque")
-card3 = Card("Duque")
+
 
