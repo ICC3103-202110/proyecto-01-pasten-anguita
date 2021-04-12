@@ -1,6 +1,9 @@
+from card import Card
+
 
 def main():
     print("holaaa")
+
 
 
 
