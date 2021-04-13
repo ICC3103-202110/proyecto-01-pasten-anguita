@@ -34,14 +34,14 @@ class Card:
                 
     def deck_random_cards(self):
         if self.__name_card == "Deck":
-            contador = 0
+            count = 0
             while True:
                 i = random.randint(0,len(self.LIST_TYPE_CARDS)-1)
                 if i not in self.LIST_RANDOM_NUMBERS:
                     self.LIST_RANDOM_CARDS.append(self.LIST_TYPE_CARDS[i])   
                     self.LIST_RANDOM_NUMBERS.append(i)
-                    contador +=1
-                if contador ==15:
+                    count +=1
+                if count ==15:
                     break
             print("the cards were randomly shuffled")
             return self.LIST_RANDOM_CARDS
