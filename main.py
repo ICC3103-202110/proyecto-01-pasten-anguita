@@ -1,7 +1,7 @@
 from card import Card
 from person import Person
 
-def players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3,list_desk_rest_cards, number_players):
+def players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3,list_cards_player4,list_desk_rest_cards, number_players):
     count = 0
     if number_players == 3:
         for i in deck.LIST_RANDOM_CARDS:
@@ -15,6 +15,22 @@ def players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3
                 list_desk_rest_cards.append(i)
             count +=1
         return list_cards_player1 , list_cards_player1, list_cards_player3, list_desk_rest_cards
+    
+    if number_players == 4:
+        for i in deck.LIST_RANDOM_CARDS:
+            if count == 0 or count ==1 :
+                list_cards_player1.append(i)
+            if count ==2 or count ==3 :
+                list_cards_player2.append(i)
+            if count ==4 or count ==5 :
+                list_cards_player3.append(i)
+            if count ==6 or count ==7 :
+                list_cards_player4.append(i)
+            if count > 7:
+                list_desk_rest_cards.append(i)
+            count +=1
+        return list_cards_player1 , list_cards_player1, list_cards_player3,list_cards_player4 ,list_desk_rest_cards
+
 
 
 def three_players(deck,number_players):
@@ -25,20 +41,35 @@ def three_players(deck,number_players):
     list_cards_player1 = []
     list_cards_player2 = []
     list_cards_player3 = []
+    list_cards_player4 = []
     list_desk_rest_cards = []
-    players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3,list_desk_rest_cards,number_players)
+    players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3,list_cards_player4,list_desk_rest_cards,number_players)
     print(list_cards_player1)
     print(list_cards_player2)
     print(list_cards_player3)
     print(list_desk_rest_cards)
 
 
-def four_players():
+def four_players(deck,number_players):
     player1 = Person("Player1")
     player2 = Person("Player2")
     player3 = Person("Player3")
     player4 = Person("Player4")
     print("chao")
+    list_cards_player1 = []
+    list_cards_player2 = []
+    list_cards_player3 = []
+    list_cards_player4 = []
+    list_desk_rest_cards = []
+    players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3,list_cards_player4,list_desk_rest_cards,number_players)
+    print(list_cards_player1)
+    print(list_cards_player2)
+    print(list_cards_player3)
+    print(list_cards_player4)
+    print(list_desk_rest_cards)
+
+    
+
 
 def main():
 
@@ -72,7 +103,7 @@ def main():
     if number_players == 3:
         three_players(deck,number_players)
     elif number_players ==4:
-        four_players()
+        four_players(deck,number_players)
 
     
 
