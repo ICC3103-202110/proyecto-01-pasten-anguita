@@ -3,6 +3,12 @@ from deck_of_cards import Deck_of_cards
 from person import Person
 
 
+def three_players():
+    print("hola")
+
+
+def four_players():
+    print("chao")
 
 def main():
     
@@ -28,8 +34,15 @@ def main():
     deck.random_cards()
     print(len(deck.LIST_TYPE_CARDS))
     print(deck.LIST_RANDOM_CARDS)
-    
 
+
+    number_players = int(input("how many players will play this game? 3 or 4 : "))
+    if number_players == 3:
+        three_players()
+    elif number_players ==4:
+        four_players()
+
+    
 
     
 
