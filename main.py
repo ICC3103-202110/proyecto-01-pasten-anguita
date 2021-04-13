@@ -1,9 +1,11 @@
 from card import Card
+from deck_of_cards import Deck_of_cards
+from person import Person
 
 
 
 def main():
-    print("holaaa")
+    
 
     card1 = Card("Duque")
     card2 = Card("Duque")
@@ -21,11 +23,15 @@ def main():
     card14 = Card("Condesa")
     card15 = Card("Condesa")
   
-    list_type_cards = ["Duque","Duque","Duque","Asesino","Asesino","Asesino",
-                    "Capitán","Capitán","Capitán","Embajador","Embajador","Embajador",
-                    "Condesa","Condesa","Condesa"]
+    deck = Deck_of_cards(int(15))
+    print(deck.LIST_TYPE_CARDS)
+    deck.random_cards()
+    print(len(deck.LIST_TYPE_CARDS))
+    print(deck.LIST_RANDOM_CARDS)
+    
 
-    print(list_type_cards)
+
+    
 
 
 if __name__ == "__main__":
