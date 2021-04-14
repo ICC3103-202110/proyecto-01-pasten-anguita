@@ -1,6 +1,9 @@
 from card import Card
 from person import Person
 
+def distribution_of_cards(list_players):
+    print("hola")
+
 def players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3,list_cards_player4,list_desk_rest_cards, number_players):
     count = 0
     if number_players == 3:
@@ -37,7 +40,8 @@ def three_players(deck,number_players):
     player1 = Person("Player1",int(2))
     player2 = Person("Player2",int(2))
     player3 = Person("Player3",int(2))
-    print("Its the turn of the",player1.name_person)
+    list_players = [player1,player2,player3]
+
     list_cards_player1 = []
     list_cards_player2 = []
     list_cards_player3 = []
@@ -64,6 +68,11 @@ def three_players(deck,number_players):
     card13 = Card(list_desk_rest_cards[6])
     card14 = Card(list_desk_rest_cards[7])
     card15 = Card(list_desk_rest_cards[8])
+    list_all_cards = [card1,card2,card3,card4,card5,card6,card7,card8,card9,card10,card11,card12,card13,card14,card15]
+    distribution_of_cards(list_players)
+
+
+
 
 
 
@@ -73,7 +82,8 @@ def four_players(deck,number_players):
     player2 = Person("Player2",int(2))
     player3 = Person("Player3",int(2))
     player4 = Person("Player4",int(2))
-    print("chao")
+    list_players = [player1,player2,player3,player4]
+
     list_cards_player1 = []
     list_cards_player2 = []
     list_cards_player3 = []
@@ -101,7 +111,8 @@ def four_players(deck,number_players):
     card13 = Card(list_desk_rest_cards[4])
     card14 = Card(list_desk_rest_cards[5])
     card15 = Card(list_desk_rest_cards[6])
-
+    list_all_cards = [card1,card2,card3,card4,card5,card6,card7,card8,card9,card10,card11,card12,card13,card14,card15]
+    distribution_of_cards(list_players)
 
     
 
