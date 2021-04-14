@@ -34,9 +34,9 @@ def players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3
 
 
 def three_players(deck,number_players):
-    player1 = Person("Player1")
-    player2 = Person("Player2")
-    player3 = Person("Player3")
+    player1 = Person("Player1",int(2))
+    player2 = Person("Player2",int(2))
+    player3 = Person("Player3",int(2))
     print("Its the turn of the",player1.name_person)
     list_cards_player1 = []
     list_cards_player2 = []
@@ -49,12 +49,30 @@ def three_players(deck,number_players):
     print(list_cards_player3)
     print(list_desk_rest_cards)
 
+    card1 = Card(list_cards_player1[0])
+    card2 = Card(list_cards_player1[1])
+    card3 = Card(list_cards_player2[0])
+    card4 = Card(list_cards_player2[1])
+    card5 = Card(list_cards_player3[0])
+    card6 = Card(list_cards_player3[1])
+    card7 = Card(list_desk_rest_cards[0])
+    card8 = Card(list_desk_rest_cards[1])
+    card9 = Card(list_desk_rest_cards[2])
+    card10 = Card(list_desk_rest_cards[3])
+    card11 = Card(list_desk_rest_cards[4])
+    card12 = Card(list_desk_rest_cards[5])
+    card13 = Card(list_desk_rest_cards[6])
+    card14 = Card(list_desk_rest_cards[7])
+    card15 = Card(list_desk_rest_cards[8])
+
+
+
 
 def four_players(deck,number_players):
-    player1 = Person("Player1")
-    player2 = Person("Player2")
-    player3 = Person("Player3")
-    player4 = Person("Player4")
+    player1 = Person("Player1",int(2))
+    player2 = Person("Player2",int(2))
+    player3 = Person("Player3",int(2))
+    player4 = Person("Player4",int(2))
     print("chao")
     list_cards_player1 = []
     list_cards_player2 = []
@@ -68,31 +86,30 @@ def four_players(deck,number_players):
     print(list_cards_player4)
     print(list_desk_rest_cards)
 
+    card1 = Card(list_cards_player1[0])
+    card2 = Card(list_cards_player1[1])
+    card3 = Card(list_cards_player2[0])
+    card4 = Card(list_cards_player2[1])
+    card5 = Card(list_cards_player3[0])
+    card6 = Card(list_cards_player3[1])
+    card7 = Card(list_cards_player4[0])
+    card8 = Card(list_cards_player4[1])
+    card9 = Card(list_desk_rest_cards[0])
+    card10 = Card(list_desk_rest_cards[1])
+    card11 = Card(list_desk_rest_cards[2])
+    card12 = Card(list_desk_rest_cards[3])
+    card13 = Card(list_desk_rest_cards[4])
+    card14 = Card(list_desk_rest_cards[5])
+    card15 = Card(list_desk_rest_cards[6])
+
+
     
 
 
 def main():
 
     deck = Card("Deck")
-    card1 = Card("Duque")
-    card2 = Card("Duque")
-    card3 = Card("Duque")
-    card4 = Card("Asesino")
-    card5 = Card("Asesino")
-    card6 = Card("Asesino")
-    card7 = Card("Capitán")
-    card8 = Card("Capitán")
-    card9 = Card("Capitán")
-    card10 = Card("Embajador")
-    card11 = Card("Embajador")
-    card12 = Card("Embajador")
-    card13 = Card("Condesa")
-    card14 = Card("Condesa")
-    card15 = Card("Condesa")
-
-    print(deck.name_card)
     deck.deck_cards()
-    print(deck.LIST_TYPE_CARDS)
     deck.deck_random_cards()
     print(deck.LIST_RANDOM_CARDS)
 
