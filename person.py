@@ -25,7 +25,7 @@ class Person:
     def coins_game(self):
         return self.__coins_game
 
-    @name_person.setter
+    @coins_game.setter
     def coins_game(self, value):
          self.__coins_game = value
          return self.__coins_game
