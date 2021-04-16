@@ -5,58 +5,45 @@ def print_space():
     for i in range (0,20):
         print("")
 
+def print_coins_players(list_players):
+    for i in list_players:
+        print("The coins of",i.name_person,"are:",i.coins_game)
+
 def distribution_of_cards(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players):
 
     if number_players == 3:
         print("           ",list_players[0].name_person)
-        print(list_players[2].name_person,"                ",list_players[1].name_person)
-
-        for i in range(0,3):
-            print(list_players[i].name_person,"Are you ready to see your cards?")
-            input("Write something when you are ready: ")
-            print("The cards of",list_players[i].name_person,"are :")
-            print()
-            print()
-            if i == 0:
-                for s in list_cards_player1:
-                    print(s)
-            if i ==1:
-                for s in list_cards_player2:
-                    print(s)
-            if i ==2:
-                for s in list_cards_player3:
-                    print(s)
-            print()
-            print()
-            print("The coins of",list_players[i].name_person,"are :",list_players[i].coins_game)
-            print_space()
-            print(list_players[i].name_person,"look the cards, are up")
-            print()
-            
+        print(list_players[2].name_person,"                ",list_players[1].name_person)    
 
     if number_players ==4:
         print(list_players[0].name_person,"         ",list_players[1].name_person)
         print(list_players[3].name_person,"         ",list_players[2].name_person)
 
-        for i in range(0,4):
-            print(list_players[i].name_person,"Are you ready to see your cards?")
-            input("Write something when you are ready: ")
-            print("The cards of",list_players[i].name_person,"are :")
-            if i == 0:
-                for s in list_cards_player1:
-                    print(s)
-            if i ==1:
-                for s in list_cards_player2:
-                    print(s)
-            if i ==2:
-                for s in list_cards_player3:
-                    print(s)
-            if i ==3:
-                for s in list_cards_player4:
-                    print(s)
-            print_space()
-            print(list_players[i].name_person,"look the cards, are up")
-            print()
+    for i in range(0,len(list_players)):
+        print(list_players[i].name_person,"Are you ready to see your cards?")
+        input("Write something when you are ready: ")
+        print("The cards of",list_players[i].name_person,"are :")
+        print()
+        if i == 0:
+            for s in list_cards_player1:
+                print(s)
+        if i ==1:
+            for s in list_cards_player2:
+                print(s)
+        if i ==2:
+            for s in list_cards_player3:
+                print(s)
+        if i ==3 and number_players==4:
+            for s in list_cards_player4:
+                print(s)
+        print()
+        print()
+        print("The coins of",list_players[i].name_person,"are :",list_players[i].coins_game)
+        print_space()
+        print(list_players[i].name_person,"look the cards, are up")
+        print()
+        
+    print_coins_players(list_players)
 
 def players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3,list_cards_player4,list_desk_rest_cards, number_players):
     count = 0
@@ -121,6 +108,7 @@ def three_players(deck,number_players):
     card15 = Card(list_desk_rest_cards[8])
     list_all_cards = [card1,card2,card3,card4,card5,card6,card7,card8,card9,card10,card11,card12,card13,card14,card15]
     distribution_of_cards(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+    
 
 
 
@@ -160,6 +148,7 @@ def four_players(deck,number_players):
     card15 = Card(list_desk_rest_cards[6])
     list_all_cards = [card1,card2,card3,card4,card5,card6,card7,card8,card9,card10,card11,card12,card13,card14,card15]
     distribution_of_cards(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+    
 
     
 
