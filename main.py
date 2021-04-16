@@ -3,7 +3,16 @@ from person import Person
 
 def print_space():
     for i in range (0,20):
-        print("")
+        print()
+        
+def print_acciones():
+    print()
+    print()
+    print("General actions:")
+    list_all_general_actions = ["income","foreing help","punch"]
+    for i in range(1,4):
+        print(str(i)+"-)",list_all_general_actions[i-1])
+    list_all_characters_actions = []
 
 def print_coins_players(list_players):
     for i in list_players:
@@ -108,7 +117,7 @@ def three_players(deck,number_players):
     card15 = Card(list_desk_rest_cards[8])
     list_all_cards = [card1,card2,card3,card4,card5,card6,card7,card8,card9,card10,card11,card12,card13,card14,card15]
     distribution_of_cards(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-    
+    print_acciones()
 
 
 

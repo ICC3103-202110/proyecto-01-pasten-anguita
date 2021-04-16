@@ -28,9 +28,9 @@ class Card:
     #metodos
     def deck_cards(self):
         if self.__name_card == "Deck":
-                self.LIST_TYPE_CARDS = ["Duque","Duque","Duque","Asesino","Asesino","Asesino",
-                     "Capitán","Capitán","Capitán","Embajador","Embajador","Embajador",
-                     "Condesa","Condesa","Condesa"]
+                self.LIST_TYPE_CARDS = ["Duke","Duke","Duke","Assassin","Assassin","Assassin",
+                     "Captain","Captain","Captain","Ambassador","Ambassador","Ambassador",
+                     "Countess","Countess","Countess"]
                 
     def deck_random_cards(self):
         if self.__name_card == "Deck":
