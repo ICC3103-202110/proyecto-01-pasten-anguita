@@ -102,10 +102,7 @@ def three_players(deck,number_players):
     list_cards_player4 = []
     list_desk_rest_cards = []
     players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3,list_cards_player4,list_desk_rest_cards,number_players)
-    print(list_cards_player1)
-    print(list_cards_player2)
-    print(list_cards_player3)
-    print(list_desk_rest_cards)
+  
 
     card1 = Card(list_cards_player1[0])
     card2 = Card(list_cards_player1[1])
@@ -144,11 +141,7 @@ def four_players(deck,number_players):
     list_cards_player4 = []
     list_desk_rest_cards = []
     players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3,list_cards_player4,list_desk_rest_cards,number_players)
-    print(list_cards_player1)
-    print(list_cards_player2)
-    print(list_cards_player3)
-    print(list_cards_player4)
-    print(list_desk_rest_cards)
+  
 
     card1 = Card(list_cards_player1[0])
     card2 = Card(list_cards_player1[1])
@@ -176,9 +169,6 @@ def main():
     deck = Card("Deck")
     deck.deck_cards()
     deck.deck_random_cards()
-    print(deck.LIST_RANDOM_CARDS)
-
- 
 
     number_players = int(input("how many players will play this game? 3 or 4 : "))
     print("The cards can only be seen by the player of the turn")
