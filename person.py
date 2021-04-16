@@ -29,5 +29,3 @@ class Person:
     def coins_game(self, value):
          self.__coins_game = value
          return self.__coins_game
-
-    print()
