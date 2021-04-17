@@ -4,7 +4,8 @@ from person import Person
 def print_space():
     for i in range (0,20):
         print()
-        
+           
+
 def print_actions():
     print()
     print()
@@ -89,12 +90,31 @@ def players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3
             count +=1
         return list_cards_player1 , list_cards_player1, list_cards_player3,list_cards_player4 ,list_desk_rest_cards
 
+def game(list_players,number_players):
+    list_all_actions = ["income","foreing help","punch","Duke-Taxes","Assassin-Assassination",
+                                   "Captain-Extortion", "Ambassador-Change"]
+    i = 0
+    while True:
+
+        if number_players == 3:
+            #print_coins_players(list_players)
+            if list_players[0].live_game =="yes":
+
+                if list_players[0].coins_game >= 10:
+                    select_player_1 = 3
+                select_player_1 = input("Its the turn of player1, choose a action using a number: ")
+
+                break
+        if number_players == 4:
+            print()
+            break
+
 
 
 def three_players(deck,number_players):
-    player1 = Person("Player1",int(2))
-    player2 = Person("Player2",int(2))
-    player3 = Person("Player3",int(2))
+    player1 = Person("Player1",int(2),"yes")
+    player2 = Person("Player2",int(2),"yes")
+    player3 = Person("Player3",int(2),"yes")
     list_players = [player1,player2,player3]
 
     list_cards_player1 = []
@@ -123,7 +143,7 @@ def three_players(deck,number_players):
     list_all_cards = [card1,card2,card3,card4,card5,card6,card7,card8,card9,card10,card11,card12,card13,card14,card15]
     distribution_of_cards(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
     print_actions()
-
+    game(list_players,number_players)
 
 
 
@@ -131,10 +151,10 @@ def three_players(deck,number_players):
 
 
 def four_players(deck,number_players):
-    player1 = Person("Player1",int(2))
-    player2 = Person("Player2",int(2))
-    player3 = Person("Player3",int(2))
-    player4 = Person("Player4",int(2))
+    player1 = Person("Player1",int(2),"yes")
+    player2 = Person("Player2",int(2),"yes")
+    player3 = Person("Player3",int(2),"yes")
+    player4 = Person("Player4",int(2),"yes")
     list_players = [player1,player2,player3,player4]
 
     list_cards_player1 = []
@@ -163,6 +183,7 @@ def four_players(deck,number_players):
     list_all_cards = [card1,card2,card3,card4,card5,card6,card7,card8,card9,card10,card11,card12,card13,card14,card15]
     distribution_of_cards(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
     print_actions()
+    game(list_players,number_players)
     
 
     

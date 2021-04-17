@@ -5,10 +5,11 @@ class Person:
 
     #constructor
     def __init__(
-        self, name_person, coins_game
+        self, name_person, coins_game, live_game
     ):
         self.__name_person = name_person
         self.__coins_game = coins_game
+        self.__live_game = live_game
 
     #getter y setters
 
@@ -29,3 +30,12 @@ class Person:
     def coins_game(self, value):
          self.__coins_game = value
          return self.__coins_game
+    
+    @property
+    def live_game(self):
+        return self.__live_game
+
+    @live_game.setter
+    def live_game(self, value):
+         self.__live_game = value
+         return self.__live_game
