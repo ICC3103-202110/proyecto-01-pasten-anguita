@@ -1,5 +1,6 @@
 from card import Card
 from person import Person
+import random
 
 def print_space():
     for i in range (0,20):
@@ -105,14 +106,25 @@ def game(list_players,number_players):
             #print_coins_players(list_players)
             if list_players[0].live_game =="yes":
                 print()
-                if list_players[0].coins_game >= 10:
-                    select_player_1 = 3
+
                 if list_players[0].coins_game < 10:
                     select_player_1 = int(input("Its the turn of player1, choose a action using a number: "))
                     print()
                     print_challenge_or_counterattack()
                     select_player_2 =int(input("player2, choose a option using a number: "))
-                    select_player_3 =int(input("player2, choose a option using a number: "))
+                    select_player_3 =int(input("player3, choose a option using a number: "))
+
+                    if select_player_2 == 1 and select_player_3 == 1:
+                        print("Who will challenge the player1, will be chosen at random")
+                        random_1 = random.randint(2,3)
+                        if random_1 == 2:
+                            print("player2 desafia")
+                        if random_1 == 3:
+                            print("player3 desafia")
+
+
+                elif list_players[0].coins_game >= 10:
+                    select_player_1 = 3
                 
 
                 break
