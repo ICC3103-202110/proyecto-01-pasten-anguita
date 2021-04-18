@@ -5,6 +5,11 @@ def print_space():
     for i in range (0,20):
         print()
            
+def print_challenge_or_counterattack():
+    print("1-) challenge")
+    print("2-) counterattack")
+    print("3-) pass")
+    print()
 
 def print_actions():
     print()
@@ -99,10 +104,16 @@ def game(list_players,number_players):
         if number_players == 3:
             #print_coins_players(list_players)
             if list_players[0].live_game =="yes":
-
+                print()
                 if list_players[0].coins_game >= 10:
                     select_player_1 = 3
-                select_player_1 = input("Its the turn of player1, choose a action using a number: ")
+                if list_players[0].coins_game < 10:
+                    select_player_1 = int(input("Its the turn of player1, choose a action using a number: "))
+                    print()
+                    print_challenge_or_counterattack()
+                    select_player_2 =int(input("player2, choose a option using a number: "))
+                    select_player_3 =int(input("player2, choose a option using a number: "))
+                
 
                 break
         if number_players == 4:
