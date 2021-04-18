@@ -25,10 +25,10 @@ def print_actions():
     print()
     print()
     print("General actions:")
-    list_all_general_actions = ["income","foreing help","punch"]
+    list_all_general_actions = ["income","foreing help","punch - 7 coins"]
     for i in range(1,4):
         print(str(i)+"-)",list_all_general_actions[i-1])
-    list_all_characters_actions = ["Duke-Taxes","Assassin-Assassination",
+    list_all_characters_actions = ["Duke-Taxes","Assassin-Assassination - 3 coins",
                                    "Captain-Extortion", "Ambassador-Change"]
     print()
     print("Characters actions: ") 
@@ -105,7 +105,40 @@ def players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3
             count +=1
         return list_cards_player1 , list_cards_player1, list_cards_player3,list_cards_player4 ,list_desk_rest_cards
 
-def game(list_players,number_players):
+def challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
+                        list_cards_player3, list_cards_player4, select_player_1):
+    print()
+    if number_players ==3:
+        print("player1, Are you ready to see your cards?")
+        input("Write something when you are ready: ")
+        print()
+        print()
+        for i in range(1,len(list_cards_player1)+1):
+            print(str(i)+"-)",list_cards_player1[i-1])
+        print_space()
+        print("player1 look the cards, are up")
+        select_player_1_challenge = int(input("player1, select the card for win the challenge or lose the card: "))
+        select_player_1_card_challemge = list_cards_player1[select_player_1_challenge-1]
+        
+        if select_player_1 ==4:
+            print()
+        if select_player_1 ==5:
+            print()
+        if select_player_1 ==6:
+            print()
+        if select_player_1 ==7:
+            print()
+
+        if random_1 == 2:
+            print("chao")
+        if random_1 == 3:
+            print("chao")
+            
+    if number_players ==4:
+        print()
+
+def game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
+        list_cards_player4,list_desk_rest_cards,list_all_cards):
     list_all_actions = ["income","foreing help","punch","Duke-Taxes","Assassin-Assassination",
                                    "Captain-Extortion", "Ambassador-Change"]
     i = 0
@@ -143,18 +176,26 @@ def game(list_players,number_players):
 #aqui parte los desafios o contra_ataques para el player1
 
                     if select_player_1 != 1 and select_player_1 !=3:
-                        select_player_2 =int(input("player2, choose a option using a number: "))
-                        select_player_3 =int(input("player3, choose a option using a number: "))
+                        if list_players[1].live_game == "yes":
+                            select_player_2 =int(input("player2, choose a option using a number: "))
+                        if list_players[2].live_game == "yes":
+                            select_player_3 =int(input("player3, choose a option using a number: "))
 
+#esta la parte del desafio
                         if select_player_2 == 1 and select_player_3 == 1 and (select_player_1==4 or select_player_1 ==5
                             or select_player_1 ==6 or select_player_1==7):
-
+#falta aqui
+                            print()
                             print("Who will challenge the player1, will be chosen at random")
                             random_1 = random.randint(2,3)
                             if random_1 == 2:
-                                print("player2 desafia")
+                                print("The player2 will challenge to player1")
+                                challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
+                                                list_cards_player3, list_cards_player4, select_player_1)
                             if random_1 == 3:
-                                print("player3 desafia")
+                                print("The player3 will challenge to player1")
+                                challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
+                                                list_cards_player3, list_cards_player4, select_player_1)
 
 
                 elif list_players[0].coins_game >= 10:
@@ -200,7 +241,8 @@ def three_players(deck,number_players):
     list_all_cards = [card1,card2,card3,card4,card5,card6,card7,card8,card9,card10,card11,card12,card13,card14,card15]
     distribution_of_cards(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
     print_actions()
-    game(list_players,number_players)
+    game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
+        list_cards_player4,list_desk_rest_cards,list_all_cards)
 
 
 
@@ -240,7 +282,8 @@ def four_players(deck,number_players):
     list_all_cards = [card1,card2,card3,card4,card5,card6,card7,card8,card9,card10,card11,card12,card13,card14,card15]
     distribution_of_cards(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
     print_actions()
-    game(list_players,number_players)
+    game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
+        list_cards_player4,list_desk_rest_cards,list_all_cards)
     
 
     
