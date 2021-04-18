@@ -12,6 +12,15 @@ def print_challenge_or_counterattack():
     print("3-) pass")
     print()
 
+def print_counterattack():
+    print("1-) counterattack")
+    print("2-) pass")
+    print()
+
+def print_challenge():
+    print("1-) challenge")
+    print("2-) pass")
+
 def print_actions():
     print()
     print()
@@ -110,17 +119,42 @@ def game(list_players,number_players):
                 if list_players[0].coins_game < 10:
                     select_player_1 = int(input("Its the turn of player1, choose a action using a number: "))
                     print()
-                    print_challenge_or_counterattack()
-                    select_player_2 =int(input("player2, choose a option using a number: "))
-                    select_player_3 =int(input("player3, choose a option using a number: "))
 
-                    if select_player_2 == 1 and select_player_3 == 1:
-                        print("Who will challenge the player1, will be chosen at random")
-                        random_1 = random.randint(2,3)
-                        if random_1 == 2:
-                            print("player2 desafia")
-                        if random_1 == 3:
-                            print("player3 desafia")
+#estas son las funciones de la seleccion del player1
+
+                    if select_player_1 == 1:
+                        list_players[0].coins_game += 1
+                        print("a coin has been added to player1")
+                        print()
+                        print_coins_players(list_players)
+
+                    if select_player_1 == 5 or select_player_1 ==6:
+                        print_challenge_or_counterattack()
+
+                    if select_player_1 == 2:
+                        print_counterattack()
+
+                    if select_player_1 == 4 or select_player_1 ==7:
+                        print_challenge()
+
+                    if select_player_1 ==3:
+                        print("punch")
+
+#aqui parte los desafios o contra_ataques para el player1
+
+                    if select_player_1 != 1 and select_player_1 !=3:
+                        select_player_2 =int(input("player2, choose a option using a number: "))
+                        select_player_3 =int(input("player3, choose a option using a number: "))
+
+                        if select_player_2 == 1 and select_player_3 == 1 and (select_player_1==4 or select_player_1 ==5
+                            or select_player_1 ==6 or select_player_1==7):
+
+                            print("Who will challenge the player1, will be chosen at random")
+                            random_1 = random.randint(2,3)
+                            if random_1 == 2:
+                                print("player2 desafia")
+                            if random_1 == 3:
+                                print("player3 desafia")
 
 
                 elif list_players[0].coins_game >= 10:
