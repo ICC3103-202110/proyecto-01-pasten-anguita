@@ -105,15 +105,20 @@ def players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3
             count +=1
         return list_cards_player1 , list_cards_player1, list_cards_player3,list_cards_player4 ,list_desk_rest_cards
 
-def player1_actions():
+def player1_actions(select_player_1):
     print("holaaaaaa")
 
 def challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
                         list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards,
                         list_cards_eliminate_player1,list_cards_eliminate_player2, 
-                        list_cards_eliminate_player3, list_cards_eliminate_player4, situation_player1_challenge):
+                        list_cards_eliminate_player3, list_cards_eliminate_player4, list_situation_player1_challenge):
     print()
     if number_players ==3:
+        if random_1 == 2:
+            print("The player2 will challenge to player1")
+        if random_1 == 3:
+            print("The player3 will challenge to player1")
+            
         print("player1, Are you ready to see your cards?")
         input("Write something when you are ready: ")
         print()
@@ -194,6 +199,7 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
             print(str(i)+"-)",list_cards_player1[i-1])
         print_space()
         print("player1 look the cards, are up")
+        list_situation_player1_challenge.append(situation_player1_challenge)
 
 #desde aqui debes continuar
 
@@ -229,7 +235,7 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
     if number_players ==4:
         print()
     return(list_cards_player1, list_cards_player2, list_cards_player3, list_cards_player4,list_cards_eliminate_player1,
-            list_cards_eliminate_player2, list_cards_eliminate_player3, list_cards_eliminate_player4, situation_player1_challenge)
+            list_cards_eliminate_player2, list_cards_eliminate_player3, list_cards_eliminate_player4, list_situation_player1_challenge)
 
 def game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_desk_rest_cards,list_all_cards,list_cards_eliminate_player1,
@@ -284,26 +290,14 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                             print()
                             print("Who will challenge the player1, will be chosen at random")
                             random_1 = random.randint(2,3)
-                            situation_player1_challenge ="nothing"
-                            if random_1 == 2:
-                                print("The player2 will challenge to player1")
-                                challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
+                            list_situation_player1_challenge =[]
+                            challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
                                                 list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards,
                                                 list_cards_eliminate_player1,list_cards_eliminate_player2, 
-                                                list_cards_eliminate_player3, list_cards_eliminate_player4, situation_player1_challenge)
-                                #print(situation_player1_challenge)
-                                #if situation_player1_challenge == "win":
-                                    #player1_actions()
-                                
-                            if random_1 == 3:
-                                print("The player3 will challenge to player1")
-                                challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
-                                                list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards,
-                                                list_cards_eliminate_player1,list_cards_eliminate_player2, 
-                                                list_cards_eliminate_player3, list_cards_eliminate_player4, situation_player1_challenge)
-                                #print(situation_player1_challenge)
-                                #if situation_player1_challenge == "win":
-                                    #player1_actions()
+                                                list_cards_eliminate_player3, list_cards_eliminate_player4, list_situation_player1_challenge)
+                    
+                            if list_situation_player1_challenge[0] == "win":
+                                player1_actions(select_player_1)
                                 
 
 
