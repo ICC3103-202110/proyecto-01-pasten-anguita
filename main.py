@@ -106,7 +106,9 @@ def players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3
         return list_cards_player1 , list_cards_player1, list_cards_player3,list_cards_player4 ,list_desk_rest_cards
 
 def challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
-                        list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards):
+                        list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards,
+                        list_cards_eliminate_player1,list_cards_eliminate_player2, 
+                        list_cards_eliminate_player3, list_cards_eliminate_player4):
     print()
     if number_players ==3:
         print("player1, Are you ready to see your cards?")
@@ -131,6 +133,7 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
                 situation_player1_challenge = "win"
             else:
                 print("The player1 lost the card",select_player_1_card_challenge)
+                list_cards_eliminate_player1.append(select_player_1_card_challenge)
                 list_cards_player1.pop(select_player_1_challenge-1)
                 situation_player1_challenge = "lose"
                 
@@ -146,6 +149,7 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
                 situation_player1_challenge = "win"
             else:
                 print("The player1 lost the card",select_player_1_card_challenge)
+                list_cards_eliminate_player1.append(select_player_1_card_challenge)
                 list_cards_player1.pop(select_player_1_challenge-1)
                 situation_player1_challenge = "lose"
             
@@ -160,6 +164,7 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
                 situation_player1_challenge = "win"
             else:
                 print("The player1 lost the card",select_player_1_card_challenge)
+                list_cards_eliminate_player1.append(select_player_1_card_challenge)
                 list_cards_player1.pop(select_player_1_challenge-1)
                 situation_player1_challenge = "lose"
 
@@ -174,6 +179,7 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
                 situation_player1_challenge = "win"
             else:
                 print("The player1 lost the card",select_player_1_card_challenge)
+                list_cards_eliminate_player1.append(select_player_1_card_challenge)
                 list_cards_player1.pop(select_player_1_challenge-1)
                 situation_player1_challenge = "lose"
       
@@ -186,16 +192,46 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
         print_space()
         print("player1 look the cards, are up")
 
+#desde aqui debes continuar
+
         if random_1 == 2:
-            print("chao")
+            if situation_player1_challenge == "win":
+                print("player2, Are you ready to see your cards?")
+                input("Write something when you are ready: ")
+                print()
+                print()
+                for i in range(1,len(list_cards_player2)+1):
+                    print(str(i)+"-)",list_cards_player2[i-1])
+                print_space()
+                print("player2 look the cards, are up")
+                eliminate_card_player2 =int(input("player2, select the card that you want to delete, using a number : "))
+                list_cards_eliminate_player2.append(list_cards_player2[eliminate_card_player2-1])
+                list_cards_player2.pop(eliminate_card_player2-1)
+                
+
         if random_1 == 3:
-            print("chao")
+            if situation_player1_challenge == "win":
+                print("player3, Are you ready to see your cards?")
+                input("Write something when you are ready: ")
+                print()
+                print()
+                for i in range(1,len(list_cards_player3)+1):
+                    print(str(i)+"-)",list_cards_player3[i-1])
+                print_space()
+                print("player3 look the cards, are up")
+                eliminate_card_player3 =int(input("player3, select the card that you want to delete, using a number : "))
+                list_cards_eliminate_player3.append(list_cards_player3[eliminate_card_player3-1])
+                list_cards_player3.pop(eliminate_card_player3-1)
+                
+
             
     if number_players ==4:
         print()
 
 def game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
-        list_cards_player4,list_desk_rest_cards,list_all_cards):
+        list_cards_player4,list_desk_rest_cards,list_all_cards,list_cards_eliminate_player1,
+        list_cards_eliminate_player2, list_cards_eliminate_player3, list_cards_eliminate_player4):
+
     list_all_actions = ["income","foreing help","punch","Duke-Taxes","Assassin-Assassination",
                                    "Captain-Extortion", "Ambassador-Change"]
     i = 0
@@ -248,11 +284,15 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                             if random_1 == 2:
                                 print("The player2 will challenge to player1")
                                 challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
-                                                list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards)
+                                                list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards,
+                                                list_cards_eliminate_player1,list_cards_eliminate_player2, 
+                                                list_cards_eliminate_player3, list_cards_eliminate_player4)
                             if random_1 == 3:
                                 print("The player3 will challenge to player1")
                                 challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
-                                                list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards)
+                                                list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards,
+                                                list_cards_eliminate_player1,list_cards_eliminate_player2, 
+                                                list_cards_eliminate_player3, list_cards_eliminate_player4)
 
 
                 elif list_players[0].coins_game >= 10:
@@ -298,8 +338,13 @@ def three_players(deck,number_players):
     list_all_cards = [card1,card2,card3,card4,card5,card6,card7,card8,card9,card10,card11,card12,card13,card14,card15]
     distribution_of_cards(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
     print_actions()
+    list_cards_eliminate_player1 = []
+    list_cards_eliminate_player2 = []
+    list_cards_eliminate_player3 = []
+    list_cards_eliminate_player4 = []
     game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
-        list_cards_player4,list_desk_rest_cards,list_all_cards)
+        list_cards_player4,list_desk_rest_cards,list_all_cards, list_cards_eliminate_player1,
+        list_cards_eliminate_player2, list_cards_eliminate_player3, list_cards_eliminate_player4)
 
 
 
