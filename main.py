@@ -105,10 +105,13 @@ def players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3
             count +=1
         return list_cards_player1 , list_cards_player1, list_cards_player3,list_cards_player4 ,list_desk_rest_cards
 
+def player1_actions():
+    print("holaaaaaa")
+
 def challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
                         list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards,
                         list_cards_eliminate_player1,list_cards_eliminate_player2, 
-                        list_cards_eliminate_player3, list_cards_eliminate_player4):
+                        list_cards_eliminate_player3, list_cards_eliminate_player4, situation_player1_challenge):
     print()
     if number_players ==3:
         print("player1, Are you ready to see your cards?")
@@ -221,12 +224,12 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
                 print("player3 look the cards, are up")
                 eliminate_card_player3 =int(input("player3, select the card that you want to delete, using a number : "))
                 list_cards_eliminate_player3.append(list_cards_player3[eliminate_card_player3-1])
-                list_cards_player3.pop(eliminate_card_player3-1)
-                
-
+                list_cards_player3.pop(eliminate_card_player3-1)     
             
     if number_players ==4:
         print()
+    return(list_cards_player1, list_cards_player2, list_cards_player3, list_cards_player4,list_cards_eliminate_player1,
+            list_cards_eliminate_player2, list_cards_eliminate_player3, list_cards_eliminate_player4, situation_player1_challenge)
 
 def game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_desk_rest_cards,list_all_cards,list_cards_eliminate_player1,
@@ -277,22 +280,31 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
 #esta la parte del desafio
                         if select_player_2 == 1 and select_player_3 == 1 and (select_player_1==4 or select_player_1 ==5
                             or select_player_1 ==6 or select_player_1==7):
-#falta aqui
+
                             print()
                             print("Who will challenge the player1, will be chosen at random")
                             random_1 = random.randint(2,3)
+                            situation_player1_challenge ="nothing"
                             if random_1 == 2:
                                 print("The player2 will challenge to player1")
                                 challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
                                                 list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards,
                                                 list_cards_eliminate_player1,list_cards_eliminate_player2, 
-                                                list_cards_eliminate_player3, list_cards_eliminate_player4)
+                                                list_cards_eliminate_player3, list_cards_eliminate_player4, situation_player1_challenge)
+                                #print(situation_player1_challenge)
+                                #if situation_player1_challenge == "win":
+                                    #player1_actions()
+                                
                             if random_1 == 3:
                                 print("The player3 will challenge to player1")
                                 challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
                                                 list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards,
                                                 list_cards_eliminate_player1,list_cards_eliminate_player2, 
-                                                list_cards_eliminate_player3, list_cards_eliminate_player4)
+                                                list_cards_eliminate_player3, list_cards_eliminate_player4, situation_player1_challenge)
+                                #print(situation_player1_challenge)
+                                #if situation_player1_challenge == "win":
+                                    #player1_actions()
+                                
 
 
                 elif list_players[0].coins_game >= 10:
@@ -300,6 +312,7 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                 
 
                 break
+#aqui inicia para el de 4 jugadores           
         if number_players == 4:
             print()
             break
