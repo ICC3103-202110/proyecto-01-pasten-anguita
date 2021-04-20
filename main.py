@@ -48,6 +48,8 @@ def life_players(list_players,list_cards_player1,list_cards_player2,list_cards_p
     if len(list_cards_player4) ==0 and number_players==4:
         list_players[3].live_game ="no"
 
+    return(list_players)
+
 def print_coins_players(list_players):
     for i in list_players:
         print("The coins of",i.name_person,"are:",i.coins_game)
@@ -507,12 +509,14 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                                                 list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards,
                                                 list_cards_eliminate_player1,list_cards_eliminate_player2, 
                                                 list_cards_eliminate_player3, list_cards_eliminate_player4, list_situation_player1_challenge)
-                    
+                            life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+
                             if list_situation_player1_challenge[0] == "win":
                                 player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                     list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
                                     list_cards_eliminate_player3, list_cards_eliminate_player4)
                             list_situation_player1_challenge =[]
+                            life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
 
                         elif (select_player_2 == 1 or select_player_3 == 1) and (select_player_1==4 or select_player_1 ==5
                             or select_player_1 ==6 or select_player_1==7):
