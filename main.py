@@ -120,8 +120,9 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
         player1_assassin =int(input("choose the player with you will use the action Assassin-Assassination, using a number :"))
         if player1_assassin ==1:
             input("player2, are you ready to see your cards?, write something when you are ready: ")
-            for s in range(1,len(list_cards_player2)+1):
-                print(str(s)+"-)", list_cards_player2[s-1])
+            if len(list_cards_player2) > 0:
+                for s in range(1,len(list_cards_player2)+1):
+                    print(str(s)+"-)", list_cards_player2[s-1])
             print_space()
             print("player2, look the cards, are up")
             eliminate_card_player2 = int(input("player2, select the card that you want delete, using a number : "))
@@ -130,8 +131,9 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
 
         if player1_assassin ==2:
             input("player3, are you ready to see your cards?, write something when you are ready: ")
-            for s in range(1,len(list_cards_player3)+1):
-                print(str(s)+"-)", list_cards_player3[s-1])
+            if len(list_cards_player3)>0:
+                for s in range(1,len(list_cards_player3)+1):
+                    print(str(s)+"-)", list_cards_player3[s-1])
             print_space()
             print("player3, look the cards, are up")
             eliminate_card_player3 = int(input("player3, select the card that you want delete, using a number : "))
@@ -140,8 +142,9 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
 
         if player1_assassin ==3:
             input("player4, are you ready to see your cards?, write something when you are ready: ")
-            for s in range(1,len(list_cards_player4)+1):
-                print(str(s)+"-)", list_cards_player4[s-1])
+            if len(list_cards_player4)>0:
+                for s in range(1,len(list_cards_player4)+1):
+                    print(str(s)+"-)", list_cards_player4[s-1])
             print_space()
             print("player4, look the cards, are up")
             eliminate_card_player4 = int(input("player4, select the card that you want delete, using a number : "))
@@ -299,8 +302,9 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
     input("Write something when you are ready: ")
     print()
     print()
-    for i in range(1,len(list_cards_player1)+1):
-        print(str(i)+"-)",list_cards_player1[i-1])
+    if len(list_cards_player1) >0:
+        for i in range(1,len(list_cards_player1)+1):
+            print(str(i)+"-)",list_cards_player1[i-1])
     print_space()
     print("player1 look the cards, are up")
     select_player_1_challenge = int(input("player1, select the card for win the challenge or lose the card: "))
@@ -371,8 +375,9 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
     input("Write something when you are ready: ")
     print()
     print()
-    for i in range(1,len(list_cards_player1)+1):
-        print(str(i)+"-)",list_cards_player1[i-1])
+    if len(list_cards_player1)>0:
+        for i in range(1,len(list_cards_player1)+1):
+            print(str(i)+"-)",list_cards_player1[i-1])
     print_space()
     print("player1 look the cards, are up")
     list_situation_player1_challenge.append(situation_player1_challenge)
@@ -385,8 +390,9 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
             input("Write something when you are ready: ")
             print()
             print()
-            for i in range(1,len(list_cards_player2)+1):
-                print(str(i)+"-)",list_cards_player2[i-1])
+            if len(list_cards_player2) >0:
+                for i in range(1,len(list_cards_player2)+1):
+                    print(str(i)+"-)",list_cards_player2[i-1])
             print_space()
             print("player2 look the cards, are up")
             eliminate_card_player2 =int(input("player2, select the card that you want to delete, using a number : "))
@@ -400,8 +406,9 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
             input("Write something when you are ready: ")
             print()
             print()
-            for i in range(1,len(list_cards_player3)+1):
-                print(str(i)+"-)",list_cards_player3[i-1])
+            if len(list_cards_player3) > 0:
+                for i in range(1,len(list_cards_player3)+1):
+                    print(str(i)+"-)",list_cards_player3[i-1])
             print_space()
             print("player3 look the cards, are up")
             eliminate_card_player3 =int(input("player3, select the card that you want to delete, using a number : "))
@@ -414,8 +421,9 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
             input("Write something when you are ready: ")
             print()
             print()
-            for i in range(1,len(list_cards_player4)+1):
-                print(str(i)+"-)",list_cards_player4[i-1])
+            if len(list_cards_player4) >0:
+                for i in range(1,len(list_cards_player4)+1):
+                    print(str(i)+"-)",list_cards_player4[i-1])
             print_space()
             print("player4 look the cards, are up")
             eliminate_card_player4 =int(input("player4, select the card that you want to delete, using a number : "))
