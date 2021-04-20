@@ -123,170 +123,171 @@ def players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3
 def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                     list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
                     list_cards_eliminate_player3, list_cards_eliminate_player4):
+    if list_players[0].live_game =="yes":
     
-    if select_player_1 == 4:
-        list_players[0].coins_game += 3
-        print("3 coins have been added for player1")
+        if select_player_1 == 4:
+            list_players[0].coins_game += 3
+            print("3 coins have been added for player1")
         
-    if select_player_1 ==5:
-        for i in range(0,len(list_players)):
-            if i != 0:
-                print(str(i)+"-)", list_players[i].name_person)
-        player1_assassin =int(input("choose the player with you will use the action Assassin-Assassination, using a number :"))
-        if player1_assassin ==1:
-            input("player2, are you ready to see your cards?, write something when you are ready: ")
-            if len(list_cards_player2) > 0:
-                for s in range(1,len(list_cards_player2)+1):
-                    print(str(s)+"-)", list_cards_player2[s-1])
-            print_space()
-            print("player2, look the cards, are up")
-            eliminate_card_player2 = int(input("player2, select the card that you want delete, using a number : "))
-            list_cards_eliminate_player2.append(list_cards_player2[eliminate_card_player2-1])
-            list_cards_player2.pop(eliminate_card_player2-1)
+        if select_player_1 ==5:
+            for i in range(0,len(list_players)):
+                if i != 0:
+                    print(str(i)+"-)", list_players[i].name_person)
+            player1_assassin =int(input("choose the player with you will use the action Assassin-Assassination, using a number :"))
+            if player1_assassin ==1:
+                input("player2, are you ready to see your cards?, write something when you are ready: ")
+                if len(list_cards_player2) > 0:
+                    for s in range(1,len(list_cards_player2)+1):
+                        print(str(s)+"-)", list_cards_player2[s-1])
+                print_space()
+                print("player2, look the cards, are up")
+                eliminate_card_player2 = int(input("player2, select the card that you want delete, using a number : "))
+                list_cards_eliminate_player2.append(list_cards_player2[eliminate_card_player2-1])
+                list_cards_player2.pop(eliminate_card_player2-1)
 
-        if player1_assassin ==2:
-            input("player3, are you ready to see your cards?, write something when you are ready: ")
-            if len(list_cards_player3)>0:
-                for s in range(1,len(list_cards_player3)+1):
-                    print(str(s)+"-)", list_cards_player3[s-1])
-            print_space()
-            print("player3, look the cards, are up")
-            eliminate_card_player3 = int(input("player3, select the card that you want delete, using a number : "))
-            list_cards_eliminate_player3.append(list_cards_player3[eliminate_card_player3-1])
-            list_cards_player3.pop(eliminate_card_player3-1)
+            if player1_assassin ==2:
+                input("player3, are you ready to see your cards?, write something when you are ready: ")
+                if len(list_cards_player3)>0:
+                    for s in range(1,len(list_cards_player3)+1):
+                        print(str(s)+"-)", list_cards_player3[s-1])
+                print_space()
+                print("player3, look the cards, are up")
+                eliminate_card_player3 = int(input("player3, select the card that you want delete, using a number : "))
+                list_cards_eliminate_player3.append(list_cards_player3[eliminate_card_player3-1])
+                list_cards_player3.pop(eliminate_card_player3-1)
 
-        if player1_assassin ==3:
-            input("player4, are you ready to see your cards?, write something when you are ready: ")
-            if len(list_cards_player4)>0:
-                for s in range(1,len(list_cards_player4)+1):
-                    print(str(s)+"-)", list_cards_player4[s-1])
-            print_space()
-            print("player4, look the cards, are up")
-            eliminate_card_player4 = int(input("player4, select the card that you want delete, using a number : "))
-            list_cards_eliminate_player4.append(list_cards_player4[eliminate_card_player4-1])
-            list_cards_player4.pop(eliminate_card_player4-1)
+            if player1_assassin ==3:
+                input("player4, are you ready to see your cards?, write something when you are ready: ")
+                if len(list_cards_player4)>0:
+                    for s in range(1,len(list_cards_player4)+1):
+                        print(str(s)+"-)", list_cards_player4[s-1])
+                print_space()
+                print("player4, look the cards, are up")
+                eliminate_card_player4 = int(input("player4, select the card that you want delete, using a number : "))
+                list_cards_eliminate_player4.append(list_cards_player4[eliminate_card_player4-1])
+                list_cards_player4.pop(eliminate_card_player4-1)
 
-    if select_player_1 ==6:
-        print_coins_players(list_players)
-        for i in range(0,len(list_players)):
-            if i != 0:
-                print(str(i)+"-)", list_players[i].name_person)
+        if select_player_1 ==6:
+            print_coins_players(list_players)
+            for i in range(0,len(list_players)):
+                if i != 0:
+                    print(str(i)+"-)", list_players[i].name_person)
             
-        player1_captain =int(input("choose the player with you will use the action Captain-Extortion, using a number :"))
-        if player1_captain ==1:
-            if list_players[1].coins_game <1:
-                print("The player1 +0 coins")
-                print("The player2 -0 coins")
+            player1_captain =int(input("choose the player with you will use the action Captain-Extortion, using a number :"))
+            if player1_captain ==1:
+                if list_players[1].coins_game <1:
+                    print("The player1 +0 coins")
+                    print("The player2 -0 coins")
 
-            if list_players[1].coins_game ==1 :
-                list_players[1].coins_game -= 1
-                list_players[0].coins_game +=1
-                print("The player1 +1 coins")
-                print("The player2 -1 coins")
+                if list_players[1].coins_game ==1 :
+                    list_players[1].coins_game -= 1
+                    list_players[0].coins_game +=1
+                    print("The player1 +1 coins")
+                    print("The player2 -1 coins")
 
-            if list_players[1].coins_game >= 2:
-                list_players[1].coins_game -=2
-                list_players[0].coins_game +=2
-                print("The player1 +2 coins")
-                print("The player2 -2 coins")
+                if list_players[1].coins_game >= 2:
+                    list_players[1].coins_game -=2
+                    list_players[0].coins_game +=2
+                    print("The player1 +2 coins")
+                    print("The player2 -2 coins")
 
-        if player1_captain ==2:
-            if list_players[2].coins_game <1:
-                print("The player1 +0 coins")
-                print("The player3 -0 coins")
+            if player1_captain ==2:
+                if list_players[2].coins_game <1:
+                    print("The player1 +0 coins")
+                    print("The player3 -0 coins")
 
-            if list_players[2].coins_game ==1 :
-                list_players[2].coins_game -= 1
-                list_players[0].coins_game +=1
-                print("The player1 +1 coins")
-                print("The player3 -1 coins")
+                if list_players[2].coins_game ==1 :
+                    list_players[2].coins_game -= 1
+                    list_players[0].coins_game +=1
+                    print("The player1 +1 coins")
+                    print("The player3 -1 coins")
 
-            if list_players[2].coins_game >= 2:
-                list_players[2].coins_game -=2
-                list_players[0].coins_game +=2
-                print("The player1 +2 coins")
-                print("The player3 -3 coins")
+                if list_players[2].coins_game >= 2:
+                    list_players[2].coins_game -=2
+                    list_players[0].coins_game +=2
+                    print("The player1 +2 coins")
+                    print("The player3 -3 coins")
 
-        if player1_captain ==3:
-            if list_players[3].coins_game <1:
-                print("The player1 +0 coins")
-                print("The player4 -0 coins")
+            if player1_captain ==3:
+                if list_players[3].coins_game <1:
+                    print("The player1 +0 coins")
+                    print("The player4 -0 coins")
 
-            if list_players[3].coins_game ==1 :
-                list_players[3].coins_game -= 1
-                list_players[0].coins_game +=1
-                print("The player1 +1 coins")
-                print("The player4 -1 coins")
+                if list_players[3].coins_game ==1 :
+                    list_players[3].coins_game -= 1
+                    list_players[0].coins_game +=1
+                    print("The player1 +1 coins")
+                    print("The player4 -1 coins")
 
-            if list_players[3].coins_game >= 2:
-                list_players[3].coins_game -=2
-                list_players[0].coins_game +=2
-                print("The player1 +2 coins")
-                print("The player4 -3 coins")    
+                if list_players[3].coins_game >= 2:
+                    list_players[3].coins_game -=2
+                    list_players[0].coins_game +=2
+                    print("The player1 +2 coins")
+                    print("The player4 -3 coins")    
        
-        print_coins_players(list_players)
+            print_coins_players(list_players)
     #comenzar desde aqui   
-    if select_player_1 ==7:
-        print()
-        print("player1, are you ready to do the action 'Ambassador-Change'?, write something when you are ready: ")
+        if select_player_1 ==7:
+            print()
+            print("player1, are you ready to do the action 'Ambassador-Change'?, write something when you are ready: ")
 
-        if len(list_cards_player1) ==1:
-            print("1-)",list_cards_player1[0])    
-            print("2-)",list_desk_rest_cards[0])
-            print("3-)",list_desk_rest_cards[1])
+            if len(list_cards_player1) ==1:
+                print("1-)",list_cards_player1[0])    
+                print("2-)",list_desk_rest_cards[0])
+                print("3-)",list_desk_rest_cards[1])
         
-        if len(list_cards_player1) ==2:
-            print("1-)", list_cards_player1[0])
-            print("2-)", list_cards_player1[1])
-            print("3-)", list_desk_rest_cards[0])
-            print("4-)", list_desk_rest_cards[1])
-        while True:
-            ambassador_player1_1 =int(input("Select the first card that you want, using a number: "))
-            ambassador_player1_2 =int(input("Select the second card that you want (you can't select the same card), using a number: "))
-            if ambassador_player1_1 == ambassador_player1_2:
-                print("you can't repeat the cards, do it again")
-            if ambassador_player1_1 != ambassador_player1_2:
-                break
+            if len(list_cards_player1) ==2:
+                print("1-)", list_cards_player1[0])
+                print("2-)", list_cards_player1[1])
+                print("3-)", list_desk_rest_cards[0])
+                print("4-)", list_desk_rest_cards[1])
+            while True:
+                ambassador_player1_1 =int(input("Select the first card that you want, using a number: "))
+                ambassador_player1_2 =int(input("Select the second card that you want (you can't select the same card), using a number: "))
+                if ambassador_player1_1 == ambassador_player1_2:
+                    print("you can't repeat the cards, do it again")
+                if ambassador_player1_1 != ambassador_player1_2:
+                    break
             
-        list_cards_player1_2 =[]
-        if len(list_cards_player1) ==1:
-            if ambassador_player1_1 == 1:
-                list_cards_player1_2.append(list_cards_player1[0])
-            if ambassador_player1_1 > 1:
-                list_cards_player1_2.append(list_desk_rest_cards[ambassador_player1_1 - 2])
-                list_desk_rest_cards.pop(ambassador_player1_1 - 2)
+            list_cards_player1_2 =[]
+            if len(list_cards_player1) ==1:
+                if ambassador_player1_1 == 1:
+                    list_cards_player1_2.append(list_cards_player1[0])
+                if ambassador_player1_1 > 1:
+                    list_cards_player1_2.append(list_desk_rest_cards[ambassador_player1_1 - 2])
+                    list_desk_rest_cards.pop(ambassador_player1_1 - 2)
 
-            if ambassador_player1_2 ==1:
-                list_cards_player1_2.append(list_cards_player1[0])
-            if ambassador_player1_2 >1:
-                list_cards_player1_2.append(list_desk_rest_cards[ambassador_player1_2 - 2])
-                if ambassador_player1_1 <2:
-                    list_desk_rest_cards.pop(ambassador_player1_2 - 2)
-                if ambassador_player1_1 ==2:
-                    list_desk_rest_cards.pop(0)
+                if ambassador_player1_2 ==1:
+                    list_cards_player1_2.append(list_cards_player1[0])
+                if ambassador_player1_2 >1:
+                    list_cards_player1_2.append(list_desk_rest_cards[ambassador_player1_2 - 2])
+                    if ambassador_player1_1 <2:
+                        list_desk_rest_cards.pop(ambassador_player1_2 - 2)
+                    if ambassador_player1_1 ==2:
+                        list_desk_rest_cards.pop(0)
 
-        if len(list_cards_player1) ==2:
-            if ambassador_player1_1 <=2:
-                list_cards_player1_2.append(list_cards_player1[ambassador_player1_1 - 1])
-            if ambassador_player1_1 > 2:
-                list_cards_player1_2.append(list_desk_rest_cards[ambassador_player1_1 - 3])
-                list_desk_rest_cards.pop(ambassador_player1_1 - 3)
+            if len(list_cards_player1) ==2:
+                if ambassador_player1_1 <=2:
+                    list_cards_player1_2.append(list_cards_player1[ambassador_player1_1 - 1])
+                if ambassador_player1_1 > 2:
+                    list_cards_player1_2.append(list_desk_rest_cards[ambassador_player1_1 - 3])
+                    list_desk_rest_cards.pop(ambassador_player1_1 - 3)
 
-            if ambassador_player1_2 <=2:
-                list_cards_player1_2.append(list_cards_player1[ambassador_player1_2 - 1])
-            if ambassador_player1_2 > 2:
-                list_cards_player1_2.append(list_desk_rest_cards[ambassador_player1_2 - 3])
-                if ambassador_player1_1 <3:
-                    list_desk_rest_cards.pop(ambassador_player1_2 - 3)
-                if ambassador_player1_1 ==3:
-                    list_desk_rest_cards.pop(0)
-        count= 0
-        for i in list_cards_player1:
-            if i != list_cards_player1_2[count]:
-                list_desk_rest_cards.append(i)
-            count +=1
-        list_cards_player1 = list_cards_player1_2
-        list_cards_player1_2 = []
+                if ambassador_player1_2 <=2:
+                    list_cards_player1_2.append(list_cards_player1[ambassador_player1_2 - 1])
+                if ambassador_player1_2 > 2:
+                    list_cards_player1_2.append(list_desk_rest_cards[ambassador_player1_2 - 3])
+                    if ambassador_player1_1 <3:
+                        list_desk_rest_cards.pop(ambassador_player1_2 - 3)
+                    if ambassador_player1_1 ==3:
+                        list_desk_rest_cards.pop(0)
+            count= 0
+            for i in list_cards_player1:
+                if i != list_cards_player1_2[count]:
+                    list_desk_rest_cards.append(i)
+                count +=1
+            list_cards_player1 = list_cards_player1_2
+            list_cards_player1_2 = []
 
     return(list_players,list_cards_player1,list_cards_player2,list_cards_player3,
             list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
@@ -579,12 +580,14 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                                                 list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards,
                                                 list_cards_eliminate_player1,list_cards_eliminate_player2, 
                                                 list_cards_eliminate_player3, list_cards_eliminate_player4, list_situation_player1_challenge)
+                            life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
 
                             if list_situation_player1_challenge[0] == "win":
                                 player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                     list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
                                     list_cards_eliminate_player3, list_cards_eliminate_player4)
                             list_situation_player1_challenge =[]
+                            life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
 
                 elif list_players[0].coins_game >= 10:
                     select_player_1 = 3
