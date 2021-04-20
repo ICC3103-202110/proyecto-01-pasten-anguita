@@ -209,7 +209,58 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
         print_coins_players(list_players)
     #comenzar desde aqui   
     if select_player_1 ==7:
-    
+        print()
+        print("player1, are you ready to do the action 'Ambassador-Change'?, write something when you are ready: ")
+
+        if len(list_cards_player1) ==1:
+            print("1-)",list_cards_player1[0])    
+            print("2-)",list_desk_rest_cards[0])
+            print("3-)",list_desk_rest_cards[1])
+        
+        if len(list_cards_player1) ==2:
+            print("1-)", list_cards_player1[0])
+            print("2-)", list_cards_player1[1])
+            print("3-)", list_desk_rest_cards[0])
+            print("4-)", list_desk_rest_cards[1])
+        while True:
+            ambassador_player1_1 =int(input("Select the first card that you want, using a number: "))
+            ambassador_player1_2 =int(input("Select the second card that you want (you can't select the same card), using a number: "))
+            if ambassador_player1_1 == ambassador_player1_2:
+                print("you can't repeat the cards, do it again")
+            if ambassador_player1_1 != ambassador_player1_2:
+                break
+            
+        list_cards_player1_2 =[]
+        if len(list_cards_player1) ==1:
+            if ambassador_player1_1 == 1:
+                list_cards_player1_2.append(list_cards_player1[0])
+            if ambassador_player1_1 > 1:
+                list_cards_player1_2.append(list_desk_rest_cards[ambassador_player1_1 - 2])
+                list_desk_rest_cards.pop(ambassador_player1_1 - 2)
+
+            if ambassador_player1_2 ==1:
+                list_cards_player1_2.append(list_cards_player1[0])
+            if ambassador_player1_2 >1:
+                list_cards_player1_2.append(list_desk_rest_cards[ambassador_player1_2 - 2])
+                if ambassador_player1_1 <2:
+                    list_desk_rest_cards.pop(ambassador_player1_1 - 2)
+                if ambassador_player1_1 ==2:
+                    list_desk_rest_cards.pop(0)
+
+        if len(list_cards_player1) ==2:
+            if ambassador_player1_1 <=2:
+                list_cards_player1_2.append(list_cards_player1[ambassador_player1_1 - 1])
+            if ambassador_player1_1 > 2:
+                list_cards_player1_2.append(list_desk_rest_cards[ambassador_player1_1 - 3])
+
+            if ambassador_player1_2 <=2:
+                list_cards_player1_2.append(list_cards_player1[ambassador_player1_2 - 1])
+            if ambassador_player1_2 > 2:
+                list_cards_player1_2.append(list_desk_rest_cards[ambassador_player1_2 - 3])
+
+        
+
+
 
 def challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
                         list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards,
