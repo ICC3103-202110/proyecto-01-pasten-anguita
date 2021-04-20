@@ -35,6 +35,19 @@ def print_actions():
     for i in range(4,8):
         print(str(i)+"-)",list_all_characters_actions[i-4])
 
+def life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players):
+    if len(list_cards_player1) ==0:
+        list_players[0].live_game ="no"
+
+    if len(list_cards_player2) ==0:
+        list_players[1].live_game ="no"
+
+    if len(list_cards_player3) ==0:
+        list_players[2].live_game ="no"
+
+    if len(list_cards_player4) ==0 and number_players==4:
+        list_players[3].live_game ="no"
+
 def print_coins_players(list_players):
     for i in list_players:
         print("The coins of",i.name_person,"are:",i.coins_game)
