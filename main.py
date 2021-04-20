@@ -119,9 +119,9 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
                 print(str(i)+"-)", list_players[i].name_person)
         player1_assassin =int(input("choose the player with you will use the action Assassin-Assassination, using a number :"))
         if player1_assassin ==1:
-            print("player2, are you ready to see your cards?, write something when you are ready: ")
+            input("player2, are you ready to see your cards?, write something when you are ready: ")
             for s in range(1,len(list_cards_player2)+1):
-                print(str(i)+"-)", list_cards_player2[i-1])
+                print(str(s)+"-)", list_cards_player2[s-1])
             print_space()
             print("player2, look the cards, are up")
             eliminate_card_player2 = int(input("player2, select the card that you want delete, using a number : "))
@@ -129,9 +129,9 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
             list_cards_player2.pop(eliminate_card_player2-1)
 
         if player1_assassin ==2:
-            print("player3, are you ready to see your cards?, write something when you are ready: ")
+            input("player3, are you ready to see your cards?, write something when you are ready: ")
             for s in range(1,len(list_cards_player3)+1):
-                print(str(i)+"-)", list_cards_player3[i-1])
+                print(str(s)+"-)", list_cards_player3[s-1])
             print_space()
             print("player3, look the cards, are up")
             eliminate_card_player3 = int(input("player3, select the card that you want delete, using a number : "))
@@ -139,9 +139,9 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
             list_cards_player3.pop(eliminate_card_player3-1)
 
         if player1_assassin ==3:
-            print("player4, are you ready to see your cards?, write something when you are ready: ")
+            input("player4, are you ready to see your cards?, write something when you are ready: ")
             for s in range(1,len(list_cards_player4)+1):
-                print(str(i)+"-)", list_cards_player4[i-1])
+                print(str(s)+"-)", list_cards_player4[s-1])
             print_space()
             print("player4, look the cards, are up")
             eliminate_card_player4 = int(input("player4, select the card that you want delete, using a number : "))
@@ -491,8 +491,13 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                                 player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                     list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
                                     list_cards_eliminate_player3, list_cards_eliminate_player4)
-                                list_situation_player1_challenge =[]
+                            list_situation_player1_challenge =[]
 
+                        elif (select_player_2 == 1 or select_player_3 == 1) and (select_player_1==4 or select_player_1 ==5
+                            or select_player_1 ==6 or select_player_1==7):
+                            
+                            print("holaaaaa")
+                            
 
                 elif list_players[0].coins_game >= 10:
                     select_player_1 = 3
@@ -554,7 +559,7 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                                 player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                     list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
                                     list_cards_eliminate_player3, list_cards_eliminate_player4)
-                                list_situation_player1_challenge =[]
+                            list_situation_player1_challenge =[]
 
                 elif list_players[0].coins_game >= 10:
                     select_player_1 = 3
