@@ -111,7 +111,7 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
     
     if select_player_1 == 4:
         list_players[0].coins_game += 3
-        print("3 coins have been added")
+        print("3 coins have been added for player1")
         
     if select_player_1 ==5:
         for i in range(0,len(list_players)):
@@ -243,7 +243,7 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
             if ambassador_player1_2 >1:
                 list_cards_player1_2.append(list_desk_rest_cards[ambassador_player1_2 - 2])
                 if ambassador_player1_1 <2:
-                    list_desk_rest_cards.pop(ambassador_player1_1 - 2)
+                    list_desk_rest_cards.pop(ambassador_player1_2 - 2)
                 if ambassador_player1_1 ==2:
                     list_desk_rest_cards.pop(0)
 
@@ -252,14 +252,27 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
                 list_cards_player1_2.append(list_cards_player1[ambassador_player1_1 - 1])
             if ambassador_player1_1 > 2:
                 list_cards_player1_2.append(list_desk_rest_cards[ambassador_player1_1 - 3])
+                list_desk_rest_cards.pop(ambassador_player1_1 - 3)
 
             if ambassador_player1_2 <=2:
                 list_cards_player1_2.append(list_cards_player1[ambassador_player1_2 - 1])
             if ambassador_player1_2 > 2:
                 list_cards_player1_2.append(list_desk_rest_cards[ambassador_player1_2 - 3])
+                if ambassador_player1_1 <3:
+                    list_desk_rest_cards.pop(ambassador_player1_2 - 3)
+                if ambassador_player1_1 ==3:
+                    list_desk_rest_cards.pop(0)
+        count= 0
+        for i in list_cards_player1:
+            if i != list_cards_player1_2[count]:
+                list_desk_rest_cards.append(i)
+            count +=1
+        list_cards_player1 = list_cards_player1_2
+        list_cards_player1_2 = []
 
-        
-
+    return(list_players,list_cards_player1,list_cards_player2,list_cards_player3,
+            list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
+            list_cards_eliminate_player3, list_cards_eliminate_player4)
 
 
 def challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
@@ -364,7 +377,7 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
     print("player1 look the cards, are up")
     list_situation_player1_challenge.append(situation_player1_challenge)
 
-#desde aqui debes continuar
+
 
     if random_1 == 2:
         if situation_player1_challenge == "win":
@@ -475,7 +488,9 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                                                 list_cards_eliminate_player3, list_cards_eliminate_player4, list_situation_player1_challenge)
                     
                             if list_situation_player1_challenge[0] == "win":
-                                player1_actions(select_player_1)
+                                player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                    list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
+                                    list_cards_eliminate_player3, list_cards_eliminate_player4)
                                 
 
 
@@ -536,8 +551,15 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                                                 list_cards_eliminate_player3, list_cards_eliminate_player4, list_situation_player1_challenge)
 
                             if list_situation_player1_challenge[0] == "win":
-                                player1_actions(select_player_1)
-            break
+                                player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                    list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
+                                    list_cards_eliminate_player3, list_cards_eliminate_player4)
+
+                elif list_players[0].coins_game >= 10:
+                    select_player_1 = 3
+                    list_players[0].coins_game -=7
+                    print("punch")
+                break
 
 
 
