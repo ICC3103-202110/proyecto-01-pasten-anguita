@@ -491,7 +491,7 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                                 player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                     list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
                                     list_cards_eliminate_player3, list_cards_eliminate_player4)
-                                
+                                list_situation_player1_challenge =[]
 
 
                 elif list_players[0].coins_game >= 10:
@@ -554,6 +554,7 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                                 player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                     list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
                                     list_cards_eliminate_player3, list_cards_eliminate_player4)
+                                list_situation_player1_challenge =[]
 
                 elif list_players[0].coins_game >= 10:
                     select_player_1 = 3
