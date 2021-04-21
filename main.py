@@ -13,13 +13,14 @@ def print_challenge_or_counterattack():
     print()
 
 def print_counterattack():
-    print("1-) counterattack")
-    print("2-) pass")
+    print("2-) counterattack")
+    print("3-) pass")
     print()
 
 def print_challenge():
     print("1-) challenge")
-    print("2-) pass")
+    print()
+    print("3-) pass")
 
 def print_actions():
     print()
@@ -295,6 +296,8 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
             list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
             list_cards_eliminate_player3, list_cards_eliminate_player4)
 
+def counterattack_player1():
+    print()
 
 def challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
                         list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards,
@@ -501,6 +504,8 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                             select_player_3 =int(input("player3, choose a option using a number: "))
 
 #esta la parte del desafio
+                        situation_player1_challenge =""
+                        situation_player1_counterattack =""
                         if (select_player_2 == 1 or select_player_3 == 1) and (select_player_1==4 or select_player_1 ==5
                             or select_player_1 ==6 or select_player_1==7):
 
@@ -519,14 +524,30 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                                                 list_cards_eliminate_player3, list_cards_eliminate_player4, list_situation_player1_challenge)
                             life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
 
-                            if list_situation_player1_challenge[0] == "win":
-                                player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
-                                    list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
-                                    list_cards_eliminate_player3, list_cards_eliminate_player4)
+                            situation_player1_challenge =list_situation_player1_challenge[0]
                             list_situation_player1_challenge =[]
                             life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
 
+                        if (select_player_2 ==2 or select_player_3 ==2) and (select_player_1 ==2 or select_player_1 ==5 or 
+                                select_player_1 ==6) and situation_player1_challenge != "lose":
+                                print("contraataqueee")
+#esto lo vamos a dejar para un futuro
                         
+                        if situation_player1_challenge == "win" and situation_player1_counterattack =="win":
+                            player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                    list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
+                                    list_cards_eliminate_player3, list_cards_eliminate_player4)
+                        if situation_player1_challenge =="win" and situation_player1_counterattack =="":
+                            player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                    list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
+                                    list_cards_eliminate_player3, list_cards_eliminate_player4)
+                        if situation_player1_challenge =="" and situation_player1_counterattack =="win":
+                            player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                    list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
+                                    list_cards_eliminate_player3, list_cards_eliminate_player4)
+                        life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+                        
+#euhfouaegfoaufoeahfoesfeh
                 elif list_players[0].coins_game >= 10:
                     select_player_1 = 3
                     list_players[0].coins_game -=7
@@ -571,7 +592,8 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
 
 #aqui parten los desafios o contra_ataques para el player1
                         
-                        
+                        situation_player1_challenge =""
+                        situation_player1_counterattack =""
                         if (select_player_2 == 1 or select_player_3 == 1 or select_player_4==1) and (select_player_1==4 or select_player_1 ==5
                             or select_player_1 ==6 or select_player_1==7):
                             
@@ -598,13 +620,29 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                                                 list_cards_eliminate_player1,list_cards_eliminate_player2, 
                                                 list_cards_eliminate_player3, list_cards_eliminate_player4, list_situation_player1_challenge)
                             life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-                        
-                            if list_situation_player1_challenge[0] == "win":
-                                player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
-                                    list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
-                                    list_cards_eliminate_player3, list_cards_eliminate_player4)
+
+                            situation_player1_challenge = list_situation_player1_challenge[0]
                             list_situation_player1_challenge =[]
                             life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+
+                        if (select_player_2 ==2 or select_player_3 ==2 or select_player_4 ==2 ) and (select_player_1 ==2 or 
+                            select_player_1 ==5 or select_player_1 ==6) and situation_player1_challenge != "lose":
+                                print("contraataqueee")
+
+                        if situation_player1_challenge == "win" and situation_player1_counterattack =="win":
+                            player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                    list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
+                                    list_cards_eliminate_player3, list_cards_eliminate_player4)
+                        if situation_player1_challenge =="win" and situation_player1_counterattack =="":
+                            player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                    list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
+                                    list_cards_eliminate_player3, list_cards_eliminate_player4)
+                        if situation_player1_challenge =="" and situation_player1_counterattack =="win":
+                            player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                    list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
+                                    list_cards_eliminate_player3, list_cards_eliminate_player4)
+                        life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+
 
                 elif list_players[0].coins_game >= 10:
                     select_player_1 = 3
