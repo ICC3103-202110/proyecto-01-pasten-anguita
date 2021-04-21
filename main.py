@@ -327,7 +327,7 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
             list_cards_eliminate_player3, list_cards_eliminate_player4)
 
 def counterattack_player1(random_1,select_player_1,list_situation_player1_counterattack,list_cards_player1,list_cards_player2,
-                        list_cards_player3,list_cards_player4):
+                            list_cards_player3,list_cards_player4,number_players):
 
     if random_1 ==2:
         print("The player2 will counterattack to player1")
@@ -345,9 +345,34 @@ def counterattack_player1(random_1,select_player_1,list_situation_player1_counte
         list_situation_player1_counterattack.append(situation_player1_counterattack)
     
     if select_player_1_2 ==1:
-        input("player"+str(random_1),"are you ready to see your cards, write something when you are ready: ")
         if random_1 ==2:
-            print()
+            input("player2, are you ready to see your cards?, write something when you are ready: ")
+            if len(list_cards_player2) >0:
+                for i in range(1,len(list_cards_player2) + 1):
+                    print(str(i)+"-)", list_cards_player2[i-1])
+            print_space()
+            print("player2, looks the cards, are up")
+            select_card_counterattack =int(input("player2 ,select the card for win counterattack or lose the card, using a number: "))
+
+        if random_1 ==3:
+            input("player3, are you ready to see your cards?, write something when you are ready: ")
+            if len(list_cards_player3) >0:
+                for i in range(1,len(list_cards_player3) + 1):
+                    print(str(i)+"-)", list_cards_player3[i-1])
+            print_space()
+            print("player3, looks the cards, are up")
+            select_card_counterattack =int(input("player3 ,select the card for win counterattack or lose the card, using a number: "))
+
+        if random_1 ==4:
+            input("player4, are you ready to see your cards?, write something when you are ready: ")
+            if len(list_cards_player4) >0:
+                for i in range(1,len(list_cards_player4) + 1):
+                    print(str(i)+"-)", list_cards_player4[i-1])
+            print_space()
+            print("player4, looks the cards, are up")
+            select_card_counterattack =int(input("player4 ,select the card for win counterattack or lose the card, using a number: "))
+
+        
         
         
 
@@ -580,7 +605,8 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                             situation_player1_challenge =list_situation_player1_challenge[0]
                             list_situation_player1_challenge =[]
                             life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-                        #comenzar desde aqui
+
+                        #aqui comienza el contraatque para el jugador1
                         if (select_player_2 ==2 or select_player_3 ==2) and (select_player_1 ==2 or select_player_1 ==5 or 
                                 select_player_1 ==6) and situation_player1_challenge != "lose":
                                 print("contraataqueee")
@@ -593,6 +619,10 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                                     random_1 =random.randint(2,3)
 
                                 list_situation_player1_counterattack = []
+                                counterattack_player1(random_1,select_player_1,list_situation_player1_counterattack,
+                                                    list_cards_player1,list_cards_player2,list_cards_player3,
+                                                    list_cards_player4,number_players)
+
                         #aca se ven las acciones del player1 despues de los desafios o contra_ataques
                         
                         if situation_player1_challenge == "win" and situation_player1_counterattack =="win":
