@@ -38,7 +38,7 @@ def print_actions():
 
 def print_eliminate_cards(list_cards_eliminate_player1,list_cards_eliminate_player2,list_cards_eliminate_player3,
                         list_cards_eliminate_player4, number_players,list_players):
-    print("The cards eliminated by each palyer are:"
+    print("The cards eliminated by each palyer are:")
     print("player1: ")
     if len(list_cards_eliminate_player1) ==0:
         print()
@@ -259,7 +259,7 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
                     print("The player4 -3 coins")    
        
             print_coins_players(list_players)
-    #comenzar desde aqui   
+   
         if select_player_1 ==7:
             print()
             input("player1, are you ready to do the action 'Ambassador-Change'?, write something when you are ready: ")
@@ -326,8 +326,30 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
             list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
             list_cards_eliminate_player3, list_cards_eliminate_player4)
 
-def counterattack_player1(random_1,select_player_1):
-    print()
+def counterattack_player1(random_1,select_player_1,list_situation_player1_counterattack,list_cards_player1,list_cards_player2,
+                        list_cards_player3,list_cards_player4):
+
+    if random_1 ==2:
+        print("The player2 will counterattack to player1")
+    if random_1 ==3:
+        print("The player3 will counterattack to player1")
+    if number_players ==4 and random_1 ==4:
+        print("The player4 will counterattack to player1")
+
+    print_challenge()
+    select_player_1_2 = int(input("player1, what do you want to do for counterattack, select a option using a number: "))
+    
+    if select_player_1_2 == 3:
+        print("The player1 action was countered")
+        situation_player1_counterattack = "lose"
+        list_situation_player1_counterattack.append(situation_player1_counterattack)
+    
+    if select_player_1_2 ==1:
+        input("player"+str(random_1),"are you ready to see your cards, write something when you are ready: ")
+        if random_1 ==2:
+            print()
+        
+        
 
 def challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
                         list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards,
@@ -570,6 +592,7 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                                     print("Who will counterattack the player1, will be chosen at random")
                                     random_1 =random.randint(2,3)
 
+                                list_situation_player1_counterattack = []
                         #aca se ven las acciones del player1 despues de los desafios o contra_ataques
                         
                         if situation_player1_challenge == "win" and situation_player1_counterattack =="win":
