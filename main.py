@@ -36,6 +36,36 @@ def print_actions():
     for i in range(4,8):
         print(str(i)+"-)",list_all_characters_actions[i-4])
 
+def print_eliminate_cards(list_cards_eliminate_player1,list_cards_eliminate_player2,list_cards_eliminate_player3,
+                        list_cards_eliminate_player4, number_players,list_players):
+    print("The cards eliminated by each palyer are:"
+    print("player1: ")
+    if len(list_cards_eliminate_player1) ==0:
+        print()
+    if len(list_cards_eliminate_player1) >0:
+        for i in range(0,list_cards_eliminate_player1):
+            print(list_cards_eliminate_player1[i],end=' ')
+    print("player2: ")
+    if len(list_cards_eliminate_player2) ==0:
+        print()
+    if len(list_cards_eliminate_player2) >0:
+        for i in range(0,list_cards_eliminate_player2):
+            print(list_cards_eliminate_player2[i],end=' ')
+    print("player3: ")
+    if len(list_cards_eliminate_player3) ==0:
+        print()
+    if len(list_cards_eliminate_player3) >0:
+        for i in range(0,list_cards_eliminate_player3):
+            print(list_cards_eliminate_player3[i],end=' ')
+
+    if number_players ==4:
+        print("player4: ")
+        if len(list_cards_eliminate_player4) ==0:
+            print()
+        if len(list_cards_eliminate_player4) >0:
+            for i in range(0,list_cards_eliminate_player4):
+                print(list_cards_eliminate_player4[i],end=' ')
+
 def life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players):
     if len(list_cards_player1) ==0:
         list_players[0].live_game ="no"
