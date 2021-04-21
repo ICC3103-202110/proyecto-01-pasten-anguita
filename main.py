@@ -175,7 +175,7 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
                     if list_players[i].live_game =="yes":
                         print(str(i)+"-)", list_players[i].name_person)
             
-            player1_captain =int(input("choose the player with you will use the action Captain-Extortion, using a number :"))
+            player1_captain =int(input("Player1, choose the player with you will use the action Captain-Extortion, using a number :"))
             if player1_captain ==1:
                 if list_players[1].coins_game <1:
                     print("The player1 +0 coins")
@@ -231,7 +231,7 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
     #comenzar desde aqui   
         if select_player_1 ==7:
             print()
-            print("player1, are you ready to do the action 'Ambassador-Change'?, write something when you are ready: ")
+            input("player1, are you ready to do the action 'Ambassador-Change'?, write something when you are ready: ")
 
             if len(list_cards_player1) ==1:
                 print("1-)",list_cards_player1[0])    
@@ -501,12 +501,17 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                             select_player_3 =int(input("player3, choose a option using a number: "))
 
 #esta la parte del desafio
-                        if select_player_2 == 1 and select_player_3 == 1 and (select_player_1==4 or select_player_1 ==5
+                        if (select_player_2 == 1 or select_player_3 == 1) and (select_player_1==4 or select_player_1 ==5
                             or select_player_1 ==6 or select_player_1==7):
 
                             print()
                             print("Who will challenge the player1, will be chosen at random")
-                            random_1 = random.randint(2,3)
+                            if select_player_2 ==1 and select_player_3 ==1:
+                                random_1 = random.randint(2,3)
+                            elif select_player_2 ==1 and select_player_3 !=1:
+                                random_1 =2
+                            elif select_player_2 !=1 and select_player_3 ==1:
+                                random_1 = 3
                             list_situation_player1_challenge =[]
                             challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
                                                 list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards,
@@ -521,12 +526,7 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                             list_situation_player1_challenge =[]
                             life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
 
-                        elif (select_player_2 == 1 or select_player_3 == 1) and (select_player_1==4 or select_player_1 ==5
-                            or select_player_1 ==6 or select_player_1==7):
-                            
-                            print("holaaaaa")
-                            
-
+                        
                 elif list_players[0].coins_game >= 10:
                     select_player_1 = 3
                     list_players[0].coins_game -=7
@@ -571,19 +571,34 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
 
 #aqui parten los desafios o contra_ataques para el player1
                         
-                        if select_player_2 == 1 and select_player_3 == 1 and select_player_4 ==1 and (select_player_1==4 or select_player_1 ==5
+                        
+                        if (select_player_2 == 1 or select_player_3 == 1 or select_player_4==1) and (select_player_1==4 or select_player_1 ==5
                             or select_player_1 ==6 or select_player_1==7):
-
-                            print()
-                            print("Who will challenge the player1, will be chosen at random")
-                            random_1 = random.randint(2,4)
+                            
+                            print("holaaaaa")
+                            if select_player_2 ==1 and select_player_3 !=1 and select_player_4 !=1:
+                                random_1 = 2
+                            elif select_player_2 !=1 and select_player_3 ==1 and select_player_4 !=1:
+                                random_1 =3
+                            elif select_player_2 !=1 and select_player_3 !=1 and select_player_4 ==1:
+                                random_1 =4
+                            elif select_player_2 ==1 and select_player_3 ==1 and select_player_4 !=1:
+                                random_1 = random.randint(2,3)
+                            elif select_player_2 ==1 and select_player_3 !=1 and select_player_4 ==1:
+                                random_1 = random.randint(2,3)
+                                if random_1 ==3:
+                                    random_1 =4
+                            elif select_player_2 !=1 and select_player_3 ==1 and select_player_4 ==1:
+                                random_1 = random.randint(3,4)
+                            elif select_player_2 ==1 and select_player_3 ==1 and select_player_4 ==1:
+                                random_1 =random.randint(2,4)
                             list_situation_player1_challenge =[]
                             challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
                                                 list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards,
                                                 list_cards_eliminate_player1,list_cards_eliminate_player2, 
                                                 list_cards_eliminate_player3, list_cards_eliminate_player4, list_situation_player1_challenge)
                             life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-
+                        
                             if list_situation_player1_challenge[0] == "win":
                                 player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                     list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
