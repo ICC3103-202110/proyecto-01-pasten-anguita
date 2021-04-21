@@ -132,7 +132,8 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
         if select_player_1 ==5:
             for i in range(0,len(list_players)):
                 if i != 0:
-                    print(str(i)+"-)", list_players[i].name_person)
+                    if list_players[i].live_game =="yes":
+                        print(str(i)+"-)", list_players[i].name_person)
             player1_assassin =int(input("choose the player with you will use the action Assassin-Assassination, using a number :"))
             if player1_assassin ==1:
                 input("player2, are you ready to see your cards?, write something when you are ready: ")
@@ -171,7 +172,8 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
             print_coins_players(list_players)
             for i in range(0,len(list_players)):
                 if i != 0:
-                    print(str(i)+"-)", list_players[i].name_person)
+                    if list_players[i].live_game =="yes":
+                        print(str(i)+"-)", list_players[i].name_person)
             
             player1_captain =int(input("choose the player with you will use the action Captain-Extortion, using a number :"))
             if player1_captain ==1:
