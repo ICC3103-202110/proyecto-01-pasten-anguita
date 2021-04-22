@@ -161,6 +161,49 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
             print("2 coins have been added for player1")
             print_coins_players(list_players)
 
+        if select_player_1 ==3:
+            for i in range(0,len(list_players)):
+                if i != 0:
+                    if list_players[i].live_game =="yes":
+                        print(str(i)+"-)", list_players[i].name_person)
+            player1_punch =int(input("choose the player with you will use the action punch, using a number :"))
+            if player1_punch ==1:
+                input("player2, are you ready to see your cards, write something when you are ready: ")
+                if len(list_cards_player2) >0:
+                    for i in range(1,len(list_cards_player2)+1):
+                        print(str(i)+"-)",list_cards_player2[i-1])
+                print_space()
+                print("player2, look the cards, are up: ")
+                select_eliminate_punch = int(input("player2, select the card that you want delete, using a number:"))
+                card_eliminate_punch = list_cards_player2[select_eliminate_punch -1]
+                list_cards_eliminate_player2.append(card_eliminate_punch)
+                list_cards_player2.pop(select_eliminate_punch)
+
+            if player1_punch ==2:
+                input("player3, are you ready to see your cards, write something when you are ready: ")
+                if len(list_cards_player3) >0:
+                    for i in range(1,len(list_cards_player3)+1):
+                        print(str(i)+"-)",list_cards_player3[i-1])
+                print_space()
+                print("player3, look the cards, are up: ")
+                select_eliminate_punch = int(input("player3, select the card that you want delete, using a number:"))
+                card_eliminate_punch = list_cards_player3[select_eliminate_punch -1]
+                list_cards_eliminate_player3.append(card_eliminate_punch)
+                list_cards_player3.pop(select_eliminate_punch)
+
+            if player1_punch ==3:
+                input("player4, are you ready to see your cards, write something when you are ready: ")
+                if len(list_cards_player4) >0:
+                    for i in range(1,len(list_cards_player4)+1):
+                        print(str(i)+"-)",list_cards_player4[i-1])
+                print_space()
+                print("player4, look the cards, are up: ")
+                select_eliminate_punch = int(input("player4, select the card that you want delete, using a number:"))
+                card_eliminate_punch = list_cards_player4[select_eliminate_punch -1]
+                list_cards_eliminate_player4.append(card_eliminate_punch)
+                list_cards_player4.pop(select_eliminate_punch)
+            print("The punch action was done")
+
         if select_player_1 == 4:
             list_players[0].coins_game += 3
             print("3 coins have been added for player1")
@@ -643,7 +686,9 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                 if select_player_1 ==3:
                     if list_players[0].coins_game -7 >= 0:
                         ist_players[0].coins_game -=7
-                        print("punch")
+                        player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                        list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
+                                        list_cards_eliminate_player3, list_cards_eliminate_player4)
                     else:
                         while True:
                             select_player_1 = int(input("player1, you dont have the coins for do this action,select other action, using a number: "))
@@ -815,9 +860,22 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
             elif list_players[0].coins_game >= 10:
                 select_player_1 = 3
                 list_players[0].coins_game -=7
-                print("punch")
+                player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
+                                list_cards_eliminate_player3, list_cards_eliminate_player4)
 
-            break
+        #aqui inicia el turno del player2
+        if list_players[1].live_game =="yes":
+            print("turno del jugador2")
+        #aqui inicia el turno del player3
+        if list_players[2].live_game =="yes":
+            print("turno del jugador3")
+        #aqui inicia el turno del player4
+        if  number_players ==4:
+            if list_players[3].live_game =="yes":
+                print("turno del jugador4")
+        break
+        
 
 
     
