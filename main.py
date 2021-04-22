@@ -84,6 +84,7 @@ def life_players(list_players,list_cards_player1,list_cards_player2,list_cards_p
 def print_coins_players(list_players):
     for i in list_players:
         print("The coins of",i.name_person,"are:",i.coins_game)
+#aca crear la funcion que printea tanto monedas como las cartas eliminadas de los jugadores
 
 def distribution_of_cards(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players):
 
@@ -633,6 +634,7 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
             eliminate_card_player4 =int(input("player4, select the card that you want to delete, using a number : "))
             list_cards_eliminate_player4.append(list_cards_player4[eliminate_card_player4-1])
             list_cards_player4.pop(eliminate_card_player4-1)
+        
 
     return(list_cards_player1, list_cards_player2, list_cards_player3, list_cards_player4,list_cards_eliminate_player1,
             list_cards_eliminate_player2, list_cards_eliminate_player3, list_cards_eliminate_player4, list_situation_player1_challenge)
@@ -653,24 +655,17 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
     i = 0
     while True:
 
-        #if number_players == 3:
+        
             
         if list_players[0].live_game =="yes":
-            print()
-
+            
             if list_players[0].coins_game < 10:
+                print_actions()
+                print()
                 select_player_1 = int(input("Its the turn of player1, choose a action using a number: "))
                 print()
 
-#estas son las funciones de la seleccion del player1
-
-                if select_player_1 == 1:
-                    list_players[0].coins_game += 1
-                    print("a coin has been added to player1")
-                    print()
-                    print_coins_players(list_players)
-
-                    
+                #estas son las funciones de la seleccion del player1
                 if select_player_1 ==5:
                     if list_players[0].coins_game -3 >= 0:
                         list_players[0].coins_game -= 3
@@ -680,16 +675,7 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                             select_player_1 = int(input("player1, you dont have the coins for do this action,select other action, using a number: "))
                             if select_player_1 != 5:
                                 break
-                            
-                if select_player_1 ==6:
-                    print_challenge_or_counterattack()
-
-                if select_player_1 == 2:
-                    print_counterattack()
-
-                if select_player_1 == 4 or select_player_1 ==7:
-                    print_challenge()
-
+                #revisar error que puede pasar
                 if select_player_1 ==3:
                     if list_players[0].coins_game -7 >= 0:
                         ist_players[0].coins_game -=7
@@ -701,6 +687,26 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                             select_player_1 = int(input("player1, you dont have the coins for do this action,select other action, using a number: "))
                             if select_player_1 !=3 and select_player_1 !=5:
                                 break
+
+                if select_player_1 == 1:
+                    list_players[0].coins_game += 1
+                    print("a coin has been added to player1")
+                    print()
+                    print_coins_players(list_players)
+
+                    
+                
+                            
+                if select_player_1 ==6:
+                    print_challenge_or_counterattack()
+
+                if select_player_1 == 2:
+                    print_counterattack()
+
+                if select_player_1 == 4 or select_player_1 ==7:
+                    print_challenge()
+
+                
 
 #aqui parte los desafios o contra_ataques para el player1
 
@@ -862,7 +868,8 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                                 list_cards_eliminate_player3, list_cards_eliminate_player4)
                     life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
                     
-
+                    if select_player_1 ==5 and situation_player1_challenge =="lose":
+                        list_players[0].coins_game +=3
 
             elif list_players[0].coins_game >= 10:
                 select_player_1 = 3
@@ -895,7 +902,13 @@ def three_players(deck,number_players):
     player1 = Person("Player1",int(2),"yes")
     player2 = Person("Player2",int(2),"yes")
     player3 = Person("Player3",int(2),"yes")
+
     list_players = [player1,player2,player3]
+    """
+    if number_players ==4:
+        player4 = Person("Player4",int(2),"yes")
+        list_players.append(player4)
+    """
 
     list_cards_player1 = []
     list_cards_player2 = []
@@ -903,7 +916,7 @@ def three_players(deck,number_players):
     list_cards_player4 = []
     list_desk_rest_cards = []
     players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3,list_cards_player4,list_desk_rest_cards,number_players)
-  
+    #en player_cards se otorgan las cartas a cada jugador y las cartas del mazo
 
     card1 = Card(list_cards_player1[0])
     card2 = Card(list_cards_player1[1])
@@ -921,12 +934,15 @@ def three_players(deck,number_players):
     card14 = Card(list_desk_rest_cards[7])
     card15 = Card(list_desk_rest_cards[8])
     list_all_cards = [card1,card2,card3,card4,card5,card6,card7,card8,card9,card10,card11,card12,card13,card14,card15]
+    #distribution of cards haca un print de como los jugadores estan colocados y
+    #printea las cartas de cada jugador
     distribution_of_cards(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-    print_actions()
+    
     list_cards_eliminate_player1 = []
     list_cards_eliminate_player2 = []
     list_cards_eliminate_player3 = []
     list_cards_eliminate_player4 = []
+    #en game se  inicia los turnos de los jugadores con sus respectivas acciones
     game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_desk_rest_cards,list_all_cards, list_cards_eliminate_player1,
         list_cards_eliminate_player2, list_cards_eliminate_player3, list_cards_eliminate_player4)
@@ -949,7 +965,7 @@ def four_players(deck,number_players):
     list_cards_player4 = []
     list_desk_rest_cards = []
     players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3,list_cards_player4,list_desk_rest_cards,number_players)
-  
+    #en player_cards se otorgan las cartas a cada jugador y las cartas del mazo
 
     card1 = Card(list_cards_player1[0])
     card2 = Card(list_cards_player1[1])
@@ -967,12 +983,15 @@ def four_players(deck,number_players):
     card14 = Card(list_desk_rest_cards[5])
     card15 = Card(list_desk_rest_cards[6])
     list_all_cards = [card1,card2,card3,card4,card5,card6,card7,card8,card9,card10,card11,card12,card13,card14,card15]
+    #distribution of cards haca un print de como los jugadores estan colocados y
+    #printea las cartas de cada jugador
     distribution_of_cards(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-    print_actions()
+    
     list_cards_eliminate_player1 = []
     list_cards_eliminate_player2 = []
     list_cards_eliminate_player3 = []
     list_cards_eliminate_player4 = []
+    #en game se inicia los turnos de los jugadores con sus respectivas acciones
     game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_desk_rest_cards,list_all_cards, list_cards_eliminate_player1,
         list_cards_eliminate_player2, list_cards_eliminate_player3, list_cards_eliminate_player4)
@@ -982,12 +1001,13 @@ def four_players(deck,number_players):
 
 
 def main():
-
+    #esta parte es para crear el mazo de cartas y luego revolverlas
     deck = Card("Deck")
     deck.deck_cards()
     deck.deck_random_cards()
 
-    number_players = int(input("how many players will play this game? 3 or 4 : "))
+    #agregar el while true
+    number_players = int(input("how many players will play this game? 3 or 4, using a number : "))
     print("The cards can only be seen by the player of the turn")
     if number_players == 3:
         three_players(deck,number_players)
