@@ -637,6 +637,13 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
     return(list_cards_player1, list_cards_player2, list_cards_player3, list_cards_player4,list_cards_eliminate_player1,
             list_cards_eliminate_player2, list_cards_eliminate_player3, list_cards_eliminate_player4, list_situation_player1_challenge)
 
+def game_player4():
+    print()
+def game_player3():
+    print()
+def game_player2():
+    print()
+
 def game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_desk_rest_cards,list_all_cards,list_cards_eliminate_player1,
         list_cards_eliminate_player2, list_cards_eliminate_player3, list_cards_eliminate_player4):
@@ -867,13 +874,16 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
         #aqui inicia el turno del player2
         if list_players[1].live_game =="yes":
             print("turno del jugador2")
+            game_player2()
         #aqui inicia el turno del player3
         if list_players[2].live_game =="yes":
             print("turno del jugador3")
+            game_player3()
         #aqui inicia el turno del player4
         if  number_players ==4:
             if list_players[3].live_game =="yes":
                 print("turno del jugador4")
+                game_player4()
         break
         
 
