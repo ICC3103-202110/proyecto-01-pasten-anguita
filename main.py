@@ -615,9 +615,16 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                         print_coins_players(list_players)
 
                     if select_player_1 == 5 or select_player_1 ==6:
-                        print_challenge_or_counterattack()
+                        
                         if select_player_1 ==5:
-                            list_players[0].coins_game -= 3
+                            if list_players[0].coins_game -3 >= 0:
+                                list_players[0].coins_game -= 3
+                                print_challenge_or_counterattack()
+                            else:
+                                while True:
+                                    select_player_1 = int(input("player1, you dont have the coins for do this action,select other action, using a number: "))
+                                    if select_player_1 != 5:
+                                        break
 
                     if select_player_1 == 2:
                         print_counterattack()
@@ -626,8 +633,14 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                         print_challenge()
 
                     if select_player_1 ==3:
-                        print("punch")
-                        list_players[0].coins_game -=7
+                        if list_players[0].coins_game -7 >= 0:
+                            ist_players[0].coins_game -=7
+                            print("punch")
+                        else:
+                            while True:
+                                select_player_1 = int(input("player1, you dont have the coins for do this action,select other action, using a number: "))
+                                if select_player_1 !=3 and select_player_1 !=5:
+                                    break
 
 #aqui parte los desafios o contra_ataques para el player1
 
