@@ -164,6 +164,7 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
         if select_player_1 == 4:
             list_players[0].coins_game += 3
             print("3 coins have been added for player1")
+            print_coins_players(list_players)
         
         if select_player_1 ==5:
             for i in range(0,len(list_players)):
@@ -713,6 +714,8 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                                                     list_cards_eliminate_player4,list_players)
 
                                 situation_player1_counterattack = list_situation_player1_counterattack[0]
+                                list_situation_player1_counterattack = []
+                                life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
 
                     if number_players == 4:
                         #esta es la parte del desafio para 4 jugadores en el turno del jugador1
@@ -784,6 +787,8 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                                                     list_cards_eliminate_player4,list_players)
                                                     
                                 situation_player1_counterattack = list_situation_player1_counterattack[0]
+                                list_situation_player1_counterattack = []
+                                life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
 
                     #aca se ven las acciones del player1 despues de los desafios o contra_ataques, hay que revisarlo
                     
@@ -799,8 +804,13 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                         player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
                                 list_cards_eliminate_player3, list_cards_eliminate_player4)
+                    if situation_player1_challenge =="" and situation_player1_counterattack =="":
+                        player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
+                                list_cards_eliminate_player3, list_cards_eliminate_player4)
                     life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
                     
+
 
             elif list_players[0].coins_game >= 10:
                 select_player_1 = 3
