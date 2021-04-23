@@ -1116,16 +1116,6 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                 print()
 
                 #estas son las funciones de la seleccion del player1
-                if select_player_1 ==5:
-                    if list_players[0].coins_game -3 >= 0:
-                        list_players[0].coins_game -= 3
-                        print_challenge_or_counterattack()
-                    else:
-                        while True:
-                            select_player_1 = int(input("player1, you dont have the coins for do this action,select other action, using a number: "))
-                            if select_player_1 != 5:
-                                break
-                #revisar error que puede pasar
                 if select_player_1 ==3:
                     if list_players[0].coins_game -7 >= 0:
                         ist_players[0].coins_game -=7
@@ -1135,8 +1125,19 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                     else:
                         while True:
                             select_player_1 = int(input("player1, you dont have the coins for do this action,select other action, using a number: "))
-                            if select_player_1 !=3 and select_player_1 !=5:
+                            if select_player_1 !=3 :
                                 break
+
+                if select_player_1 ==5:
+                    if list_players[0].coins_game -3 >= 0:
+                        list_players[0].coins_game -= 3
+                        print_challenge_or_counterattack()
+                    else:
+                        while True:
+                            select_player_1 = int(input("player1, you dont have the coins for do this action,select other action, using a number: "))
+                            if select_player_1 != 5 and select_player_1 != 3:
+                                break
+                
 
                 if select_player_1 == 1:
                     list_players[0].coins_game += 1
