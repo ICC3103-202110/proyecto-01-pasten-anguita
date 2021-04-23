@@ -2,6 +2,7 @@ from card import Card
 from person import Person
 import random
 
+
 def print_space():
     for i in range (0,20):
         print()
@@ -26,7 +27,7 @@ def print_actions():
     print()
     print()
     print("General actions:")
-    list_all_general_actions = ["income","foreing help","punch - 7 coins"]
+    list_all_general_actions = ["income","foreign help","punch - 7 coins"]
     for i in range(1,4):
         print(str(i)+"-)",list_all_general_actions[i-1])
     list_all_characters_actions = ["Duke-Taxes","Assassin-Assassination - 3 coins",
@@ -36,35 +37,35 @@ def print_actions():
     for i in range(4,8):
         print(str(i)+"-)",list_all_characters_actions[i-4])
 
-def print_eliminate_cards(list_cards_eliminate_player1,list_cards_eliminate_player2,list_cards_eliminate_player3,
-                        list_cards_eliminate_player4, number_players,list_players):
-    print("The cards eliminated by each palyer are:")
+def print_eliminate_cards(list_eliminated_cards_player1,list_eliminated_cards_player2,list_eliminated_cards_player3,
+                        list_eliminated_cards_player4, number_players,list_players):
+    print("The cards eliminated by each player are:")
     print("player1: ")
-    if len(list_cards_eliminate_player1) ==0:
+    if len(list_eliminated_cards_player1) ==0:
         print()
-    if len(list_cards_eliminate_player1) >0:
-        for i in range(0,list_cards_eliminate_player1):
-            print(list_cards_eliminate_player1[i],end=' ')
+    if len(list_eliminated_cards_player1) >0:
+        for i in range(0,len(list_eliminated_cards_player1)):
+            print(list_eliminated_cards_player1[i],end=' ')
     print("player2: ")
-    if len(list_cards_eliminate_player2) ==0:
+    if len(list_eliminated_cards_player2) ==0:
         print()
-    if len(list_cards_eliminate_player2) >0:
-        for i in range(0,list_cards_eliminate_player2):
-            print(list_cards_eliminate_player2[i],end=' ')
+    if len(list_eliminated_cards_player2) >0:
+        for i in range(0,len(list_eliminated_cards_player2)):
+            print(list_eliminated_cards_player2[i],end=' ')
     print("player3: ")
-    if len(list_cards_eliminate_player3) ==0:
+    if len(list_eliminated_cards_player3) ==0:
         print()
-    if len(list_cards_eliminate_player3) >0:
-        for i in range(0,list_cards_eliminate_player3):
-            print(list_cards_eliminate_player3[i],end=' ')
+    if len(list_eliminated_cards_player3) >0:
+        for i in range(0,list_eliminated_cards_player3):
+            print(list_eliminated_cards_player3[i],end=' ')
 
     if number_players ==4:
         print("player4: ")
-        if len(list_cards_eliminate_player4) ==0:
+        if len(list_eliminated_cards_player4) ==0:
             print()
-        if len(list_cards_eliminate_player4) >0:
-            for i in range(0,list_cards_eliminate_player4):
-                print(list_cards_eliminate_player4[i],end=' ')
+        if len(list_eliminated_cards_player4) >0:
+            for i in range(0,list_eliminated_cards_player4):
+                print(list_eliminated_cards_player4[i],end=' ')
 
 def life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players):
     if len(list_cards_player1) ==0:
@@ -84,7 +85,6 @@ def life_players(list_players,list_cards_player1,list_cards_player2,list_cards_p
 def print_coins_players(list_players):
     for i in list_players:
         print("The coins of",i.name_person,"are:",i.coins_game)
-#aca crear la funcion que printea tanto monedas como las cartas eliminadas de los jugadores
 
 def distribution_of_cards(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players):
 
@@ -153,62 +153,13 @@ def players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3
         return list_cards_player1 , list_cards_player1, list_cards_player3,list_cards_player4 ,list_desk_rest_cards
 
 def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
-                    list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
-                    list_cards_eliminate_player3, list_cards_eliminate_player4):
+                    list_cards_player4,list_desk_rest_cards, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                    list_eliminated_cards_player3, list_eliminated_cards_player4):
     if list_players[0].live_game =="yes":
-        
-        if select_player_1 == 2:
-            list_players[0].coins_game +=2
-            print("2 coins have been added for player1")
-            print_coins_players(list_players)
-
-        if select_player_1 ==3:
-            for i in range(0,len(list_players)):
-                if i != 0:
-                    if list_players[i].live_game =="yes":
-                        print(str(i)+"-)", list_players[i].name_person)
-            player1_punch =int(input("choose the player with you will use the action punch, using a number :"))
-            if player1_punch ==1:
-                input("player2, are you ready to see your cards, write something when you are ready: ")
-                if len(list_cards_player2) >0:
-                    for i in range(1,len(list_cards_player2)+1):
-                        print(str(i)+"-)",list_cards_player2[i-1])
-                print_space()
-                print("player2, look the cards, are up: ")
-                select_eliminate_punch = int(input("player2, select the card that you want delete, using a number:"))
-                card_eliminate_punch = list_cards_player2[select_eliminate_punch -1]
-                list_cards_eliminate_player2.append(card_eliminate_punch)
-                list_cards_player2.pop(select_eliminate_punch)
-
-            if player1_punch ==2:
-                input("player3, are you ready to see your cards, write something when you are ready: ")
-                if len(list_cards_player3) >0:
-                    for i in range(1,len(list_cards_player3)+1):
-                        print(str(i)+"-)",list_cards_player3[i-1])
-                print_space()
-                print("player3, look the cards, are up: ")
-                select_eliminate_punch = int(input("player3, select the card that you want delete, using a number:"))
-                card_eliminate_punch = list_cards_player3[select_eliminate_punch -1]
-                list_cards_eliminate_player3.append(card_eliminate_punch)
-                list_cards_player3.pop(select_eliminate_punch)
-
-            if player1_punch ==3:
-                input("player4, are you ready to see your cards, write something when you are ready: ")
-                if len(list_cards_player4) >0:
-                    for i in range(1,len(list_cards_player4)+1):
-                        print(str(i)+"-)",list_cards_player4[i-1])
-                print_space()
-                print("player4, look the cards, are up: ")
-                select_eliminate_punch = int(input("player4, select the card that you want delete, using a number:"))
-                card_eliminate_punch = list_cards_player4[select_eliminate_punch -1]
-                list_cards_eliminate_player4.append(card_eliminate_punch)
-                list_cards_player4.pop(select_eliminate_punch)
-            print("The punch action was done")
-
+    
         if select_player_1 == 4:
             list_players[0].coins_game += 3
             print("3 coins have been added for player1")
-            print_coins_players(list_players)
         
         if select_player_1 ==5:
             for i in range(0,len(list_players)):
@@ -224,7 +175,7 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
                 print_space()
                 print("player2, look the cards, are up")
                 eliminate_card_player2 = int(input("player2, select the card that you want delete, using a number : "))
-                list_cards_eliminate_player2.append(list_cards_player2[eliminate_card_player2-1])
+                list_eliminated_cards_player2.append(list_cards_player2[eliminate_card_player2-1])
                 list_cards_player2.pop(eliminate_card_player2-1)
 
             if player1_assassin ==2:
@@ -235,7 +186,7 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
                 print_space()
                 print("player3, look the cards, are up")
                 eliminate_card_player3 = int(input("player3, select the card that you want delete, using a number : "))
-                list_cards_eliminate_player3.append(list_cards_player3[eliminate_card_player3-1])
+                list_eliminated_cards_player3.append(list_cards_player3[eliminate_card_player3-1])
                 list_cards_player3.pop(eliminate_card_player3-1)
 
             if player1_assassin ==3:
@@ -246,7 +197,7 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
                 print_space()
                 print("player4, look the cards, are up")
                 eliminate_card_player4 = int(input("player4, select the card that you want delete, using a number : "))
-                list_cards_eliminate_player4.append(list_cards_player4[eliminate_card_player4-1])
+                list_eliminated_cards_player4.append(list_cards_player4[eliminate_card_player4-1])
                 list_cards_player4.pop(eliminate_card_player4-1)
 
         if select_player_1 ==6:
@@ -373,12 +324,12 @@ def player1_actions(select_player_1,list_players, list_cards_player1,list_cards_
             list_cards_player1_2 = []
 
     return(list_players,list_cards_player1,list_cards_player2,list_cards_player3,
-            list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
-            list_cards_eliminate_player3, list_cards_eliminate_player4)
+            list_cards_player4,list_desk_rest_cards, list_eliminated_cards_player1, list_eliminated_cards_player2,
+            list_eliminated_cards_player3, list_eliminated_cards_player4)
 
 def counterattack_player1(random_1,select_player_1,list_situation_player1_counterattack,list_cards_player1,list_cards_player2,
-                            list_cards_player3,list_cards_player4,number_players,list_cards_eliminate_player1,
-                            list_cards_eliminate_player2,list_cards_eliminate_player3,list_cards_eliminate_player4,list_players):
+                            list_cards_player3,list_cards_player4,number_players,list_eliminated_cards_player1,
+                            list_eliminated_cards_player2,list_eliminated_cards_player3,list_eliminated_cards_player4,list_players):
 
     if random_1 ==2:
         print("The player2 will counterattack to player1")
@@ -456,13 +407,13 @@ def counterattack_player1(random_1,select_player_1,list_situation_player1_counte
         list_situation_player1_counterattack.append(situation_player1_counterattack)
         if situation_player1_counterattack =="win":
             if random_1 ==2:
-                list_cards_eliminate_player2.append(select_card_counterattack)
+                list_eliminated_cards_player2.append(select_card_counterattack)
                 list_cards_player2.pop(select_counterattack -1)
             if random_1 ==3:
-                list_cards_eliminate_player3.append(select_card_counterattack)
+                list_eliminated_cards_player3.append(select_card_counterattack)
                 list_cards_player3.pop(select_counterattack -1)
             if random_1 ==4:
-                list_cards_eliminate_player4.append(select_card_counterattack)
+                list_eliminated_cards_player4.append(select_card_counterattack)
                 list_cards_player4.pop(select_counterattack -1)
 
         if situation_player1_counterattack =="lose":
@@ -474,19 +425,19 @@ def counterattack_player1(random_1,select_player_1,list_situation_player1_counte
             print("player1, looks the cards, are up")
             select_eliminate =int(input("player1 ,select the card that you want delete, using a number: "))
             eliminate_card = list_cards_player1[select_eliminate-1]
-            list_cards_eliminate_player1.append(eliminate_card)
+            list_eliminated_cards_player1.append(eliminate_card)
             list_cards_player1.pop(select_eliminate-1)
 
         life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
 
     return(list_situation_player1_counterattack,list_cards_player1,list_cards_player2,list_cards_player3,
-            list_cards_player4, list_cards_eliminate_player1,list_cards_eliminate_player2,list_cards_eliminate_player3,
-            list_cards_eliminate_player4, list_players)
+            list_cards_player4, list_eliminated_cards_player1,list_eliminated_cards_player2,list_eliminated_cards_player3,
+            list_eliminated_cards_player4, list_players)
 
 def challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
                         list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards,
-                        list_cards_eliminate_player1,list_cards_eliminate_player2, 
-                        list_cards_eliminate_player3, list_cards_eliminate_player4, list_situation_player1_challenge):
+                        list_eliminated_cards_player1,list_eliminated_cards_player2, 
+                        list_eliminated_cards_player3, list_eliminated_cards_player4, list_situation_player1_challenge):
     print()
     if number_players ==3:
         if random_1 == 2:
@@ -526,7 +477,7 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
             situation_player1_challenge = "win"
         else:
             print("The player1 lost the card",select_player_1_card_challenge)
-            list_cards_eliminate_player1.append(select_player_1_card_challenge)
+            list_eliminated_cards_player1.append(select_player_1_card_challenge)
             list_cards_player1.pop(select_player_1_challenge-1)
             situation_player1_challenge = "lose"
                 
@@ -542,7 +493,7 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
             situation_player1_challenge = "win"
         else:
             print("The player1 lost the card",select_player_1_card_challenge)
-            list_cards_eliminate_player1.append(select_player_1_card_challenge)
+            list_eliminated_cards_player1.append(select_player_1_card_challenge)
             list_cards_player1.pop(select_player_1_challenge-1)
             situation_player1_challenge = "lose"
             
@@ -557,7 +508,7 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
             situation_player1_challenge = "win"
         else:
             print("The player1 lost the card",select_player_1_card_challenge)
-            list_cards_eliminate_player1.append(select_player_1_card_challenge)
+            list_eliminated_cards_player1.append(select_player_1_card_challenge)
             list_cards_player1.pop(select_player_1_challenge-1)
             situation_player1_challenge = "lose"
 
@@ -572,7 +523,7 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
             situation_player1_challenge = "win"
         else:
             print("The player1 lost the card",select_player_1_card_challenge)
-            list_cards_eliminate_player1.append(select_player_1_card_challenge)
+            list_eliminated_cards_player1.append(select_player_1_card_challenge)
             list_cards_player1.pop(select_player_1_challenge-1)
             situation_player1_challenge = "lose"
       
@@ -601,7 +552,7 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
             print_space()
             print("player2 look the cards, are up")
             eliminate_card_player2 =int(input("player2, select the card that you want to delete, using a number : "))
-            list_cards_eliminate_player2.append(list_cards_player2[eliminate_card_player2-1])
+            list_eliminated_cards_player2.append(list_cards_player2[eliminate_card_player2-1])
             list_cards_player2.pop(eliminate_card_player2-1)
                 
 
@@ -617,7 +568,7 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
             print_space()
             print("player3 look the cards, are up")
             eliminate_card_player3 =int(input("player3, select the card that you want to delete, using a number : "))
-            list_cards_eliminate_player3.append(list_cards_player3[eliminate_card_player3-1])
+            list_eliminated_cards_player3.append(list_cards_player3[eliminate_card_player3-1])
             list_cards_player3.pop(eliminate_card_player3-1)     
             
     if random_1 ==4 and number_players ==4:
@@ -632,104 +583,68 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
             print_space()
             print("player4 look the cards, are up")
             eliminate_card_player4 =int(input("player4, select the card that you want to delete, using a number : "))
-            list_cards_eliminate_player4.append(list_cards_player4[eliminate_card_player4-1])
+            list_eliminated_cards_player4.append(list_cards_player4[eliminate_card_player4-1])
             list_cards_player4.pop(eliminate_card_player4-1)
-        
 
-    return(list_cards_player1, list_cards_player2, list_cards_player3, list_cards_player4,list_cards_eliminate_player1,
-            list_cards_eliminate_player2, list_cards_eliminate_player3, list_cards_eliminate_player4, list_situation_player1_challenge)
-
-def game_player4():
-    print()
-def game_player3():
-    print()
-def game_player2():
-    print()
+    return(list_cards_player1, list_cards_player2, list_cards_player3, list_cards_player4,list_eliminated_cards_player1,
+            list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4, list_situation_player1_challenge)
 
 def game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
-        list_cards_player4,list_desk_rest_cards,list_all_cards,list_cards_eliminate_player1,
-        list_cards_eliminate_player2, list_cards_eliminate_player3, list_cards_eliminate_player4):
+        list_cards_player4,list_desk_rest_cards,list_all_cards,list_eliminated_cards_player1,
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4):
 
     list_all_actions = ["income","foreing help","punch","Duke-Taxes","Assassin-Assassination",
                                    "Captain-Extortion", "Ambassador-Change"]
     i = 0
     while True:
 
-        
-            
-        if list_players[0].live_game =="yes":
-            
-            if list_players[0].coins_game < 10:
-                print_actions()
-                print()
-                select_player_1 = int(input("Its the turn of player1, choose a action using a number: "))
+        if number_players == 3:
+            #print_coins_players(list_players)
+            if list_players[0].live_game =="yes":
                 print()
 
-                #estas son las funciones de la seleccion del player1
-                if select_player_1 ==5:
-                    if list_players[0].coins_game -3 >= 0:
-                        list_players[0].coins_game -= 3
-                        print_challenge_or_counterattack()
-                    else:
-                        while True:
-                            select_player_1 = int(input("player1, you dont have the coins for do this action,select other action, using a number: "))
-                            if select_player_1 != 5:
-                                break
-                #revisar error que puede pasar
-                if select_player_1 ==3:
-                    if list_players[0].coins_game -7 >= 0:
-                        ist_players[0].coins_game -=7
-                        player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
-                                        list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
-                                        list_cards_eliminate_player3, list_cards_eliminate_player4)
-                    else:
-                        while True:
-                            select_player_1 = int(input("player1, you dont have the coins for do this action,select other action, using a number: "))
-                            if select_player_1 !=3 and select_player_1 !=5:
-                                break
-
-                if select_player_1 == 1:
-                    list_players[0].coins_game += 1
-                    print("a coin has been added to player1")
+                if list_players[0].coins_game < 10:
+                    select_player_1 = int(input("Its the turn of player1, choose a action using a number: "))
                     print()
-                    print_coins_players(list_players)
 
-                    
-                
-                            
-                if select_player_1 ==6:
-                    print_challenge_or_counterattack()
+#estas son las funciones de la seleccion del player1
 
-                if select_player_1 == 2:
-                    print_counterattack()
+                    if select_player_1 == 1:
+                        list_players[0].coins_game += 1
+                        print("a coin has been added to player1")
+                        print()
+                        print_coins_players(list_players)
 
-                if select_player_1 == 4 or select_player_1 ==7:
-                    print_challenge()
+                    if select_player_1 == 5 or select_player_1 ==6:
+                        print_challenge_or_counterattack()
+                        if select_player_1 ==5:
+                            list_players[0].coins_game -= 3
 
-                
+                    if select_player_1 == 2:
+                        print_counterattack()
+
+                    if select_player_1 == 4 or select_player_1 ==7:
+                        print_challenge()
+
+                    if select_player_1 ==3:
+                        print("punch")
+                        list_players[0].coins_game -=7
 
 #aqui parte los desafios o contra_ataques para el player1
 
-                if select_player_1 != 1 and select_player_1 !=3:
-                    if list_players[1].live_game == "yes":
-                        select_player_2 =int(input("player2, choose a option using a number: "))
-                    else:
-                        select_player_2 = 0
-                    if list_players[2].live_game == "yes":
-                        select_player_3 =int(input("player3, choose a option using a number: "))
-                    else: 
-                        select_player_3 = 0
-                    if number_players ==4:
-                        if list_players[3].live_game =="yes":
-                            select_player_4 = int(input("player4, choose a option using a number: "))
+                    if select_player_1 != 1 and select_player_1 !=3:
+                        if list_players[1].live_game == "yes":
+                            select_player_2 =int(input("player2, choose a option using a number: "))
                         else:
-                            select_player_4 = 0
+                            select_player_2 = 0
+                        if list_players[2].live_game == "yes":
+                            select_player_3 =int(input("player3, choose a option using a number: "))
+                        else: 
+                            select_player_3 = 0
 
 #esta la parte del desafio
-                    situation_player1_challenge =""
-                    situation_player1_counterattack =""
-                    if number_players ==3:
-                        #esta es la parte del desafio para 3 jugadores en el turno del jugador1
+                        situation_player1_challenge =""
+                        situation_player1_counterattack =""
                         if (select_player_2 == 1 or select_player_3 == 1) and (select_player_1==4 or select_player_1 ==5
                             or select_player_1 ==6 or select_player_1==7):
 
@@ -745,8 +660,8 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                             list_situation_player1_challenge =[]
                             challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
                                                 list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards,
-                                                list_cards_eliminate_player1,list_cards_eliminate_player2, 
-                                                list_cards_eliminate_player3, list_cards_eliminate_player4, list_situation_player1_challenge)
+                                                list_eliminated_cards_player1,list_eliminated_cards_player2, 
+                                                list_eliminated_cards_player3, list_eliminated_cards_player4, list_situation_player1_challenge)
                             life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
 
                             situation_player1_challenge =list_situation_player1_challenge[0]
@@ -768,15 +683,74 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                                 list_situation_player1_counterattack = []
                                 counterattack_player1(random_1,select_player_1,list_situation_player1_counterattack,list_cards_player1,
                                                     list_cards_player2, list_cards_player3,list_cards_player4,number_players,
-                                                    list_cards_eliminate_player1,list_cards_eliminate_player2,list_cards_eliminate_player3,
-                                                    list_cards_eliminate_player4,list_players)
+                                                    list_eliminated_cards_player1,list_eliminated_cards_player2,list_eliminated_cards_player3,
+                                                    list_eliminated_cards_player4,list_players)
 
                                 situation_player1_counterattack = list_situation_player1_counterattack[0]
-                                list_situation_player1_counterattack = []
-                                life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
 
-                    if number_players == 4:
-                        #esta es la parte del desafio para 4 jugadores en el turno del jugador1
+                        #aca se ven las acciones del player1 despues de los desafios o contra_ataques, hay que revisarlo
+                        
+                        if situation_player1_challenge == "win" and situation_player1_counterattack =="win":
+                            player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                    list_cards_player4,list_desk_rest_cards, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                    list_eliminated_cards_player3, list_eliminated_cards_player4)
+                        if situation_player1_challenge =="win" and situation_player1_counterattack =="":
+                            player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                    list_cards_player4,list_desk_rest_cards, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                    list_eliminated_cards_player3, list_eliminated_cards_player4)
+                        if situation_player1_challenge =="" and situation_player1_counterattack =="win":
+                            player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                    list_cards_player4,list_desk_rest_cards, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                    list_eliminated_cards_player3, list_eliminated_cards_player4)
+                        life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+                        
+
+                elif list_players[0].coins_game >= 10:
+                    select_player_1 = 3
+                    list_players[0].coins_game -=7
+                    print("punch")
+
+                break
+#aqui inicia para el de 4 jugadores           
+        if number_players == 4:
+
+            if list_players[0].live_game =="yes":
+                print()
+
+                if list_players[0].coins_game < 10:
+                    select_player_1 = int(input("Its the turn of player1, choose a action using a number: "))
+                    print()
+
+                    if select_player_1 == 1:
+                        list_players[0].coins_game += 1
+                        print("a coin has been added to player1")
+                        print()
+                        print_coins_players(list_players)
+
+                    if select_player_1 == 5 or select_player_1 ==6:
+                        print_challenge_or_counterattack()
+
+                    if select_player_1 == 2:
+                        print_counterattack()
+                        
+                    if select_player_1 == 4 or select_player_1 ==7:
+                        print_challenge()
+                    
+                    if select_player_1 ==3:
+                        print("punch")
+
+                    if select_player_1 != 1 and select_player_1 !=3:
+                        if list_players[1].live_game == "yes":
+                            select_player_2 =int(input("player2, choose a option using a number: "))
+                        if list_players[2].live_game == "yes":
+                            select_player_3 =int(input("player3, choose a option using a number: "))
+                        if list_players[3].live_game == "yes":
+                            select_player_4 =int(input("player4, choose a option using a number: "))
+
+#aqui parten los desafios o contra_ataques para el player1
+                        
+                        situation_player1_challenge =""
+                        situation_player1_counterattack =""
                         if (select_player_2 == 1 or select_player_3 == 1 or select_player_4==1) and (select_player_1==4 or select_player_1 ==5
                             or select_player_1 ==6 or select_player_1==7):
                             
@@ -803,16 +777,14 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                             list_situation_player1_challenge =[]
                             challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
                                                 list_cards_player3, list_cards_player4, select_player_1, list_desk_rest_cards,
-                                                list_cards_eliminate_player1,list_cards_eliminate_player2, 
-                                                list_cards_eliminate_player3, list_cards_eliminate_player4, list_situation_player1_challenge)
+                                                list_eliminated_cards_player1,list_eliminated_cards_player2, 
+                                                list_eliminated_cards_player3, list_eliminated_cards_player4, list_situation_player1_challenge)
                             life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
 
                             situation_player1_challenge = list_situation_player1_challenge[0]
                             list_situation_player1_challenge =[]
                             life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
 
-
-                        #esta es la parte del contraattaque para 4 jugadores en el turno del player1
                         if (select_player_2 ==2 or select_player_3 ==2 or select_player_4 ==2 ) and (select_player_1 ==2 or 
                             select_player_1 ==5 or select_player_1 ==6) and situation_player1_challenge != "lose":
                                 print("contraataqueee")
@@ -841,74 +813,41 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                                 list_situation_player1_counterattack = []
                                 counterattack_player1(random_1,select_player_1,list_situation_player1_counterattack,list_cards_player1,
                                                     list_cards_player2, list_cards_player3,list_cards_player4,number_players,
-                                                    list_cards_eliminate_player1,list_cards_eliminate_player2,list_cards_eliminate_player3,
-                                                    list_cards_eliminate_player4,list_players)
+                                                    list_eliminated_cards_player1,list_eliminated_cards_player2,list_eliminated_cards_player3,
+                                                    list_eliminated_cards_player4,list_players)
                                                     
                                 situation_player1_counterattack = list_situation_player1_counterattack[0]
-                                list_situation_player1_counterattack = []
-                                life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
 
-                    #aca se ven las acciones del player1 despues de los desafios o contra_ataques, hay que revisarlo
-                    
-                    if situation_player1_challenge == "win" and situation_player1_counterattack =="win":
-                        player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
-                                list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
-                                list_cards_eliminate_player3, list_cards_eliminate_player4)
-                    if situation_player1_challenge =="win" and situation_player1_counterattack =="":
-                        player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
-                                list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
-                                list_cards_eliminate_player3, list_cards_eliminate_player4)
-                    if situation_player1_challenge =="" and situation_player1_counterattack =="win":
-                        player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
-                                list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
-                                list_cards_eliminate_player3, list_cards_eliminate_player4)
-                    if situation_player1_challenge =="" and situation_player1_counterattack =="":
-                        player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
-                                list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
-                                list_cards_eliminate_player3, list_cards_eliminate_player4)
-                    life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-                    
-                    if select_player_1 ==5 and situation_player1_challenge =="lose":
-                        list_players[0].coins_game +=3
+#esto hay que revisarlo
 
-            elif list_players[0].coins_game >= 10:
-                select_player_1 = 3
-                list_players[0].coins_game -=7
-                player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
-                                list_cards_player4,list_desk_rest_cards, list_cards_eliminate_player1, list_cards_eliminate_player2,
-                                list_cards_eliminate_player3, list_cards_eliminate_player4)
-
-        #aqui inicia el turno del player2
-        if list_players[1].live_game =="yes":
-            print("turno del jugador2")
-            game_player2()
-        #aqui inicia el turno del player3
-        if list_players[2].live_game =="yes":
-            print("turno del jugador3")
-            game_player3()
-        #aqui inicia el turno del player4
-        if  number_players ==4:
-            if list_players[3].live_game =="yes":
-                print("turno del jugador4")
-                game_player4()
-        break
-        
+                        if situation_player1_challenge == "win" and situation_player1_counterattack =="win":
+                            player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                    list_cards_player4,list_desk_rest_cards, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                    list_eliminated_cards_player3, list_eliminated_cards_player4)
+                        if situation_player1_challenge =="win" and situation_player1_counterattack =="":
+                            player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                    list_cards_player4,list_desk_rest_cards, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                    list_eliminated_cards_player3, list_eliminated_cards_player4)
+                        if situation_player1_challenge =="" and situation_player1_counterattack =="win":
+                            player1_actions(select_player_1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                    list_cards_player4,list_desk_rest_cards, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                    list_eliminated_cards_player3, list_eliminated_cards_player4)
+                        life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
 
 
-    
+                elif list_players[0].coins_game >= 10:
+                    select_player_1 = 3
+                    list_players[0].coins_game -=7
+                    print("punch")
+                break
+
 
 
 def three_players(deck,number_players):
     player1 = Person("Player1",int(2),"yes")
     player2 = Person("Player2",int(2),"yes")
     player3 = Person("Player3",int(2),"yes")
-
     list_players = [player1,player2,player3]
-    """
-    if number_players ==4:
-        player4 = Person("Player4",int(2),"yes")
-        list_players.append(player4)
-    """
 
     list_cards_player1 = []
     list_cards_player2 = []
@@ -916,7 +855,7 @@ def three_players(deck,number_players):
     list_cards_player4 = []
     list_desk_rest_cards = []
     players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3,list_cards_player4,list_desk_rest_cards,number_players)
-    #en player_cards se otorgan las cartas a cada jugador y las cartas del mazo
+  
 
     card1 = Card(list_cards_player1[0])
     card2 = Card(list_cards_player1[1])
@@ -934,18 +873,15 @@ def three_players(deck,number_players):
     card14 = Card(list_desk_rest_cards[7])
     card15 = Card(list_desk_rest_cards[8])
     list_all_cards = [card1,card2,card3,card4,card5,card6,card7,card8,card9,card10,card11,card12,card13,card14,card15]
-    #distribution of cards haca un print de como los jugadores estan colocados y
-    #printea las cartas de cada jugador
     distribution_of_cards(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-    
-    list_cards_eliminate_player1 = []
-    list_cards_eliminate_player2 = []
-    list_cards_eliminate_player3 = []
-    list_cards_eliminate_player4 = []
-    #en game se  inicia los turnos de los jugadores con sus respectivas acciones
+    print_actions()
+    list_eliminated_cards_player1 = []
+    list_eliminated_cards_player2 = []
+    list_eliminated_cards_player3 = []
+    list_eliminated_cards_player4 = []
     game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
-        list_cards_player4,list_desk_rest_cards,list_all_cards, list_cards_eliminate_player1,
-        list_cards_eliminate_player2, list_cards_eliminate_player3, list_cards_eliminate_player4)
+        list_cards_player4,list_desk_rest_cards,list_all_cards, list_eliminated_cards_player1,
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
 
 
 
@@ -965,7 +901,7 @@ def four_players(deck,number_players):
     list_cards_player4 = []
     list_desk_rest_cards = []
     players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3,list_cards_player4,list_desk_rest_cards,number_players)
-    #en player_cards se otorgan las cartas a cada jugador y las cartas del mazo
+  
 
     card1 = Card(list_cards_player1[0])
     card2 = Card(list_cards_player1[1])
@@ -983,36 +919,33 @@ def four_players(deck,number_players):
     card14 = Card(list_desk_rest_cards[5])
     card15 = Card(list_desk_rest_cards[6])
     list_all_cards = [card1,card2,card3,card4,card5,card6,card7,card8,card9,card10,card11,card12,card13,card14,card15]
-    #distribution of cards haca un print de como los jugadores estan colocados y
-    #printea las cartas de cada jugador
     distribution_of_cards(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-    
-    list_cards_eliminate_player1 = []
-    list_cards_eliminate_player2 = []
-    list_cards_eliminate_player3 = []
-    list_cards_eliminate_player4 = []
-    #en game se inicia los turnos de los jugadores con sus respectivas acciones
+    print_actions()
+    list_eliminated_cards_player1 = []
+    list_eliminated_cards_player2 = []
+    list_eliminated_cards_player3 = []
+    list_eliminated_cards_player4 = []
     game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
-        list_cards_player4,list_desk_rest_cards,list_all_cards, list_cards_eliminate_player1,
-        list_cards_eliminate_player2, list_cards_eliminate_player3, list_cards_eliminate_player4)
+        list_cards_player4,list_desk_rest_cards,list_all_cards, list_eliminated_cards_player1,
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
     
 
     
 
 
 def main():
-    #esta parte es para crear el mazo de cartas y luego revolverlas
+
     deck = Card("Deck")
     deck.deck_cards()
     deck.deck_random_cards()
 
-    #agregar el while true
-    number_players = int(input("how many players will play this game? 3 or 4, using a number : "))
+    number_players = int(input("how many players will play this game? 3 or 4 : "))
     print("The cards can only be seen by the player of the turn")
     if number_players == 3:
         three_players(deck,number_players)
     elif number_players ==4:
         four_players(deck,number_players)
+    
 
     
 
