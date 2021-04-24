@@ -1055,80 +1055,83 @@ def player4_actions(selection_player4,list_players, list_cards_player1,list_card
 def counterattack_player1(random_1,selection_player1,list_situation_player1_counterattack,list_cards_player1,list_cards_player2,
                             list_cards_player3,list_cards_player4,number_players,list_eliminated_cards_player1,
                             list_eliminated_cards_player2,list_eliminated_cards_player3,list_eliminated_cards_player4,list_players):
-
+    #quien contraataca (random_1)
     if random_1 ==2:
-        print("The player2 will counterattack to player1")
+        print("Player2 will counterattack player1")
     if random_1 ==3:
-        print("The player3 will counterattack to player1")
+        print("Player3 will counterattack player1")
     if number_players ==4 and random_1 ==4:
-        print("The player4 will counterattack to player1")
+        print("Player4 will counterattack player1")
 
     print_challenge()
-    selection_player1_2 = int(input("player1, what do you want to do for counterattack, select a option using a number: "))
-    
+    #pasar o desafiar contraataque
+    selection_player1_2 = int(input("Player1, what do you want to do against the counterattack? Select a option using a number: "))
+    #pasar
     if selection_player1_2 == 3:
-        print("The player1 action was countered")
+        print("Player1's action was countered succesfully")
         situation_player1_counterattack = "lose"
         list_situation_player1_counterattack.append(situation_player1_counterattack)
-    
+    #desafiar
     if selection_player1_2 ==1:
+        #jugador de turno desafía los contraataquesa los demás
         if random_1 ==2:
             input("player2, are you ready to see your cards?, write something when you are ready: ")
             if len(list_cards_player2) >0:
                 for i in range(1,len(list_cards_player2) + 1):
                     print(str(i)+"-)", list_cards_player2[i-1])
             print_space()
-            print("player2, looks the cards, are up")
-            select_counterattack =int(input("player2 ,select the card for win counterattack or lose the card, using a number: "))
+            print("Player2, scroll up to see your cards.")
+            select_counterattack =int(input("Player2 ,select the card to win the counterattack or lose the card, using a number: "))
             select_card_counterattack =list_cards_player2[select_counterattack-1]
 
         if random_1 ==3:
-            input("player3, are you ready to see your cards?, write something when you are ready: ")
+            input("Player3, are you ready to see your cards?, write something when you are ready: ")
             if len(list_cards_player3) >0:
                 for i in range(1,len(list_cards_player3) + 1):
                     print(str(i)+"-)", list_cards_player3[i-1])
             print_space()
-            print("player3, looks the cards, are up")
-            select_counterattack =int(input("player3 ,select the card for win counterattack or lose the card, using a number: "))
+            print("Player3, scroll up to see your cards")
+            select_counterattack =int(input("Player3 ,select the card to win the counterattack or lose the card, using a number: "))
             select_card_counterattack =list_cards_player3[select_counterattack-1]
 
         if random_1 ==4:
-            input("player4, are you ready to see your cards?, write something when you are ready: ")
+            input("Player4, are you ready to see your cards?, write something when you are ready: ")
             if len(list_cards_player4) >0:
                 for i in range(1,len(list_cards_player4) + 1):
                     print(str(i)+"-)", list_cards_player4[i-1])
             print_space()
-            print("player4, looks the cards, are up")
-            select_counterattack =int(input("player4 ,select the card for win counterattack or lose the card, using a number: "))
+            print("Player4, scroll up to see your cards")
+            select_counterattack =int(input("Player4 ,select the card to win the counterattack or lose the card, using a number: "))
             select_card_counterattack =list_cards_player4[select_counterattack-1]
-
+        #contraataque  a foreign help:
         if selection_player1 ==2:
             if select_card_counterattack =="Duke":
-                print("the player was countered has de card 'Duke'")
+                print("Player1 was countered succesfully with the card 'Duke'")
                 situation_player1_counterattack = "lose"
         
             if select_card_counterattack !="Duke":
-                print("the player was countered don't has de card 'Duke'")
+                print("The player that counterattacked doesn't have the card 'Duke'")
                 situation_player1_counterattack ="win"
-
+        #contraataque al asesino:
         if selection_player1 ==5:
             if select_card_counterattack =="Countess":
-                print("the player was countered has de card 'Countess'")
+                print("Player1 was countered succesfully with the card 'Countess'")
                 situation_player1_counterattack = "lose"
         
             if select_card_counterattack !="Countess":
-                print("the player was countered don't has de card 'Countess'")
+                print("The player that counterattacked doesn't have de card 'Countess'")
                 situation_player1_counterattack ="win"
+        #contraataque al capitan (steal)
         if selection_player1 ==6:
             if select_card_counterattack =="Ambassador" or select_card_counterattack =="Captain":
-                print("the player was countered has de card", select_card_counterattack)
+                print("Player1 was countered succesfully with the card", select_card_counterattack)
                 situation_player1_counterattack = "lose"
         
             else:
-                print("the player was countered don't has de card 'Captain' or 'Ambassador'")
+                print("The player that counterattacked doesn't have the card 'Captain' or 'Ambassador'")
                 situation_player1_counterattack ="win"
 
-
+        #devolver cartas usadas al maso:
         list_situation_player1_counterattack.append(situation_player1_counterattack)
         if situation_player1_counterattack =="win":
             if random_1 ==2:
@@ -1147,8 +1150,8 @@ def counterattack_player1(random_1,selection_player1,list_situation_player1_coun
                 for i in range(1,len(list_cards_player1) + 1):
                     print(str(i)+"-)", list_cards_player1[i-1])
             print_space()
-            print("player1, looks the cards, are up")
-            select_eliminate =int(input("player1 ,select the card that you want delete, using a number: "))
+            print("Player1, scroll up to see your cards")
+            select_eliminate =int(input("player1 ,select the card that you prefer to lose, using a number: "))
             eliminate_card = list_cards_player1[select_eliminate-1]
             list_eliminated_cards_player1.append(eliminate_card)
             list_cards_player1.pop(select_eliminate-1)
@@ -1158,6 +1161,117 @@ def counterattack_player1(random_1,selection_player1,list_situation_player1_coun
     return(list_situation_player1_counterattack,list_cards_player1,list_cards_player2,list_cards_player3,
             list_cards_player4, list_eliminated_cards_player1,list_eliminated_cards_player2,list_eliminated_cards_player3,
             list_eliminated_cards_player4, list_players)
+
+def counterattack_player2(random_2,selection_player2,list_situation_player2_counterattack,list_cards_player1,list_cards_player2,
+                            list_cards_player3,list_cards_player4,number_players,list_eliminated_cards_player1,
+                            list_eliminated_cards_player2,list_eliminated_cards_player3,list_eliminated_cards_player4,list_players):
+    #quien contraataca (random_2)
+    if random_2 ==1:
+        print("Player1 will counterattack player2")
+    if random_2 ==3:
+        print("Player3 will counterattack player2")
+    if number_players ==4 and random_1 ==4:
+        print("Player4 will counterattack player2")
+
+    print_challenge()
+    #pasar o desafiar contraataque
+    selection_player2_2 = int(input("Player2, what do you want to do against the counterattack? Select a option using a number: "))
+    #pasar
+    if selection_player2_2 == 3:
+        print("Player2's action was countered succesfully.")
+        situation_player2_counterattack = "lose"
+        list_situation_player2_counterattack.append(situation_player2_counterattack)
+    #desafiar
+    if selection_player2_2 ==1:
+        #jugador de turno desafía los contraataquesa los demás
+        if random_2 ==1:
+            input("player1, are you ready to see your cards?, write something when you are ready: ")
+            if len(list_cards_player1) >0:
+                for i in range(1,len(list_cards_player1) + 1):
+                    print(str(i)+"-)", list_cards_player1[i-1])
+            print_space()
+            print("Player1, scroll up to see your cards.")
+            select_counterattack =int(input("Player1 ,select the card to win the counterattack or lose the card, using a number: "))
+            select_card_counterattack =list_cards_player1[select_counterattack-1]
+
+        if random_2 ==3:
+            input("Player3, are you ready to see your cards?, write something when you are ready: ")
+            if len(list_cards_player3) >0:
+                for i in range(1,len(list_cards_player3) + 1):
+                    print(str(i)+"-)", list_cards_player3[i-1])
+            print_space()
+            print("Player3, scroll up to see your cards")
+            select_counterattack =int(input("Player3 ,select the card to win the counterattack or lose the card, using a number: "))
+            select_card_counterattack =list_cards_player3[select_counterattack-1]
+
+        if random_2 ==4:
+            input("Player4, are you ready to see your cards?, write something when you are ready: ")
+            if len(list_cards_player4) >0:
+                for i in range(1,len(list_cards_player4) + 1):
+                    print(str(i)+"-)", list_cards_player4[i-1])
+            print_space()
+            print("Player4, scroll up to see your cards")
+            select_counterattack =int(input("Player4 ,select the card to win the counterattack or lose the card, using a number: "))
+            select_card_counterattack =list_cards_player4[select_counterattack-1]
+        #contraataque  a foreign help:
+        if selection_player2 ==2:
+            if select_card_counterattack =="Duke":
+                print("Player2 was countered succesfully with the card 'Duke'")
+                situation_player2_counterattack = "lose"
+        
+            if select_card_counterattack !="Duke":
+                print("The player that counterattacked doesn't have the card 'Duke'")
+                situation_player2_counterattack ="win"
+        #contraataque al asesino:
+        if selection_player2 ==5:
+            if select_card_counterattack =="Countess":
+                print("Player2 was countered succesfully with the card 'Countess'")
+                situation_player2_counterattack = "lose"
+        
+            if select_card_counterattack !="Countess":
+                print("The player that counterattacked doesn't have de card 'Countess'")
+                situation_player2_counterattack ="win"
+        #contraataque al capitan (steal)
+        if selection_player2 ==6:
+            if select_card_counterattack =="Ambassador" or select_card_counterattack =="Captain":
+                print("Player2 was countered succesfully with the card", select_card_counterattack)
+                situation_player2_counterattack = "lose"
+        
+            else:
+                print("The player that counterattacked doesn't have the card 'Captain' or 'Ambassador'")
+                situation_player2_counterattack ="win"
+
+        #devolver cartas usadas al maso:
+        list_situation_player2_counterattack.append(situation_player2_counterattack)
+        if situation_player2_counterattack =="win":
+            if random_2 ==1:
+                list_eliminated_cards_player1.append(select_card_counterattack)
+                list_cards_player1.pop(select_counterattack -1)
+            if random_2 ==3:
+                list_eliminated_cards_player3.append(select_card_counterattack)
+                list_cards_player3.pop(select_counterattack -1)
+            if random_2 ==4:
+                list_eliminated_cards_player4.append(select_card_counterattack)
+                list_cards_player4.pop(select_counterattack -1)
+
+        if situation_player2_counterattack =="lose":
+            input("player2, are you ready to see your cards?, write something when you are ready: ")
+            if len(list_cards_player2) >0:
+                for i in range(1,len(list_cards_player2) + 1):
+                    print(str(i)+"-)", list_cards_player2[i-1])
+            print_space()
+            print("Player2, scroll up to see your cards")
+            select_eliminate =int(input("player2 ,select the card that you prefer to lose, using a number: "))
+            eliminate_card = list_cards_player2[select_eliminate-1]
+            list_eliminated_cards_player2.append(eliminate_card)
+            list_cards_player2.pop(select_eliminate-1)
+
+        life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+
+    return(list_situation_player2_counterattack,list_cards_player1,list_cards_player2,list_cards_player3,
+            list_cards_player4, list_eliminated_cards_player1,list_eliminated_cards_player2,list_eliminated_cards_player3,
+            list_eliminated_cards_player4, list_players)
+
 
 def challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
                         list_cards_player3, list_cards_player4, selection_player1, list_rest_of_deck,
