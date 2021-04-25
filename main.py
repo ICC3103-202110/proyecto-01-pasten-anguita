@@ -829,6 +829,7 @@ def player3_actions(selection_player3,list_players, list_cards_player1,list_card
 def player4_actions(selection_player4,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                     list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
                     list_eliminated_cards_player3, list_eliminated_cards_player4):
+  if number_players==4:  
     if list_players[3].live_game =="yes":
         if selection_player3 == 2:
             list_players[3].coins_game +=2
@@ -1051,7 +1052,6 @@ def player4_actions(selection_player4,list_players, list_cards_player1,list_card
             list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
             list_eliminated_cards_player3, list_eliminated_cards_player4)
                 
-
 def counterattack_player1(random_1,selection_player1,list_situation_player1_counterattack,list_cards_player1,list_cards_player2,
                             list_cards_player3,list_cards_player4,number_players,list_eliminated_cards_player1,
                             list_eliminated_cards_player2,list_eliminated_cards_player3,list_eliminated_cards_player4,list_players):
@@ -1385,6 +1385,8 @@ def counterattack_player3(random_3,selection_player3,list_situation_player3_coun
 def counterattack_player4(random_4,selection_player4,list_situation_player4_counterattack,list_cards_player1,list_cards_player2,
                             list_cards_player3,list_cards_player4,number_players,list_eliminated_cards_player1,
                             list_eliminated_cards_player2,list_eliminated_cards_player3,list_eliminated_cards_player4,list_players):
+   
+  if number_players==4 
     #quien contraataca (random_4)
     if random_4 ==1:
         print("Player1 will counterattack player4")
@@ -1499,18 +1501,18 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
     print()
     if number_players ==3:
         if random_1 == 2:
-            print("The player2 will challenge to player1")
+            print("Player2 will challenge player1")
         if random_1 == 3:
-            print("The player3 will challenge to player1")
+            print("Player3 will challenge player1")
     
     if number_players ==4:
         print()
         if random_1 == 2:
-            print("The player2 will challenge to player1")
+            print("Player2 will challenge player1")
         if random_1 == 3:
-            print("The player3 will challenge to player1")
+            print("Player3 will challenge player1")
         if random_1 ==4:
-            print("The player4 will challenge to player1")
+            print("Player4 will challenge player1")
             
     print("player1, Are you ready to see your cards?")
     input("Write something when you are ready: ")
@@ -1520,21 +1522,21 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
         for i in range(1,len(list_cards_player1)+1):
             print(str(i)+"-)",list_cards_player1[i-1])
     print_space()
-    print("player1 look the cards, are up")
-    selection_player1_challenge = int(input("player1, select the card for win the challenge or lose the card: "))
+    print("player1, scroll up to see your cards.")
+    selection_player1_challenge = int(input("player1, select the card to win the challenge or lose the card: "))
     selection_player1_card_challenge = list_cards_player1[selection_player1_challenge-1]
 
     if selection_player1 ==4:
         print()
         if selection_player1_card_challenge == "Duke":
-            print("The player1 has the card 'Duke',now the player1 has a other card of deck, and lose the card 'Duke'")
+            print("Player1 has the card 'Duke' and wins the challenge. \n Player1 draws another card from the deck, and loses the card 'Duke'")
             list_rest_of_deck.append(selection_player1_card_challenge)
             list_cards_player1.pop(selection_player1_challenge-1)
             list_cards_player1.append(list_rest_of_deck[0])
             list_rest_of_deck.pop(0)
             situation_player1_challenge = "win"
         else:
-            print("The player1 lost the card",selection_player1_card_challenge)
+            print("Player1 lost the card",selection_player1_card_challenge)
             list_eliminated_cards_player1.append(selection_player1_card_challenge)
             list_cards_player1.pop(selection_player1_challenge-1)
             situation_player1_challenge = "lose"
@@ -1543,14 +1545,14 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
     if selection_player1 ==5:
         print()
         if selection_player1_card_challenge == "Assassin":
-            print("The player1 has the card 'Assassin',now the player1 has a other card of deck, and lose the card 'Assassin'")
+            print("Player1 has the card 'Assassin' and wins the challenge. \n Player1 draws another card from the deck, and loses the card 'Assassin'")
             list_rest_of_deck.append(selection_player1_card_challenge)
             list_cards_player1.pop(selection_player1_challenge-1)
             list_cards_player1.append(list_rest_of_deck[0])
             list_rest_of_deck.pop(0)
             situation_player1_challenge = "win"
         else:
-            print("The player1 lost the card",selection_player1_card_challenge)
+            print("Player1 lost the card",selection_player1_card_challenge)
             list_eliminated_cards_player1.append(selection_player1_card_challenge)
             list_cards_player1.pop(selection_player1_challenge-1)
             situation_player1_challenge = "lose"
@@ -1558,14 +1560,14 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
     if selection_player1 ==6:
         print()
         if selection_player1_card_challenge == "Captain":
-            print("The player1 has the card 'Captain',now the player1 has a other card of deck, and lose the card 'Captain'")
+            print("Player1 has the card 'Captain' and wins the challenge. \n Player1 draws another card from the deck, and lose the card 'Captain'")
             list_rest_of_deck.append(selection_player1_card_challenge)
             list_cards_player1.pop(selection_player1_challenge-1)
             list_cards_player1.append(list_rest_of_deck[0])
             list_rest_of_deck.pop(0)
             situation_player1_challenge = "win"
         else:
-            print("The player1 lost the card",selection_player1_card_challenge)
+            print("Player1 lost the card",selection_player1_card_challenge)
             list_eliminated_cards_player1.append(selection_player1_card_challenge)
             list_cards_player1.pop(selection_player1_challenge-1)
             situation_player1_challenge = "lose"
@@ -1573,19 +1575,19 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
     if selection_player1 ==7:
         print()
         if selection_player1_card_challenge == "Ambassador":
-            print("The player1 has the card 'Ambassador',now the player1 has a other card of deck, and lose the card 'Ambassador'")
+            print("Player1 has the card 'Ambassador' and wins the challenge. \n Player1 draws another card from the deck, and loses the card 'Ambassador'")
             list_rest_of_deck.append(selection_player1_card_challenge)
             list_cards_player1.pop(selection_player1_challenge-1)
             list_cards_player1.append(list_rest_of_deck[0])
             list_rest_of_deck.pop(0)
             situation_player1_challenge = "win"
         else:
-            print("The player1 lost the card",selection_player1_card_challenge)
+            print("Player1 lost the card",selection_player1_card_challenge)
             list_eliminated_cards_player1.append(selection_player1_card_challenge)
             list_cards_player1.pop(selection_player1_challenge-1)
             situation_player1_challenge = "lose"
       
-    print("player1, Are you ready to see your cards?")
+    print("Player1, Are you ready to see your cards?")
     input("Write something when you are ready: ")
     print()
     print()
@@ -1593,14 +1595,14 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
         for i in range(1,len(list_cards_player1)+1):
             print(str(i)+"-)",list_cards_player1[i-1])
     print_space()
-    print("player1 look the cards, are up")
+    print("Player1, scroll up to see your cards.")
     list_situation_player1_challenge.append(situation_player1_challenge)
 
 
 
     if random_1 == 2:
         if situation_player1_challenge == "win":
-            print("player2, Are you ready to see your cards?")
+            print("Player2, are you ready to see your cards?")
             input("Write something when you are ready: ")
             print()
             print()
@@ -1608,15 +1610,15 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
                 for i in range(1,len(list_cards_player2)+1):
                     print(str(i)+"-)",list_cards_player2[i-1])
             print_space()
-            print("player2 look the cards, are up")
-            eliminate_card_player2 =int(input("player2, select the card that you want to delete, using a number : "))
+            print("Player2, scroll up to see your cards")
+            eliminate_card_player2 =int(input("player2, select the card that you prefer to lose, using a number : "))
             list_eliminated_cards_player2.append(list_cards_player2[eliminate_card_player2-1])
             list_cards_player2.pop(eliminate_card_player2-1)
                 
 
     if random_1 == 3:
         if situation_player1_challenge == "win":
-            print("player3, Are you ready to see your cards?")
+            print("Player3, are you ready to see your cards?")
             input("Write something when you are ready: ")
             print()
             print()
@@ -1624,14 +1626,14 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
                 for i in range(1,len(list_cards_player3)+1):
                     print(str(i)+"-)",list_cards_player3[i-1])
             print_space()
-            print("player3 look the cards, are up")
-            eliminate_card_player3 =int(input("player3, select the card that you want to delete, using a number : "))
+            print("Player3, scroll up to see your cards.")
+            eliminate_card_player3 =int(input("Player3, select the card that you prefer to lose, using a number : "))
             list_eliminated_cards_player3.append(list_cards_player3[eliminate_card_player3-1])
             list_cards_player3.pop(eliminate_card_player3-1)     
             
     if random_1 ==4 and number_players ==4:
         if situation_player1_challenge == "win":
-            print("player4, Are you ready to see your cards?")
+            print("Player4, are you ready to see your cards?")
             input("Write something when you are ready: ")
             print()
             print()
@@ -1639,14 +1641,478 @@ def challenge_player1(number_players,random_1,list_cards_player1,list_cards_play
                 for i in range(1,len(list_cards_player4)+1):
                     print(str(i)+"-)",list_cards_player4[i-1])
             print_space()
-            print("player4 look the cards, are up")
-            eliminate_card_player4 =int(input("player4, select the card that you want to delete, using a number : "))
+            print("Player4, scroll up to see your cards.")
+            eliminate_card_player4 =int(input("Player4, select the card that you prefer to lose, using a number : "))
             list_eliminated_cards_player4.append(list_cards_player4[eliminate_card_player4-1])
             list_cards_player4.pop(eliminate_card_player4-1)
         
 
     return(list_cards_player1, list_cards_player2, list_cards_player3, list_cards_player4,list_eliminated_cards_player1,
             list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4, list_situation_player1_challenge)
+
+def challenge_player2(number_players,random_2,list_cards_player1,list_cards_player2,
+                        list_cards_player3, list_cards_player4, selection_player2, list_rest_of_deck,
+                        list_eliminated_cards_player1,list_eliminated_cards_player2, 
+                        list_eliminated_cards_player3, list_eliminated_cards_player4, list_situation_player2_challenge):
+    print()
+    if number_players ==3:
+        if random_2 == 1:
+            print("Player1 will challenge player2")
+        if random_2 == 3:
+            print("Player3 will challenge player2")
+    
+    if number_players ==4:
+        print()
+        if random_2 == 1:
+            print("Player1 will challenge player2")
+        if random_2 == 3:
+            print("Player3 will challenge player2")
+        if random_2 ==4:
+            print("Player4 will challenge player2")
+            
+    print("Player2, Are you ready to see your cards?")
+    input("Write something when you are ready: ")
+    print()
+    print()
+    if len(list_cards_player2) >0:
+        for i in range(1,len(list_cards_player2)+1):
+            print(str(i)+"-)",list_cards_player2[i-1])
+    print_space()
+    print("Player2, scroll up to see your cards.")
+    selection_player2_challenge = int(input("Player2, select the card to win the challenge or lose the card: "))
+    selection_player2_card_challenge = list_cards_player2[selection_player2_challenge-1]
+
+    if selection_player2 ==4:
+        print()
+        if selection_player2_card_challenge == "Duke":
+            print("Player2 has the card 'Duke' and wins the challenge. \n Player2 draws another card from the deck, and loses the card 'Duke'")
+            list_rest_of_deck.append(selection_player2_card_challenge)
+            list_cards_player2.pop(selection_player2_challenge-1)
+            list_cards_player2.append(list_rest_of_deck[0])
+            list_rest_of_deck.pop(0)
+            situation_player2_challenge = "win"
+        else:
+            print("Player2 lost the card",selection_player2_card_challenge)
+            list_eliminated_cards_player2.append(selection_player2_card_challenge)
+            list_cards_player2.pop(selection_player2_challenge-1)
+            situation_player2_challenge = "lose"
+                
+
+    if selection_player2 ==5:
+        print()
+        if selection_player2_card_challenge == "Assassin":
+            print("Player2 has the card 'Assassin' and wins the challenge. \n Player2 draws another card from the deck, and loses the card 'Assassin'")
+            list_rest_of_deck.append(selection_player2_card_challenge)
+            list_cards_player2.pop(selection_player2_challenge-1)
+            list_cards_player2.append(list_rest_of_deck[0])
+            list_rest_of_deck.pop(0)
+            situation_player2_challenge = "win"
+        else:
+            print("Player2 lost the card",selection_player2_card_challenge)
+            list_eliminated_cards_player2.append(selection_player2_card_challenge)
+            list_cards_player2.pop(selection_player2_challenge-1)
+            situation_player2_challenge = "lose"
+            
+    if selection_player2 ==6:
+        print()
+        if selection_player2_card_challenge == "Captain":
+            print("Player2 has the card 'Captain' and wins the challenge. \n Player2 draws another card from the deck, and lose the card 'Captain'")
+            list_rest_of_deck.append(selection_player2_card_challenge)
+            list_cards_player2.pop(selection_player2_challenge-1)
+            list_cards_player2.append(list_rest_of_deck[0])
+            list_rest_of_deck.pop(0)
+            situation_player2_challenge = "win"
+        else:
+            print("Player2 lost the card",selection_player2_card_challenge)
+            list_eliminated_cards_player2.append(selection_player2_card_challenge)
+            list_cards_player2.pop(selection_player2_challenge-1)
+            situation_player2_challenge = "lose"
+
+    if selection_player2 ==7:
+        print()
+        if selection_player2_card_challenge == "Ambassador":
+            print("Player2 has the card 'Ambassador' and wins the challenge. \n Player2 draws another card from the deck, and loses the card 'Ambassador'")
+            list_rest_of_deck.append(selection_player2_card_challenge)
+            list_cards_player2.pop(selection_player2_challenge-1)
+            list_cards_player2.append(list_rest_of_deck[0])
+            list_rest_of_deck.pop(0)
+            situation_player2_challenge = "win"
+        else:
+            print("Player2 lost the card",selection_player2_card_challenge)
+            list_eliminated_cards_player2.append(selection_player2_card_challenge)
+            list_cards_player2.pop(selection_player2_challenge-1)
+            situation_player2_challenge = "lose"
+      
+    print("Player2, Are you ready to see your cards?")
+    input("Write something when you are ready: ")
+    print()
+    print()
+    if len(list_cards_player2)>0:
+        for i in range(1,len(list_cards_player2)+1):
+            print(str(i)+"-)",list_cards_player2[i-1])
+    print_space()
+    print("Player2, scroll up to see your cards.")
+    list_situation_player2_challenge.append(situation_player2_challenge)
+
+
+
+    if random_2 == 1:
+        if situation_player2_challenge == "win":
+            print("Player1, are you ready to see your cards?")
+            input("Write something when you are ready: ")
+            print()
+            print()
+            if len(list_cards_player1) >0:
+                for i in range(1,len(list_cards_player1)+1):
+                    print(str(i)+"-)",list_cards_player1[i-1])
+            print_space()
+            print("Player1, scroll up to see your cards")
+            eliminate_card_player1 =int(input("Player1, select the card that you prefer to lose, using a number : "))
+            list_eliminated_cards_player1.append(list_cards_player1[eliminate_card_player1-1])
+            list_cards_player1.pop(eliminate_card_player1-1)
+                
+
+    if random_2 == 3:
+        if situation_player2_challenge == "win":
+            print("Player3, are you ready to see your cards?")
+            input("Write something when you are ready: ")
+            print()
+            print()
+            if len(list_cards_player3) > 0:
+                for i in range(1,len(list_cards_player3)+1):
+                    print(str(i)+"-)",list_cards_player3[i-1])
+            print_space()
+            print("Player3, scroll up to see your cards.")
+            eliminate_card_player3 =int(input("Player3, select the card that you prefer to lose, using a number : "))
+            list_eliminated_cards_player3.append(list_cards_player3[eliminate_card_player3-1])
+            list_cards_player3.pop(eliminate_card_player3-1)     
+            
+    if random_2 ==4 and number_players ==4:
+        if situation_player2_challenge == "win":
+            print("Player4, are you ready to see your cards?")
+            input("Write something when you are ready: ")
+            print()
+            print()
+            if len(list_cards_player4) >0:
+                for i in range(1,len(list_cards_player4)+1):
+                    print(str(i)+"-)",list_cards_player4[i-1])
+            print_space()
+            print("Player4, scroll up to see your cards.")
+            eliminate_card_player4 =int(input("Player4, select the card that you prefer to lose, using a number : "))
+            list_eliminated_cards_player4.append(list_cards_player4[eliminate_card_player4-1])
+            list_cards_player4.pop(eliminate_card_player4-1)
+        
+
+    return(list_cards_player1, list_cards_player2, list_cards_player3, list_cards_player4,list_eliminated_cards_player1,
+            list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4, list_situation_player2_challenge)
+
+def challenge_player3(number_players,random_3,list_cards_player1,list_cards_player2,
+                        list_cards_player3, list_cards_player4, selection_player3, list_rest_of_deck,
+                        list_eliminated_cards_player1,list_eliminated_cards_player2, 
+                        list_eliminated_cards_player3, list_eliminated_cards_player4, list_situation_player3_challenge):
+    print()
+    if number_players ==3:
+        if random_3 == 1:
+            print("Player1 will challenge player3")
+        if random_3 == 2:
+            print("Player2 will challenge player3")
+    
+    if number_players ==4:
+        print()
+        if random_3 == 1:
+            print("Player1 will challenge player3")
+        if random_3 == 3:
+            print("Player2 will challenge player3")
+        if random_3 ==4:
+            print("Player4 will challenge player3")
+            
+    print("Player3, Are you ready to see your cards?")
+    input("Write something when you are ready: ")
+    print()
+    print()
+    if len(list_cards_player3) >0:
+        for i in range(1,len(list_cards_player3)+1):
+            print(str(i)+"-)",list_cards_player3[i-1])
+    print_space()
+    print("Player3, scroll up to see your cards.")
+    selection_player3_challenge = int(input("Player3, select the card to win the challenge or lose the card: "))
+    selection_player3_card_challenge = list_cards_player3[selection_player3_challenge-1]
+
+    if selection_player3 ==4:
+        print()
+        if selection_player3_card_challenge == "Duke":
+            print("Player3 has the card 'Duke' and wins the challenge. \n Player3 draws another card from the deck, and loses the card 'Duke'")
+            list_rest_of_deck.append(selection_player3_card_challenge)
+            list_cards_player3.pop(selection_player3_challenge-1)
+            list_cards_player3.append(list_rest_of_deck[0])
+            list_rest_of_deck.pop(0)
+            situation_player3_challenge = "win"
+        else:
+            print("Player3 lost the card",selection_player3_card_challenge)
+            list_eliminated_cards_player3.append(selection_player3_card_challenge)
+            list_cards_player3.pop(selection_player3_challenge-1)
+            situation_player3_challenge = "lose"
+                
+
+    if selection_player3 ==5:
+        print()
+        if selection_player3_card_challenge == "Assassin":
+            print("Player3 has the card 'Assassin' and wins the challenge. \n Player3 draws another card from the deck, and loses the card 'Assassin'")
+            list_rest_of_deck.append(selection_player3_card_challenge)
+            list_cards_player3.pop(selection_player3_challenge-1)
+            list_cards_player3.append(list_rest_of_deck[0])
+            list_rest_of_deck.pop(0)
+            situation_player3_challenge = "win"
+        else:
+            print("Player3 lost the card",selection_player3_card_challenge)
+            list_eliminated_cards_player3.append(selection_player3_card_challenge)
+            list_cards_player3.pop(selection_player3_challenge-1)
+            situation_player3_challenge = "lose"
+            
+    if selection_player3 ==6:
+        print()
+        if selection_player3_card_challenge == "Captain":
+            print("Player3 has the card 'Captain' and wins the challenge. \n Player3 draws another card from the deck, and lose the card 'Captain'")
+            list_rest_of_deck.append(selection_player3_card_challenge)
+            list_cards_player3.pop(selection_player3_challenge-1)
+            list_cards_player3.append(list_rest_of_deck[0])
+            list_rest_of_deck.pop(0)
+            situation_player3_challenge = "win"
+        else:
+            print("Player3 lost the card",selection_player3_card_challenge)
+            list_eliminated_cards_player3.append(selection_player3_card_challenge)
+            list_cards_player3.pop(selection_player3_challenge-1)
+            situation_player3_challenge = "lose"
+
+    if selection_player3 ==7:
+        print()
+        if selection_player3_card_challenge == "Ambassador":
+            print("Player3 has the card 'Ambassador' and wins the challenge. \n Player3 draws another card from the deck, and loses the card 'Ambassador'")
+            list_rest_of_deck.append(selection_player3_card_challenge)
+            list_cards_player3.pop(selection_player3_challenge-1)
+            list_cards_player3.append(list_rest_of_deck[0])
+            list_rest_of_deck.pop(0)
+            situation_player3_challenge = "win"
+        else:
+            print("Player3 lost the card",selection_player3_card_challenge)
+            list_eliminated_cards_player3.append(selection_player3_card_challenge)
+            list_cards_player3.pop(selection_player3_challenge-1)
+            situation_player3_challenge = "lose"
+      
+    print("Player3, Are you ready to see your cards?")
+    input("Write something when you are ready: ")
+    print()
+    print()
+    if len(list_cards_player3)>0:
+        for i in range(1,len(list_cards_player3)+1):
+            print(str(i)+"-)",list_cards_player3[i-1])
+    print_space()
+    print("Player3, scroll up to see your cards.")
+    list_situation_player3_challenge.append(situation_player3_challenge)
+
+
+
+    if random_3 == 1:
+        if situation_player3_challenge == "win":
+            print("Player1, are you ready to see your cards?")
+            input("Write something when you are ready: ")
+            print()
+            print()
+            if len(list_cards_player1) >0:
+                for i in range(1,len(list_cards_player1)+1):
+                    print(str(i)+"-)",list_cards_player1[i-1])
+            print_space()
+            print("Player1, scroll up to see your cards")
+            eliminate_card_player1 =int(input("Player1, select the card that you prefer to lose, using a number : "))
+            list_eliminated_cards_player1.append(list_cards_player1[eliminate_card_player1-1])
+            list_cards_player1.pop(eliminate_card_player1-1)
+                
+
+    if random_3 == 2:
+        if situation_player3_challenge == "win":
+            print("Player2, are you ready to see your cards?")
+            input("Write something when you are ready: ")
+            print()
+            print()
+            if len(list_cards_player2) > 0:
+                for i in range(1,len(list_cards_player2)+1):
+                    print(str(i)+"-)",list_cards_player2[i-1])
+            print_space()
+            print("Player2, scroll up to see your cards.")
+            eliminate_card_player2 =int(input("Player2, select the card that you prefer to lose, using a number : "))
+            list_eliminated_cards_player2.append(list_cards_player2[eliminate_card_player2-1])
+            list_cards_player2.pop(eliminate_card_player2-1)     
+            
+    if random_3 ==4 and number_players ==4:
+        if situation_player3_challenge == "win":
+            print("Player4, are you ready to see your cards?")
+            input("Write something when you are ready: ")
+            print()
+            print()
+            if len(list_cards_player4) >0:
+                for i in range(1,len(list_cards_player4)+1):
+                    print(str(i)+"-)",list_cards_player4[i-1])
+            print_space()
+            print("Player4, scroll up to see your cards.")
+            eliminate_card_player4 =int(input("Player4, select the card that you prefer to lose, using a number : "))
+            list_eliminated_cards_player4.append(list_cards_player4[eliminate_card_player4-1])
+            list_cards_player4.pop(eliminate_card_player4-1)
+        
+
+    return(list_cards_player1, list_cards_player2, list_cards_player3, list_cards_player4,list_eliminated_cards_player1,
+            list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4, list_situation_player3_challenge)
+
+def challenge_player4(number_players,random_4,list_cards_player1,list_cards_player2,
+                        list_cards_player3, list_cards_player4, selection_player4, list_rest_of_deck,
+                        list_eliminated_cards_player1,list_eliminated_cards_player2, 
+                        list_eliminated_cards_player3, list_eliminated_cards_player4, list_situation_player4_challenge):
+
+  if number_players ==4:
+        print()
+        if random_4 == 1:
+            print("Player1 will challenge player4")
+        if random_4 == 2:
+            print("Player2 will challenge player4")
+        if random_4 ==3:
+            print("Player3 will challenge player4")
+            
+    print("Player4, Are you ready to see your cards?")
+    input("Write something when you are ready: ")
+    print()
+    print()
+    if len(list_cards_player4) >0:
+        for i in range(1,len(list_cards_player4)+1):
+            print(str(i)+"-)",list_cards_player4[i-1])
+    print_space()
+    print("Player4, scroll up to see your cards.")
+    selection_player4_challenge = int(input("Player4, select the card to win the challenge or lose the card: "))
+    selection_player4_card_challenge = list_cards_player4[selection_player4_challenge-1]
+
+    if selection_player4 ==4:
+        print()
+        if selection_player4_card_challenge == "Duke":
+            print("Player4 has the card 'Duke' and wins the challenge. \n Player4 draws another card from the deck, and loses the card 'Duke'")
+            list_rest_of_deck.append(selection_player4_card_challenge)
+            list_cards_player4.pop(selection_player4_challenge-1)
+            list_cards_player4.append(list_rest_of_deck[0])
+            list_rest_of_deck.pop(0)
+            situation_player4_challenge = "win"
+        else:
+            print("Player4 lost the card",selection_player4_card_challenge)
+            list_eliminated_cards_player4.append(selection_player4_card_challenge)
+            list_cards_player4.pop(selection_player4_challenge-1)
+            situation_player4_challenge = "lose"
+                
+
+    if selection_player4 ==5:
+        print()
+        if selection_player4_card_challenge == "Assassin":
+            print("Player4 has the card 'Assassin' and wins the challenge. \n Player4 draws another card from the deck, and loses the card 'Assassin'")
+            list_rest_of_deck.append(selection_player4_card_challenge)
+            list_cards_player4.pop(selection_player4_challenge-1)
+            list_cards_player4.append(list_rest_of_deck[0])
+            list_rest_of_deck.pop(0)
+            situation_player4_challenge = "win"
+        else:
+            print("Player4 lost the card",selection_player4_card_challenge)
+            list_eliminated_cards_player4.append(selection_player4_card_challenge)
+            list_cards_player4.pop(selection_player4_challenge-1)
+            situation_player4_challenge = "lose"
+            
+    if selection_player4 ==6:
+        print()
+        if selection_player4_card_challenge == "Captain":
+            print("Player4 has the card 'Captain' and wins the challenge. \n Player4 draws another card from the deck, and lose the card 'Captain'")
+            list_rest_of_deck.append(selection_player4_card_challenge)
+            list_cards_player4.pop(selection_player4_challenge-1)
+            list_cards_player4.append(list_rest_of_deck[0])
+            list_rest_of_deck.pop(0)
+            situation_player4_challenge = "win"
+        else:
+            print("Player4 lost the card",selection_player4_card_challenge)
+            list_eliminated_cards_player4.append(selection_player4_card_challenge)
+            list_cards_player4.pop(selection_player4_challenge-1)
+            situation_player4_challenge = "lose"
+
+    if selection_player4 ==7:
+        print()
+        if selection_player4_card_challenge == "Ambassador":
+            print("Player4 has the card 'Ambassador' and wins the challenge. \n Player4 draws another card from the deck, and loses the card 'Ambassador'")
+            list_rest_of_deck.append(selection_player4_card_challenge)
+            list_cards_player4.pop(selection_player4_challenge-1)
+            list_cards_player4.append(list_rest_of_deck[0])
+            list_rest_of_deck.pop(0)
+            situation_player4_challenge = "win"
+        else:
+            print("Player4 lost the card",selection_player4_card_challenge)
+            list_eliminated_cards_player4.append(selection_player4_card_challenge)
+            list_cards_player4.pop(selection_player4_challenge-1)
+            situation_player4_challenge = "lose"
+      
+    print("Player4, Are you ready to see your cards?")
+    input("Write something when you are ready: ")
+    print()
+    print()
+    if len(list_cards_player4)>0:
+        for i in range(1,len(list_cards_player4)+1):
+            print(str(i)+"-)",list_cards_player4[i-1])
+    print_space()
+    print("Player4, scroll up to see your cards.")
+    list_situation_player4_challenge.append(situation_player4_challenge)
+
+
+
+    if random_4 == 1:
+        if situation_player4_challenge == "win":
+            print("Player1, are you ready to see your cards?")
+            input("Write something when you are ready: ")
+            print()
+            print()
+            if len(list_cards_player1) >0:
+                for i in range(1,len(list_cards_player1)+1):
+                    print(str(i)+"-)",list_cards_player1[i-1])
+            print_space()
+            print("Player1, scroll up to see your cards")
+            eliminate_card_player1 =int(input("Player1, select the card that you prefer to lose, using a number : "))
+            list_eliminated_cards_player1.append(list_cards_player1[eliminate_card_player1-1])
+            list_cards_player1.pop(eliminate_card_player1-1)
+                
+
+    if random_4 == 2:
+        if situation_player3_challenge == "win":
+            print("Player2, are you ready to see your cards?")
+            input("Write something when you are ready: ")
+            print()
+            print()
+            if len(list_cards_player2) > 0:
+                for i in range(1,len(list_cards_player2)+1):
+                    print(str(i)+"-)",list_cards_player2[i-1])
+            print_space()
+            print("Player2, scroll up to see your cards.")
+            eliminate_card_player2 =int(input("Player2, select the card that you prefer to lose, using a number : "))
+            list_eliminated_cards_player2.append(list_cards_player2[eliminate_card_player2-1])
+            list_cards_player2.pop(eliminate_card_player2-1)     
+            
+    if random_4 ==3:
+        if situation_player4_challenge == "win":
+            print("Player3, are you ready to see your cards?")
+            input("Write something when you are ready: ")
+            print()
+            print()
+            if len(list_cards_player3) >0:
+                for i in range(1,len(list_cards_player3)+1):
+                    print(str(i)+"-)",list_cards_player3[i-1])
+            print_space()
+            print("Player3, scroll up to see your cards.")
+            eliminate_card_player3 =int(input("Player3, select the card that you prefer to lose, using a number : "))
+            list_eliminated_cards_player3.append(list_cards_player3[eliminate_card_player3-1])
+            list_cards_player3.pop(eliminate_card_player3-1)
+        
+
+    return(list_cards_player1, list_cards_player2, list_cards_player3, list_cards_player4,list_eliminated_cards_player1,
+            list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4, list_situation_player4_challenge)
+
+
 
 def game_player4():
     print()
