@@ -84,7 +84,7 @@ def life_players(list_players,list_cards_player1,list_cards_player2,list_cards_p
 def print_coins_players(list_players):
     for i in list_players:
         print("The coins of",i.name_person,"are:",i.coins_game)
-#aca crear la funcion que printea tanto monedas como las cartas eliminadas de los jugadores
+
 
 def distribution_of_cards(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players):
 
@@ -2317,18 +2317,22 @@ def game_player4(list_players,number_players,list_cards_player1,list_cards_playe
             game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
         list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+        else:
+            print("Player1 is no longer in the game")
         #aqui inicia el turno del player2
         if list_players[1].live_game =="yes":
             print("It's player2's turn:")
             game_player2(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
-        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
-        list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
         list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+        else:
+            print("Player2 is no longer in the game")
         #aqui inicia el turno del player3
         if list_players[2].live_game =="yes":
                 print("It's player3's turn:")
-                game_player3()
+                game_player3(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
+        list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
         else:
             print("Player4 has won the game!")
             break
@@ -2592,12 +2596,16 @@ def game_player3(list_players,number_players,list_cards_player1,list_cards_playe
                 game_player4(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
         list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+            else:
+                print("Player4 is no longer in the game")
          #aqui inicia el turno del player1
         if list_players[0].live_game =="yes":
             print("It's player1's turn")
             game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
         list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+        else:
+            print("Player1 is no longer in the game")
         #aqui inicia el turno del player2
         if list_players[1].live_game =="yes":
             print("It's player2's turn:")
@@ -2865,6 +2873,8 @@ def game_player2(list_players,number_players,list_cards_player1,list_cards_playe
             game_player3(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
         list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+        else: 
+            print("Player3 is no longer in the game")
         #aqui inicia el turno del player4
         if  number_players ==4:
             if list_players[3].live_game =="yes":
@@ -2872,12 +2882,15 @@ def game_player2(list_players,number_players,list_cards_player1,list_cards_playe
                 game_player4(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
         list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+            else:
+                print("Player4 is no longer in the game")
          #aqui inicia el turno del player1
         if list_players[0].live_game =="yes":
             print("Player1, it's your turn:")
             game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
         list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+        
         else:
             print("Player2 has won the game!")
             break
@@ -3125,12 +3138,16 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
             game_player2(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
         list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+        else:
+            print("Player2 is no longer in the game.")
         #aqui inicia el turno del player3
         if list_players[2].live_game =="yes":
             print("Player3, it's your turn:")
             game_player3(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
         list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+        else:
+            print("Player3 is no longer in the game.")
         if number_players==4:
         #aqui inicia el turno del player4
             
@@ -3139,6 +3156,8 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                 game_player4(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
         list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+            else:
+                print("Player4 is no longer in the game.")
         else: 
             print("Player1 has won the game!")
             break
