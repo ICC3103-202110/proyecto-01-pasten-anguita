@@ -188,7 +188,7 @@ def player1_actions(selection_player1,list_players, list_cards_player1,list_card
                 select_eliminate_coup = int(input("player2, select the card that you want delete, using a number:"))
                 card_eliminate_coup = list_cards_player2[select_eliminate_coup -1]
                 list_eliminated_cards_player2.append(card_eliminate_coup)
-                list_cards_player2.pop(select_eliminate_coup)
+                list_cards_player2.pop(select_eliminate_coup-1)
 
             if player1_coup ==2:
                 input("player3, are you ready to see your cards, write something when you are ready: ")
@@ -200,7 +200,7 @@ def player1_actions(selection_player1,list_players, list_cards_player1,list_card
                 select_eliminate_coup = int(input("player3, select the card that you want delete, using a number:"))
                 card_eliminate_coup = list_cards_player3[select_eliminate_coup -1]
                 list_eliminated_cards_player3.append(card_eliminate_coup)
-                list_cards_player3.pop(select_eliminate_coup)
+                list_cards_player3.pop(select_eliminate_coup-1)
 
             if player1_coup ==3:
                 input("player4, are you ready to see your cards, write something when you are ready: ")
@@ -212,7 +212,7 @@ def player1_actions(selection_player1,list_players, list_cards_player1,list_card
                 select_eliminate_coup = int(input("player4, select the card that you want delete, using a number:"))
                 card_eliminate_coup = list_cards_player4[select_eliminate_coup -1]
                 list_eliminated_cards_player4.append(card_eliminate_coup)
-                list_cards_player4.pop(select_eliminate_coup)
+                list_cards_player4.pop(select_eliminate_coup-1)
             print("The coup action was done")
 
         if selection_player1 == 4:
@@ -411,7 +411,7 @@ def player2_actions(selection_player2,list_players, list_cards_player1,list_card
                 select_eliminate_coup = int(input("player1, select the card that you want delete, using a number:"))
                 card_eliminate_coup = list_cards_player1[select_eliminate_coup -1]
                 list_eliminated_cards_player1.append(card_eliminate_coup)
-                list_cards_player1.pop(select_eliminate_coup)
+                list_cards_player1.pop(select_eliminate_coup-1)
 
             if player2_coup ==2:
                 input("player3, are you ready to see your cards? Write something when you are ready: ")
@@ -423,7 +423,7 @@ def player2_actions(selection_player2,list_players, list_cards_player1,list_card
                 select_eliminate_coup = int(input("player3, select the card that you want delete, using a number:"))
                 card_eliminate_coup = list_cards_player3[select_eliminate_coup -1]
                 list_eliminated_cards_player3.append(card_eliminate_coup)
-                list_cards_player3.pop(select_eliminate_coup)
+                list_cards_player3.pop(select_eliminate_coup-1)
 
             if player2_coup ==3:
                 input("player4, are you ready to see your cards, write something when you are ready: ")
@@ -435,7 +435,7 @@ def player2_actions(selection_player2,list_players, list_cards_player1,list_card
                 select_eliminate_coup = int(input("player4, select the card that you want to turn over, using a number:"))
                 card_eliminate_coup = list_cards_player4[select_eliminate_coup -1]
                 list_eliminated_cards_player4.append(card_eliminate_coup)
-                list_cards_player4.pop(select_eliminate_coup)
+                list_cards_player4.pop(select_eliminate_coup-1)
             print("The coup action was done")
 
     
@@ -636,7 +636,7 @@ def player3_actions(selection_player3,list_players, list_cards_player1,list_card
                 select_eliminate_coup = int(input("player1, select the card that you want delete, using a number:"))
                 card_eliminate_coup = list_cards_player1[select_eliminate_coup -1]
                 list_eliminated_cards_player1.append(card_eliminate_coup)
-                list_cards_player1.pop(select_eliminate_coup)
+                list_cards_player1.pop(select_eliminate_coup-1)
 
             if player3_coup ==1:
                 input("player2, are you ready to see your cards? Write something when you are ready: ")
@@ -648,7 +648,7 @@ def player3_actions(selection_player3,list_players, list_cards_player1,list_card
                 select_eliminate_coup = int(input("player2, select the card that you want delete, using a number:"))
                 card_eliminate_coup = list_cards_player2[select_eliminate_coup -1]
                 list_eliminated_cards_player2.append(card_eliminate_coup)
-                list_cards_player2.pop(select_eliminate_coup)
+                list_cards_player2.pop(select_eliminate_coup-1)
 
             if player3_coup ==3:
                 input("player4, are you ready to see your cards, write something when you are ready: ")
@@ -660,7 +660,7 @@ def player3_actions(selection_player3,list_players, list_cards_player1,list_card
                 select_eliminate_coup = int(input("player4, select the card that you want to turn over, using a number:"))
                 card_eliminate_coup = list_cards_player4[select_eliminate_coup -1]
                 list_eliminated_cards_player4.append(card_eliminate_coup)
-                list_cards_player4.pop(select_eliminate_coup)
+                list_cards_player4.pop(select_eliminate_coup-1)
             print("The coup action was done")
 
     
@@ -862,7 +862,7 @@ def player4_actions(selection_player4,list_players, list_cards_player1,list_card
                 select_eliminate_coup = int(input("player1, select the card that you want delete, using a number:"))
                 card_eliminate_coup = list_cards_player1[select_eliminate_coup -1]
                 list_eliminated_cards_player1.append(card_eliminate_coup)
-                list_cards_player1.pop(select_eliminate_coup)
+                list_cards_player1.pop(select_eliminate_coup-1)
 
             if player4_coup ==1:
                 input("player2, are you ready to see your cards? Write something when you are ready: ")
@@ -874,7 +874,7 @@ def player4_actions(selection_player4,list_players, list_cards_player1,list_card
                 select_eliminate_coup = int(input("player2, select the card that you want delete, using a number:"))
                 card_eliminate_coup = list_cards_player2[select_eliminate_coup -1]
                 list_eliminated_cards_player2.append(card_eliminate_coup)
-                list_cards_player2.pop(select_eliminate_coup)
+                list_cards_player2.pop(select_eliminate_coup-1)
 
             if player4_coup ==2:
                 input("player3, are you ready to see your cards, write something when you are ready: ")
@@ -886,7 +886,7 @@ def player4_actions(selection_player4,list_players, list_cards_player1,list_card
                 select_eliminate_coup = int(input("player3, select the card that you want to turn over, using a number:"))
                 card_eliminate_coup = list_cards_player3[select_eliminate_coup -1]
                 list_eliminated_cards_player3.append(card_eliminate_coup)
-                list_cards_player3.pop(select_eliminate_coup)
+                list_cards_player3.pop(select_eliminate_coup-1)
             print("The coup action was done")
 
     
