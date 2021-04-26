@@ -1386,7 +1386,7 @@ def counterattack_player4(random_4,selection_player4,list_situation_player4_coun
                             list_cards_player3,list_cards_player4,number_players,list_eliminated_cards_player1,
                             list_eliminated_cards_player2,list_eliminated_cards_player3,list_eliminated_cards_player4,list_players):
    
-  if number_players==4 
+  if number_players==4: 
     #quien contraataca (random_4)
     if random_4 ==1:
         print("Player1 will counterattack player4")
@@ -1967,7 +1967,7 @@ def challenge_player4(number_players,random_4,list_cards_player1,list_cards_play
                         list_eliminated_cards_player1,list_eliminated_cards_player2, 
                         list_eliminated_cards_player3, list_eliminated_cards_player4, list_situation_player4_challenge):
 
-  if number_players ==4:
+    if number_players ==4:
         print()
         if random_4 == 1:
             print("Player1 will challenge player4")
@@ -1976,137 +1976,137 @@ def challenge_player4(number_players,random_4,list_cards_player1,list_cards_play
         if random_4 ==3:
             print("Player3 will challenge player4")
             
-    print("Player4, Are you ready to see your cards?")
-    input("Write something when you are ready: ")
-    print()
-    print()
-    if len(list_cards_player4) >0:
-        for i in range(1,len(list_cards_player4)+1):
-            print(str(i)+"-)",list_cards_player4[i-1])
-    print_space()
-    print("Player4, scroll up to see your cards.")
-    selection_player4_challenge = int(input("Player4, select the card to win the challenge or lose the card: "))
-    selection_player4_card_challenge = list_cards_player4[selection_player4_challenge-1]
-
-    if selection_player4 ==4:
+        print("Player4, are you ready to see your cards?")
+        input("Write something when you are ready: ")
         print()
-        if selection_player4_card_challenge == "Duke":
-            print("Player4 has the card 'Duke' and wins the challenge. \n Player4 draws another card from the deck, and loses the card 'Duke'")
-            list_rest_of_deck.append(selection_player4_card_challenge)
-            list_cards_player4.pop(selection_player4_challenge-1)
-            list_cards_player4.append(list_rest_of_deck[0])
-            list_rest_of_deck.pop(0)
-            situation_player4_challenge = "win"
-        else:
-            print("Player4 lost the card",selection_player4_card_challenge)
-            list_eliminated_cards_player4.append(selection_player4_card_challenge)
-            list_cards_player4.pop(selection_player4_challenge-1)
-            situation_player4_challenge = "lose"
+        print()
+        if len(list_cards_player4) >0:
+            for i in range(1,len(list_cards_player4)+1):
+                print(str(i)+"-)",list_cards_player4[i-1])
+        print_space()
+        print("Player4, scroll up to see your cards.")
+        selection_player4_challenge = int(input("Player4, select the card to win the challenge or lose the card: "))
+        selection_player4_card_challenge = list_cards_player4[selection_player4_challenge-1]
+
+        if selection_player4 ==4:
+            print()
+            if selection_player4_card_challenge == "Duke":
+                print("Player4 has the card 'Duke' and wins the challenge. \n Player4 draws another card from the deck, and loses the card 'Duke'")
+                list_rest_of_deck.append(selection_player4_card_challenge)
+                list_cards_player4.pop(selection_player4_challenge-1)
+                list_cards_player4.append(list_rest_of_deck[0])
+                list_rest_of_deck.pop(0)
+                situation_player4_challenge = "win"
+            else:
+                print("Player4 lost the card",selection_player4_card_challenge)
+                list_eliminated_cards_player4.append(selection_player4_card_challenge)
+                list_cards_player4.pop(selection_player4_challenge-1)
+                situation_player4_challenge = "lose"
                 
 
-    if selection_player4 ==5:
-        print()
-        if selection_player4_card_challenge == "Assassin":
-            print("Player4 has the card 'Assassin' and wins the challenge. \n Player4 draws another card from the deck, and loses the card 'Assassin'")
-            list_rest_of_deck.append(selection_player4_card_challenge)
-            list_cards_player4.pop(selection_player4_challenge-1)
-            list_cards_player4.append(list_rest_of_deck[0])
-            list_rest_of_deck.pop(0)
-            situation_player4_challenge = "win"
-        else:
-            print("Player4 lost the card",selection_player4_card_challenge)
-            list_eliminated_cards_player4.append(selection_player4_card_challenge)
-            list_cards_player4.pop(selection_player4_challenge-1)
-            situation_player4_challenge = "lose"
+        if selection_player4 ==5:
+            print()
+            if selection_player4_card_challenge == "Assassin":
+                print("Player4 has the card 'Assassin' and wins the challenge. \n Player4 draws another card from the deck, and loses the card 'Assassin'")
+                list_rest_of_deck.append(selection_player4_card_challenge)
+                list_cards_player4.pop(selection_player4_challenge-1)
+                list_cards_player4.append(list_rest_of_deck[0])
+                list_rest_of_deck.pop(0)
+                situation_player4_challenge = "win"
+            else:
+                print("Player4 lost the card",selection_player4_card_challenge)
+                list_eliminated_cards_player4.append(selection_player4_card_challenge)
+                list_cards_player4.pop(selection_player4_challenge-1)
+                situation_player4_challenge = "lose"
             
-    if selection_player4 ==6:
-        print()
-        if selection_player4_card_challenge == "Captain":
-            print("Player4 has the card 'Captain' and wins the challenge. \n Player4 draws another card from the deck, and lose the card 'Captain'")
-            list_rest_of_deck.append(selection_player4_card_challenge)
-            list_cards_player4.pop(selection_player4_challenge-1)
-            list_cards_player4.append(list_rest_of_deck[0])
-            list_rest_of_deck.pop(0)
-            situation_player4_challenge = "win"
-        else:
-            print("Player4 lost the card",selection_player4_card_challenge)
-            list_eliminated_cards_player4.append(selection_player4_card_challenge)
-            list_cards_player4.pop(selection_player4_challenge-1)
-            situation_player4_challenge = "lose"
+        if selection_player4 ==6:
+            print()
+            if selection_player4_card_challenge == "Captain":
+                print("Player4 has the card 'Captain' and wins the challenge. \n Player4 draws another card from the deck, and lose the card 'Captain'")
+                list_rest_of_deck.append(selection_player4_card_challenge)
+                list_cards_player4.pop(selection_player4_challenge-1)
+                list_cards_player4.append(list_rest_of_deck[0])
+                list_rest_of_deck.pop(0)
+                situation_player4_challenge = "win"
+            else:
+                print("Player4 lost the card",selection_player4_card_challenge)
+                list_eliminated_cards_player4.append(selection_player4_card_challenge)
+                list_cards_player4.pop(selection_player4_challenge-1)
+                situation_player4_challenge = "lose"
 
-    if selection_player4 ==7:
-        print()
-        if selection_player4_card_challenge == "Ambassador":
-            print("Player4 has the card 'Ambassador' and wins the challenge. \n Player4 draws another card from the deck, and loses the card 'Ambassador'")
-            list_rest_of_deck.append(selection_player4_card_challenge)
-            list_cards_player4.pop(selection_player4_challenge-1)
-            list_cards_player4.append(list_rest_of_deck[0])
-            list_rest_of_deck.pop(0)
-            situation_player4_challenge = "win"
-        else:
-            print("Player4 lost the card",selection_player4_card_challenge)
-            list_eliminated_cards_player4.append(selection_player4_card_challenge)
-            list_cards_player4.pop(selection_player4_challenge-1)
-            situation_player4_challenge = "lose"
+        if selection_player4 ==7:
+            print()
+            if selection_player4_card_challenge == "Ambassador":
+                print("Player4 has the card 'Ambassador' and wins the challenge. \n Player4 draws another card from the deck, and loses the card 'Ambassador'")
+                list_rest_of_deck.append(selection_player4_card_challenge)
+                list_cards_player4.pop(selection_player4_challenge-1)
+                list_cards_player4.append(list_rest_of_deck[0])
+                list_rest_of_deck.pop(0)
+                situation_player4_challenge = "win"
+            else:
+                print("Player4 lost the card",selection_player4_card_challenge)
+                list_eliminated_cards_player4.append(selection_player4_card_challenge)
+                list_cards_player4.pop(selection_player4_challenge-1)
+                situation_player4_challenge = "lose"
       
-    print("Player4, Are you ready to see your cards?")
-    input("Write something when you are ready: ")
-    print()
-    print()
-    if len(list_cards_player4)>0:
-        for i in range(1,len(list_cards_player4)+1):
-            print(str(i)+"-)",list_cards_player4[i-1])
-    print_space()
-    print("Player4, scroll up to see your cards.")
-    list_situation_player4_challenge.append(situation_player4_challenge)
+        print("Player4, Are you ready to see your cards?")
+        input("Write something when you are ready: ")
+        print()
+        print()
+        if len(list_cards_player4)>0:
+            for i in range(1,len(list_cards_player4)+1):
+                print(str(i)+"-)",list_cards_player4[i-1])
+        print_space()
+        print("Player4, scroll up to see your cards.")
+        list_situation_player4_challenge.append(situation_player4_challenge)
 
 
 
-    if random_4 == 1:
-        if situation_player4_challenge == "win":
-            print("Player1, are you ready to see your cards?")
-            input("Write something when you are ready: ")
-            print()
-            print()
-            if len(list_cards_player1) >0:
-                for i in range(1,len(list_cards_player1)+1):
-                    print(str(i)+"-)",list_cards_player1[i-1])
-            print_space()
-            print("Player1, scroll up to see your cards")
-            eliminate_card_player1 =int(input("Player1, select the card that you prefer to lose, using a number : "))
-            list_eliminated_cards_player1.append(list_cards_player1[eliminate_card_player1-1])
-            list_cards_player1.pop(eliminate_card_player1-1)
+        if random_4 == 1:
+            if situation_player4_challenge == "win":
+                print("Player1, are you ready to see your cards?")
+                input("Write something when you are ready: ")
+                print()
+                print()
+                if len(list_cards_player1) >0:
+                    for i in range(1,len(list_cards_player1)+1):
+                        print(str(i)+"-)",list_cards_player1[i-1])
+                print_space()
+                print("Player1, scroll up to see your cards")
+                eliminate_card_player1 =int(input("Player1, select the card that you prefer to lose, using a number : "))
+                list_eliminated_cards_player1.append(list_cards_player1[eliminate_card_player1-1])
+                list_cards_player1.pop(eliminate_card_player1-1)
                 
 
-    if random_4 == 2:
-        if situation_player3_challenge == "win":
-            print("Player2, are you ready to see your cards?")
-            input("Write something when you are ready: ")
-            print()
-            print()
-            if len(list_cards_player2) > 0:
-                for i in range(1,len(list_cards_player2)+1):
-                    print(str(i)+"-)",list_cards_player2[i-1])
-            print_space()
-            print("Player2, scroll up to see your cards.")
-            eliminate_card_player2 =int(input("Player2, select the card that you prefer to lose, using a number : "))
-            list_eliminated_cards_player2.append(list_cards_player2[eliminate_card_player2-1])
-            list_cards_player2.pop(eliminate_card_player2-1)     
+        if random_4 == 2:
+            if situation_player3_challenge == "win":
+                print("Player2, are you ready to see your cards?")
+                input("Write something when you are ready: ")
+                print()
+                print()
+                if len(list_cards_player2) > 0:
+                    for i in range(1,len(list_cards_player2)+1):
+                        print(str(i)+"-)",list_cards_player2[i-1])
+                print_space()
+                print("Player2, scroll up to see your cards.")
+                eliminate_card_player2 =int(input("Player2, select the card that you prefer to lose, using a number : "))
+                list_eliminated_cards_player2.append(list_cards_player2[eliminate_card_player2-1])
+                list_cards_player2.pop(eliminate_card_player2-1)     
             
-    if random_4 ==3:
-        if situation_player4_challenge == "win":
-            print("Player3, are you ready to see your cards?")
-            input("Write something when you are ready: ")
-            print()
-            print()
-            if len(list_cards_player3) >0:
-                for i in range(1,len(list_cards_player3)+1):
-                    print(str(i)+"-)",list_cards_player3[i-1])
-            print_space()
-            print("Player3, scroll up to see your cards.")
-            eliminate_card_player3 =int(input("Player3, select the card that you prefer to lose, using a number : "))
-            list_eliminated_cards_player3.append(list_cards_player3[eliminate_card_player3-1])
-            list_cards_player3.pop(eliminate_card_player3-1)
+        if random_4 ==3:
+            if situation_player4_challenge == "win":
+                print("Player3, are you ready to see your cards?")
+                input("Write something when you are ready: ")
+                print()
+                print()
+                if len(list_cards_player3) >0:
+                    for i in range(1,len(list_cards_player3)+1):
+                        print(str(i)+"-)",list_cards_player3[i-1])
+                print_space()
+                print("Player3, scroll up to see your cards.")
+                eliminate_card_player3 =int(input("Player3, select the card that you prefer to lose, using a number : "))
+                list_eliminated_cards_player3.append(list_cards_player3[eliminate_card_player3-1])
+                list_cards_player3.pop(eliminate_card_player3-1)
         
 
     return(list_cards_player1, list_cards_player2, list_cards_player3, list_cards_player4,list_eliminated_cards_player1,
@@ -2114,12 +2114,773 @@ def challenge_player4(number_players,random_4,list_cards_player1,list_cards_play
 
 
 
-def game_player4():
-    print()
-def game_player3():
-    print()
-def game_player2():
-    print()
+def game_player4(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
+        list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4):
+    list_all_actions = ["income","foreign help","Coup","Duke-Taxes","Assassin-Assassination",
+                                   "Captain-Extortion", "Ambassador-Change"]
+    i = 0
+    while True:
+
+ 
+            
+        if list_players[3].live_game =="yes":
+            
+            if list_players[3].coins_game < 10:
+                print_actions()
+                print()
+                selection_player4 = int(input("Player4, it's your turn. Choose an action using a number: "))
+                print()
+
+                #estas son las funciones de la seleccion del player4
+                #coup:
+                if selection_player4 ==3:
+                    if list_players[3].coins_game -7 >= 0:
+                        list_players[3].coins_game -=7
+                        player4_actions(selection_player4,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                        list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                        list_eliminated_cards_player3, list_eliminated_cards_player4)
+                    else:
+                        while True:
+                            selection_player4 = int(input("Player4, you dont have the coins for this action. \nSelect another action, using a number: "))
+                            if selection_player4 !=3 :
+                                break
+                #asesino
+                if selection_player4 ==5:
+                    if list_players[3].coins_game -3 >= 0:
+                        list_players[3].coins_game -= 3
+                        print_challenge_or_counterattack()
+                    else:
+                        while True:
+                            selection_player4 = int(input("player4, you dont have the coins for this action, \nSelect other action, using a number: "))
+                            if selection_player4 != 5 and selection_player4 != 3:
+                                break
+                
+                #income:
+                if selection_player4 == 1:
+                    list_players[3].coins_game += 1
+                    print("A coin has been added to player4")
+                    print()
+                    print_coins_players(list_players)
+
+                    
+                
+                #capitan(steal):          
+                if selection_player4 ==6:
+                    print_challenge_or_counterattack()
+                #foreign aid:
+                if selection_player4 == 2:
+                    print_counterattack()
+                #duke/ambassador
+                if selection_player4 == 4 or selection_player4 ==7:
+                    print_challenge()
+
+                
+
+                #aqui parte los desafios o contraataques para el player4
+
+                if selection_player4 != 1 and selection_player4 !=3:
+                    if list_players[0].live_game == "yes":
+                        selection_player1 =int(input("Player1, choose an option using a number: "))
+                    else:
+                        selection_player1 = 0
+                    if list_players[1].live_game == "yes":
+                        selection_player2 =int(input("Player2, choose a option using a number: "))
+                    else: 
+                        selection_player2 = 0
+                    
+                    if list_players[2].live_game =="yes":
+                            selection_player3 = int(input("Player3, choose a option using a number: "))
+                    else:
+                            selection_player3 = 0
+
+                    #esta la parte del desafio
+                    situation_player4_challenge =""
+                    situation_player4_counterattack =""
+                    
+                    if number_players == 4:
+                        #esta es la parte del desafio para 4 jugadores en el turno del jugador4
+                        if (selection_player1 == 1 or selection_player2 == 1 or selection_player3==1) and (selection_player4==4 or selection_player4 ==5
+                            or selection_player4 ==6 or selection_player4==7):
+                            
+                            if selection_player1 ==1 and selection_player2 !=1 and selection_player3 !=1:
+                                random_4 = 1
+                            elif selection_player1 !=1 and selection_player2 ==1 and selection_player3 !=1:
+                                random_4 =2
+                            elif selection_player1 !=1 and selection_player2 !=1 and selection_player3 ==1:
+                                random_4 =3
+                            elif selection_player1 ==1 and selection_player2 ==1 and selection_player3 !=1:
+                                print("Whoever challenges player4, will be chosen at random")
+                                random_4 = random.randint(1,2)
+                        
+                            elif selection_player1 ==1 and selection_player2 !=1 and selection_player3 ==1:
+                                print("Whoever challenges player4, will be chosen at random")
+                                random_4 = random.randint(1,2)
+                                if random_4 ==2:
+                                    random_4 =3
+    
+                            elif selection_player1 !=1 and selection_player2 ==1 and selection_player3 ==1:
+                                print("Whoever challenges player4, will be chosen at random")
+                                random_4 = random.randint(2,3)
+                                
+                            elif selection_player1 ==1 and selection_player2 ==1 and selection_player3 ==1:
+                                print("Whoever challenges player4, will be chosen at random")
+                                random_4 =random.randint(1,3)
+                                
+                            list_situation_player4_challenge =[]
+                            challenge_player4(number_players,random_4,list_cards_player1,list_cards_player2,
+                                                list_cards_player3, list_cards_player4, selection_player3, list_rest_of_deck,
+                                                list_eliminated_cards_player1,list_eliminated_cards_player2, 
+                                                list_eliminated_cards_player3, list_eliminated_cards_player4, list_situation_player4_challenge)
+                            life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+
+                            situation_player4_challenge = list_situation_player4_challenge[0]
+                            list_situation_player4_challenge =[]
+                            life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+
+
+                        #esta es la parte del contraattaque para 4 jugadores en el turno del player3
+                        if (selection_player1 ==2 or selection_player2 ==2 or selection_player3 ==2 ) and (selection_player4 ==2 or 
+                            selection_player4 ==5 or selection_player4 ==6) and situation_player4_challenge != "lose":
+                                print("Counterattack!")
+                                if selection_player1 ==2 and selection_player2 !=2 and selection_player3 !=2:
+                                    random_4 =1
+                                if selection_player1 !=2 and selection_player2 ==2 and selection_player3 !=2:
+                                    random_4 =2
+                                if selection_player1 !=2 and selection_player2 !=2 and selection_player3 ==2:
+                                    random_4 =3
+                                if selection_player1 ==2 and selection_player2 ==2 and selection_player3 !=2:
+                                    print("Whoever counterattacks player4, will be chosen at random")
+                                    random_4 =random.randint(1,2)
+                                    
+                                if selection_player1 ==2 and selection_player2 !=2 and selection_player3 ==2:
+                                    print("Whoever counterattacks player4, will be chosen at random")
+                                    random_4 =random.randint(1,2)
+                                    if random_4 ==2:
+                                        random_4 = 3
+                                    
+                                if selection_player1 !=2 and selection_player2 ==2 and selection_player3 ==2:
+                                    print("Whoever counterattacks player4, will be chosen at random")
+                                    random_4 =random.randint(2,3)
+                                   
+                                if selection_player1 ==2 and selection_player2 ==2 and selection_player3 ==2:
+                                    print("Whoever counterattacks player3, will be chosen at random")
+                                    random_4 =random.randint(1,3)
+                                    
+
+                                list_situation_player4_counterattack = []
+                                counterattack_player4(random_4,selection_player4,list_situation_player4_counterattack,list_cards_player1,
+                                                    list_cards_player2, list_cards_player3,list_cards_player4,number_players,
+                                                    list_eliminated_cards_player1,list_eliminated_cards_player2,list_eliminated_cards_player3,
+                                                    list_eliminated_cards_player4,list_players)
+                                                    
+                                situation_player4_counterattack = list_situation_player4_counterattack[0]
+                                list_situation_player4_counterattack = []
+                                life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+
+                    #aca se ven las acciones del player4 despues de los desafios o contraataques, hay que revisarlo
+                    
+                    if situation_player4_challenge == "win" and situation_player4_counterattack =="win":
+                        player4_actions(selection_player4,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                    if situation_player4_challenge =="win" and situation_player4_counterattack =="":
+                        player4_actions(selection_player4,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                    if situation_player4_challenge =="" and situation_player4_counterattack =="win":
+                        player4_actions(selection_player4,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                    if situation_player4_challenge =="" and situation_player4_counterattack =="":
+                        player4_actions(selection_player4,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                    life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+                    
+                    if selection_player4 ==5 and situation_player4_challenge =="lose":
+                        list_players[3].coins_game +=3
+
+            elif list_players[3].coins_game >= 10:
+                selection_player4 = 3
+                list_players[3].coins_game -=7
+                player4_actions(selection_player4,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+
+       
+        
+    
+         #aqui inicia el turno del player1
+        if list_players[0].live_game =="yes":
+            print("It's player1's turn")
+            game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
+        list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+        #aqui inicia el turno del player2
+        if list_players[1].live_game =="yes":
+            print("It's player2's turn:")
+            game_player2(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
+        list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
+        list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+        #aqui inicia el turno del player3
+        if list_players[2].live_game =="yes":
+                print("It's player3's turn:")
+                game_player3()
+        else:
+            print("Player4 has won the game!")
+            break
+
+def game_player3(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
+        list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4):
+    list_all_actions = ["income","foreign help","Coup","Duke-Taxes","Assassin-Assassination",
+                                   "Captain-Extortion", "Ambassador-Change"]
+    i = 0
+    while True:
+
+        #sigue vivo el player3?:
+            
+        if list_players[2].live_game =="yes":
+            
+            if list_players[2].coins_game < 10:
+                print_actions()
+                print()
+                selection_player3 = int(input("Player3, it's your turn. Choose an action using a number: "))
+                print()
+
+                #estas son las funciones de la seleccion del player3
+                #coup:
+                if selection_player3 ==3:
+                    if list_players[2].coins_game -7 >= 0:
+                        list_players[2].coins_game -=7
+                        player3_actions(selection_player3,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                        list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                        list_eliminated_cards_player3, list_eliminated_cards_player4)
+                    else:
+                        while True:
+                            selection_player3 = int(input("Player3, you dont have the coins for this action. \nSelect another action, using a number: "))
+                            if selection_player3 !=3 :
+                                break
+                #asesino
+                if selection_player3 ==5:
+                    if list_players[2].coins_game -3 >= 0:
+                        list_players[2].coins_game -= 3
+                        print_challenge_or_counterattack()
+                    else:
+                        while True:
+                            selection_player3 = int(input("player3, you dont have the coins for this action, \nSelect other action, using a number: "))
+                            if selection_player3 != 5 and selection_player3 != 3:
+                                break
+                
+                #income:
+                if selection_player3 == 1:
+                    list_players[2].coins_game += 1
+                    print("A coin has been added to player3")
+                    print()
+                    print_coins_players(list_players)
+
+                    
+                
+                #capitan(steal):          
+                if selection_player3 ==6:
+                    print_challenge_or_counterattack()
+                #foreign aid:
+                if selection_player3 == 2:
+                    print_counterattack()
+                #duke/ambassador
+                if selection_player3 == 4 or selection_player3 ==7:
+                    print_challenge()
+
+                
+
+                #aqui parte los desafios o contraataques para el player3
+
+                if selection_player3 != 1 and selection_player3 !=3:
+                    if list_players[0].live_game == "yes":
+                        selection_player1 =int(input("Player1, choose an option using a number: "))
+                    else:
+                        selection_player1 = 0
+                    if list_players[1].live_game == "yes":
+                        selection_player2 =int(input("Player2, choose a option using a number: "))
+                    else: 
+                        selection_player2 = 0
+                    if number_players ==4:
+                        if list_players[3].live_game =="yes":
+                            selection_player4 = int(input("Player4, choose a option using a number: "))
+                        else:
+                            selection_player4 = 0
+
+                    #esta la parte del desafio
+                    situation_player3_challenge =""
+                    situation_player3_counterattack =""
+                    if number_players ==3:
+                        #esta es la parte del desafio para 3 jugadores en el turno del jugador3
+                        #si algun player (no el de turno) elige 1(challenge)
+                        #y player3 elige algo que se puede desafiar:
+                        if (selection_player1 == 1 or selection_player2 == 1) and (selection_player3==4 or selection_player3==5
+                            or selection_player3 ==6 or selection_player3==7):
+
+                            print()
+                            #si los dos desafían:
+                            if selection_player1 ==1 and selection_player2 ==1:
+                                print("Whoever challenges player3, will be chosen at random.")
+                                random_3 = random.randint(1,2)
+                            
+                            #si no desafían ambos:
+                            elif selection_player1 ==1 and selection_player2 !=1:
+                                random_3 =1
+                            elif selection_player1 !=1 and selection_player2 ==1:
+                                random_3 = 2
+                            list_situation_player3_challenge =[]
+                            challenge_player3(number_players,random_3,list_cards_player1,list_cards_player2,
+                                                list_cards_player3, list_cards_player4, selection_player3, list_rest_of_deck,
+                                                list_eliminated_cards_player1,list_eliminated_cards_player2, 
+                                                list_eliminated_cards_player3, list_eliminated_cards_player4, list_situation_player3_challenge)
+                            life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+
+                            situation_player3_challenge =list_situation_player3_challenge[0]
+                            list_situation_player3_challenge =[]
+                            life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+
+                        #aqui comienza el contraatque para el jugador3
+                        if (selection_player1 ==2 or selection_player2 ==2) and (selection_player3 ==2 or selection_player3 ==5 or 
+                                selection_player3 ==6) and situation_player3_challenge != "lose":
+                                
+                                if selection_player1 ==2 and selection_player2 !=2:
+                                    random_3 =1
+                                if selection_player1 !=2 and selection_player2 ==2:
+                                    random_3 =2
+                                if selection_player1 ==2 and selection_player2 ==2:
+                                    print("Whoever counterattacks player3, will be chosen at random")
+                                    random_3 =random.randint(1,2)
+                                
+
+                                list_situation_player3_counterattack = []
+                                counterattack_player3(random_3,selection_player3,list_situation_player3_counterattack,list_cards_player1,
+                                                    list_cards_player2, list_cards_player3,list_cards_player4,number_players,
+                                                    list_eliminated_cards_player1,list_eliminated_cards_player2,list_eliminated_cards_player3,
+                                                    list_eliminated_cards_player4,list_players)
+
+                                situation_player3_counterattack = list_situation_player3_counterattack[0]
+                                list_situation_player3_counterattack = []
+                                life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+
+                    if number_players == 4:
+                        #esta es la parte del desafio para 4 jugadores en el turno del jugador3
+                        if (selection_player1 == 1 or selection_player2 == 1 or selection_player4==1) and (selection_player3==4 or selection_player3 ==5
+                            or selection_player3 ==6 or selection_player3==7):
+                            
+                            if selection_player1 ==1 and selection_player2 !=1 and selection_player4 !=1:
+                                random_3 = 1
+                            elif selection_player1 !=1 and selection_player2 ==1 and selection_player4 !=1:
+                                random_3 =2
+                            elif selection_player1 !=1 and selection_player2 !=1 and selection_player4 ==1:
+                                random_3 =4
+                            elif selection_player1 ==1 and selection_player2 ==1 and selection_player4 !=1:
+                                print("Whoever challenges player3, will be chosen at random")
+                                random_3 = random.randint(1,2)
+                        
+                            elif selection_player1 ==1 and selection_player2 !=1 and selection_player4 ==1:
+                                print("Whoever challenges player3, will be chosen at random")
+                                random_3 = random.randint(1,2)
+                                if random_3 ==2:
+                                    random_3 =4
+    
+                            elif selection_player1 !=1 and selection_player2 ==1 and selection_player4 ==1:
+                                print("Whoever challenges player3, will be chosen at random")
+                                random_3 = random.randint(3,4)
+                                if random_3==3:
+                                    random_3=1
+                            elif selection_player1 ==1 and selection_player2 ==1 and selection_player4 ==1:
+                                print("Whoever challenges player3, will be chosen at random")
+                                random_3 =random.randint(2,4)
+                                if random_3==3:
+                                    random_3=1
+                            list_situation_player3_challenge =[]
+                            challenge_player3(number_players,random_3,list_cards_player1,list_cards_player2,
+                                                list_cards_player3, list_cards_player4, selection_player3, list_rest_of_deck,
+                                                list_eliminated_cards_player1,list_eliminated_cards_player2, 
+                                                list_eliminated_cards_player3, list_eliminated_cards_player4, list_situation_player3_challenge)
+                            life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+
+                            situation_player3_challenge = list_situation_player3_challenge[0]
+                            list_situation_player3_challenge =[]
+                            life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+
+
+                        #esta es la parte del contraattaque para 4 jugadores en el turno del player3
+                        if (selection_player1 ==2 or selection_player2 ==2 or selection_player4 ==2 ) and (selection_player3 ==2 or 
+                            selection_player3 ==5 or selection_player3 ==6) and situation_player3_challenge != "lose":
+                                print("Counterattack!")
+                                if selection_player1 ==2 and selection_player2 !=2 and selection_player4 !=2:
+                                    random_3 =1
+                                if selection_player1 !=2 and selection_player2 ==2 and selection_player4 !=2:
+                                    random_3 =2
+                                if selection_player1 !=2 and selection_player2 !=2 and selection_player4 ==2:
+                                    random_3 =4
+                                if selection_player1 ==2 and selection_player2 ==2 and selection_player4 !=2:
+                                    print("Whoever counterattacks player3, will be chosen at random")
+                                    random_3 =random.randint(1,2)
+                                    
+                                if selection_player1 ==2 and selection_player2 !=2 and selection_player4 ==2:
+                                    print("Whoever counterattacks player3, will be chosen at random")
+                                    random_3 =random.randint(1,2)
+                                    if random_3 ==2:
+                                        random_3 = 4
+                                    
+                                if selection_player1 !=2 and selection_player2 ==2 and selection_player4 ==2:
+                                    print("Whoever counterattacks player3, will be chosen at random")
+                                    random_3 =random.randint(3,4)
+                                    if random_3==3:
+                                        random_3=2
+
+                                if selection_player1 ==2 and selection_player2 ==2 and selection_player4 ==2:
+                                    print("Whoever counterattacks player3, will be chosen at random")
+                                    random_3 =random.randint(1,3)
+                                    if random_3==3:
+                                        random_3=4
+
+                                list_situation_player3_counterattack = []
+                                counterattack_player3(random_3,selection_player3,list_situation_player3_counterattack,list_cards_player1,
+                                                    list_cards_player2, list_cards_player3,list_cards_player4,number_players,
+                                                    list_eliminated_cards_player1,list_eliminated_cards_player2,list_eliminated_cards_player3,
+                                                    list_eliminated_cards_player4,list_players)
+                                                    
+                                situation_player3_counterattack = list_situation_player3_counterattack[0]
+                                list_situation_player3_counterattack = []
+                                life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+
+                    #aca se ven las acciones del player3 despues de los desafios o contra_ataques, hay que revisarlo
+                    
+                    if situation_player3_challenge == "win" and situation_player3_counterattack =="win":
+                        player3_actions(selection_player3,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                    if situation_player3_challenge =="win" and situation_player3_counterattack =="":
+                        player3_actions(selection_player3,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                    if situation_player3_challenge =="" and situation_player3_counterattack =="win":
+                        player3_actions(selection_player3,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                    if situation_player3_challenge =="" and situation_player3_counterattack =="":
+                        player3_actions(selection_player3,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                    life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+                    
+                    if selection_player3 ==5 and situation_player3_challenge =="lose":
+                        list_players[2].coins_game +=3
+
+            elif list_players[2].coins_game >= 10:
+                selection_player3 = 3
+                list_players[2].coins_game -=7
+                player3_actions(selection_player3,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+
+       
+        
+        #aqui inicia el turno del player4
+        if  number_players ==4:
+            if list_players[3].live_game =="yes":
+                print("It's Player4's turn:")
+                game_player4(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
+        list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+         #aqui inicia el turno del player1
+        if list_players[0].live_game =="yes":
+            print("It's player1's turn")
+            game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
+        list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+        #aqui inicia el turno del player2
+        if list_players[1].live_game =="yes":
+            print("It's player2's turn:")
+            game_player2(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
+        list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+        else:
+            print("Player3 has won the game!")
+            break
+
+def game_player2(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
+        list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4):
+    list_all_actions = ["income","foreign help","Coup","Duke-Taxes","Assassin-Assassination",
+                                   "Captain-Extortion", "Ambassador-Change"]
+    i = 0
+    while True:
+
+        #sigue vivo el player2?:
+            
+        if list_players[1].live_game =="yes":
+            
+            if list_players[1].coins_game < 10:
+                print_actions()
+                print()
+                selection_player2 = int(input("Player2, it's your turn. Choose an action using a number: "))
+                print()
+
+                #estas son las funciones de la seleccion del player2
+                #coup:
+                if selection_player2 ==3:
+                    if list_players[1].coins_game -7 >= 0:
+                        list_players[1].coins_game -=7
+                        player2_actions(selection_player2,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                        list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                        list_eliminated_cards_player3, list_eliminated_cards_player4)
+                    else:
+                        while True:
+                            selection_player2 = int(input("Player2, you dont have the coins for this action. \nSelect another action, using a number: "))
+                            if selection_player2 !=3 :
+                                break
+                #asesino
+                if selection_player2 ==5:
+                    if list_players[1].coins_game -3 >= 0:
+                        list_players[1].coins_game -= 3
+                        print_challenge_or_counterattack()
+                    else:
+                        while True:
+                            selection_player2 = int(input("player2, you dont have the coins for this action, \nSelect other action, using a number: "))
+                            if selection_player2 != 5 and selection_player2 != 3:
+                                break
+                
+                #income:
+                if selection_player2 == 1:
+                    list_players[1].coins_game += 1
+                    print("A coin has been added to player2")
+                    print()
+                    print_coins_players(list_players)
+
+                    
+                
+                #capitan(steal):          
+                if selection_player2 ==6:
+                    print_challenge_or_counterattack()
+                #foreign aid:
+                if selection_player2 == 2:
+                    print_counterattack()
+                #duke/ambassador
+                if selection_player2 == 4 or selection_player2 ==7:
+                    print_challenge()
+
+                
+
+                #aqui parte los desafios o contraataques para el player2
+
+                if selection_player2 != 1 and selection_player2 !=3:
+                    if list_players[0].live_game == "yes":
+                        selection_player1 =int(input("Player1, choose an option using a number: "))
+                    else:
+                        selection_player1 = 0
+                    if list_players[2].live_game == "yes":
+                        selection_player3 =int(input("Player3, choose a option using a number: "))
+                    else: 
+                        selection_player3 = 0
+                    if number_players ==4:
+                        if list_players[3].live_game =="yes":
+                            selection_player4 = int(input("Player4, choose a option using a number: "))
+                        else:
+                            selection_player4 = 0
+
+                    #esta la parte del desafio
+                    situation_player2_challenge =""
+                    situation_player2_counterattack =""
+                    if number_players ==3:
+                        #esta es la parte del desafio para 3 jugadores en el turno del jugador1
+                        #si algun player (no el de turno) elige 1(challenge)
+                        #y player1 elige algo que se puede desafiar:
+                        if (selection_player1 == 1 or selection_player3 == 1) and (selection_player2==4 or selection_player2==5
+                            or selection_player2 ==6 or selection_player2==7):
+
+                            print()
+                            #si los dos desafían:
+                            if selection_player1 ==1 and selection_player3 ==1:
+                                print("Whoever challenges player2, will be chosen at random.")
+                                random_2 = random.randint(2,3)
+                                if random_2 == 2:
+                                    random_2 = 1
+                            #si no desafían ambos:
+                            elif selection_player1 ==1 and selection_player3 !=1:
+                                random_2 =1
+                            elif selection_player1 !=1 and selection_player3 ==1:
+                                random_2 = 3
+                            list_situation_player2_challenge =[]
+                            challenge_player2(number_players,random_2,list_cards_player1,list_cards_player2,
+                                                list_cards_player3, list_cards_player4, selection_player2, list_rest_of_deck,
+                                                list_eliminated_cards_player1,list_eliminated_cards_player2, 
+                                                list_eliminated_cards_player3, list_eliminated_cards_player4, list_situation_player2_challenge)
+                            life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+
+                            situation_player2_challenge =list_situation_player2_challenge[0]
+                            list_situation_player2_challenge =[]
+                            life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+
+                        #aqui comienza el contraatque para el jugador2
+                        if (selection_player1 ==2 or selection_player3 ==2) and (selection_player2 ==2 or selection_player2 ==5 or 
+                                selection_player2 ==6) and situation_player2_challenge != "lose":
+                                
+                                if selection_player1 ==2 and selection_player3 !=2:
+                                    random_2 =1
+                                if selection_player1 !=2 and selection_player3 ==2:
+                                    random_2 =3
+                                if selection_player1 ==2 and selection_player3 ==2:
+                                    print("Whoever counterattacks player2, will be chosen at random")
+                                    random_2 =random.randint(2,3)
+                                    if random_2==2:
+                                        random_2 =1
+
+                                list_situation_player2_counterattack = []
+                                counterattack_player2(random_2,selection_player2,list_situation_player2_counterattack,list_cards_player1,
+                                                    list_cards_player2, list_cards_player3,list_cards_player4,number_players,
+                                                    list_eliminated_cards_player1,list_eliminated_cards_player2,list_eliminated_cards_player3,
+                                                    list_eliminated_cards_player4,list_players)
+
+                                situation_player2_counterattack = list_situation_player2_counterattack[0]
+                                list_situation_player2_counterattack = []
+                                life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+
+                    if number_players == 4:
+                        #esta es la parte del desafio para 4 jugadores en el turno del jugador2
+                        if (selection_player1 == 1 or selection_player3 == 1 or selection_player4==1) and (selection_player2==4 or selection_player2 ==5
+                            or selection_player2 ==6 or selection_player2==7):
+                            
+                            if selection_player1 ==1 and selection_player3 !=1 and selection_player4 !=1:
+                                random_2 = 1
+                            elif selection_player1 !=1 and selection_player3 ==1 and selection_player4 !=1:
+                                random_2 =3
+                            elif selection_player1 !=1 and selection_player3 !=1 and selection_player4 ==1:
+                                random_2 =4
+                            elif selection_player1 ==1 and selection_player3 ==1 and selection_player4 !=1:
+                                print("Whoever challenges player2, will be chosen at random")
+                                random_2 = random.randint(2,3)
+                                if random_2==2:
+                                    random_2 =1
+                            elif selection_player1 ==1 and selection_player3 !=1 and selection_player4 ==1:
+                                print("Whoever challenges player2, will be chosen at random")
+                                random_2 = random.randint(1,2)
+                                if random_2 ==2:
+                                    random_2 =4
+    
+                            elif selection_player1 !=1 and selection_player3 ==1 and selection_player4 ==1:
+                                print("Whoever challenges player2, will be chosen at random")
+                                random_2 = random.randint(3,4)
+                            elif selection_player1 ==1 and selection_player3 ==1 and selection_player4 ==1:
+                                print("Whoever challenges player2, will be chosen at random")
+                                random_2 =random.randint(2,4)
+                                if random_2==2:
+                                    random_2=1
+                            list_situation_player2_challenge =[]
+                            challenge_player2(number_players,random_2,list_cards_player1,list_cards_player2,
+                                                list_cards_player3, list_cards_player4, selection_player2, list_rest_of_deck,
+                                                list_eliminated_cards_player1,list_eliminated_cards_player2, 
+                                                list_eliminated_cards_player3, list_eliminated_cards_player4, list_situation_player2_challenge)
+                            life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+
+                            situation_player2_challenge = list_situation_player2_challenge[0]
+                            list_situation_player2_challenge =[]
+                            life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+
+
+                        #esta es la parte del contraattaque para 4 jugadores en el turno del player2
+                        if (selection_player1 ==2 or selection_player3 ==2 or selection_player4 ==2 ) and (selection_player2 ==2 or 
+                            selection_player2 ==5 or selection_player2 ==6) and situation_player2_challenge != "lose":
+                                print("Counterattack!")
+                                if selection_player1 ==2 and selection_player3 !=2 and selection_player4 !=2:
+                                    random_2 =1
+                                if selection_player1 !=2 and selection_player3 ==2 and selection_player4 !=2:
+                                    random_2 =3
+                                if selection_player1 !=2 and selection_player3 !=2 and selection_player4 ==2:
+                                    random_2 =4
+                                if selection_player1 ==2 and selection_player3 ==2 and selection_player4 !=2:
+                                    print("Whoever counterattacks player2, will be chosen at random")
+                                    random_2 =random.randint(2,3)
+                                    if random_2==2:
+                                        random_2=1
+                                if selection_player1 ==2 and selection_player3 !=2 and selection_player4 ==2:
+                                    print("Whoever counterattacks player2, will be chosen at random")
+                                    random_2 =random.randint(1,2)
+                                    if random_2 ==2:
+                                        random_2 = 4
+                                    
+                                if selection_player1 !=2 and selection_player3 ==2 and selection_player4 ==2:
+                                    print("Whoever counterattacks player2, will be chosen at random")
+                                    random_2 =random.randint(3,4)
+
+                                if selection_player1 ==2 and selection_player3 ==2 and selection_player4 ==2:
+                                    print("Whoever counterattacks player2, will be chosen at random")
+                                    random_2 =random.randint(2,4)
+                                    if random_2==2:
+                                        random_2=1
+
+                                list_situation_player2_counterattack = []
+                                counterattack_player2(random_2,selection_player2,list_situation_player2_counterattack,list_cards_player1,
+                                                    list_cards_player2, list_cards_player3,list_cards_player4,number_players,
+                                                    list_eliminated_cards_player1,list_eliminated_cards_player2,list_eliminated_cards_player3,
+                                                    list_eliminated_cards_player4,list_players)
+                                                    
+                                situation_player2_counterattack = list_situation_player2_counterattack[0]
+                                list_situation_player2_counterattack = []
+                                life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+
+                    #aca se ven las acciones del player2 despues de los desafios o contra_ataques, hay que revisarlo
+                    
+                    if situation_player2_challenge == "win" and situation_player2_counterattack =="win":
+                        player2_actions(selection_player2,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                    if situation_player2_challenge =="win" and situation_player2_counterattack =="":
+                        player2_actions(selection_player2,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                    if situation_player2_challenge =="" and situation_player2_counterattack =="win":
+                        player2_actions(selection_player2,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                    if situation_player2_challenge =="" and situation_player2_counterattack =="":
+                        player2_actions(selection_player2,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                    life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+                    
+                    if selection_player2 ==5 and situation_player2_challenge =="lose":
+                        list_players[1].coins_game +=3
+
+            elif list_players[1].coins_game >= 10:
+                selection_player2 = 3
+                list_players[1].coins_game -=7
+                player2_actions(selection_player2,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
+                                list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
+                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+
+       
+        #aqui inicia el turno del player3
+        if list_players[2].live_game =="yes":
+            print("Player3, it's your turn:")
+            game_player3(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
+        list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+        #aqui inicia el turno del player4
+        if  number_players ==4:
+            if list_players[3].live_game =="yes":
+                print("Player4 it's your turn:")
+                game_player4(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
+        list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+         #aqui inicia el turno del player1
+        if list_players[0].live_game =="yes":
+            print("Player1, it's your turn:")
+            game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
+        list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+        else:
+            print("Player2 has won the game!")
+            break
 
 def game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
@@ -2130,93 +2891,97 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
     i = 0
     while True:
 
-        
+        #sigue vivo el player1?:
             
         if list_players[0].live_game =="yes":
             
             if list_players[0].coins_game < 10:
                 print_actions()
                 print()
-                selection_player1 = int(input("Its the turn of player1, choose a action using a number: "))
+                selection_player1 = int(input("Player1, it's your turn. Choose an action using a number: "))
                 print()
 
                 #estas son las funciones de la seleccion del player1
+                #coup:
                 if selection_player1 ==3:
                     if list_players[0].coins_game -7 >= 0:
-                        ist_players[0].coins_game -=7
+                        list_players[0].coins_game -=7
                         player1_actions(selection_player1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                         list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
                                         list_eliminated_cards_player3, list_eliminated_cards_player4)
                     else:
                         while True:
-                            selection_player1 = int(input("player1, you dont have the coins for do this action,select other action, using a number: "))
+                            selection_player1 = int(input("Player1, you dont have the coins for this action. \nSelect another action, using a number: "))
                             if selection_player1 !=3 :
                                 break
-
+                #asesino
                 if selection_player1 ==5:
                     if list_players[0].coins_game -3 >= 0:
                         list_players[0].coins_game -= 3
                         print_challenge_or_counterattack()
                     else:
                         while True:
-                            selection_player1 = int(input("player1, you dont have the coins for do this action,select other action, using a number: "))
+                            selection_player1 = int(input("player1, you dont have the coins for this action, \nSelect other action, using a number: "))
                             if selection_player1 != 5 and selection_player1 != 3:
                                 break
                 
-
+                #income:
                 if selection_player1 == 1:
                     list_players[0].coins_game += 1
-                    print("a coin has been added to player1")
+                    print("A coin has been added to player1")
                     print()
                     print_coins_players(list_players)
 
                     
                 
-                            
+                #capitan(steal):          
                 if selection_player1 ==6:
                     print_challenge_or_counterattack()
-
+                #foreign aid:
                 if selection_player1 == 2:
                     print_counterattack()
-
+                #duke/ambassador
                 if selection_player1 == 4 or selection_player1 ==7:
                     print_challenge()
 
                 
 
-#aqui parte los desafios o contra_ataques para el player1
+                #aqui parte los desafios o contraataques para el player1
 
                 if selection_player1 != 1 and selection_player1 !=3:
                     if list_players[1].live_game == "yes":
-                        select_player_2 =int(input("player2, choose a option using a number: "))
+                        selection_player2 =int(input("Player2, choose an option using a number: "))
                     else:
-                        select_player_2 = 0
+                        selection_player2 = 0
                     if list_players[2].live_game == "yes":
-                        select_player_3 =int(input("player3, choose a option using a number: "))
+                        selection_player3 =int(input("Player3, choose a option using a number: "))
                     else: 
-                        select_player_3 = 0
+                        selection_player3 = 0
                     if number_players ==4:
                         if list_players[3].live_game =="yes":
-                            select_player_4 = int(input("player4, choose a option using a number: "))
+                            selection_player4 = int(input("Player4, choose a option using a number: "))
                         else:
-                            select_player_4 = 0
+                            selection_player4 = 0
 
-#esta la parte del desafio
+                    #esta la parte del desafio
                     situation_player1_challenge =""
                     situation_player1_counterattack =""
                     if number_players ==3:
                         #esta es la parte del desafio para 3 jugadores en el turno del jugador1
-                        if (select_player_2 == 1 or select_player_3 == 1) and (selection_player1==4 or selection_player1 ==5
+                        #si algun player (no el de turno) elige 1(challenge)
+                        #y player1 elige algo que se puede desafiar
+                        if (selection_player2 == 1 or selection_player3 == 1) and (selection_player1==4 or selection_player1 ==5
                             or selection_player1 ==6 or selection_player1==7):
 
                             print()
-                        
-                            if select_player_2 ==1 and select_player_3 ==1:
-                                print("Who will challenge the player1, will be chosen at random")
+                            #si los dos desafían:
+                            if selection_player2 ==1 and selection_player3 ==1:
+                                print("Whoever challenges player1, will be chosen at random.")
                                 random_1 = random.randint(2,3)
-                            elif select_player_2 ==1 and select_player_3 !=1:
+                            #si no desafían ambos:
+                            elif selection_player2 ==1 and selection_player3 !=1:
                                 random_1 =2
-                            elif select_player_2 !=1 and select_player_3 ==1:
+                            elif selection_player2 !=1 and selection_player3 ==1:
                                 random_1 = 3
                             list_situation_player1_challenge =[]
                             challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
@@ -2230,15 +2995,15 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                             life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
 
                         #aqui comienza el contraatque para el jugador1
-                        if (select_player_2 ==2 or select_player_3 ==2) and (selection_player1 ==2 or selection_player1 ==5 or 
+                        if (selection_player2 ==2 or selection_player3 ==2) and (selection_player1 ==2 or selection_player1 ==5 or 
                                 selection_player1 ==6) and situation_player1_challenge != "lose":
                                 
-                                if select_player_2 ==2 and select_player_3 !=2:
+                                if selection_player2 ==2 and selection_player3 !=2:
                                     random_1 =2
-                                if select_player_2 !=2 and select_player_3 ==2:
+                                if selection_player2 !=2 and selection_player3 ==2:
                                     random_1 =3
-                                if select_player_2 ==2 and select_player_3 ==2:
-                                    print("Who will counterattack the player1, will be chosen at random")
+                                if selection_player2 ==2 and selection_player3 ==2:
+                                    print("Whoever counterattacks player1, will be chosen at random")
                                     random_1 =random.randint(2,3)
 
                                 list_situation_player1_counterattack = []
@@ -2253,28 +3018,28 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
 
                     if number_players == 4:
                         #esta es la parte del desafio para 4 jugadores en el turno del jugador1
-                        if (select_player_2 == 1 or select_player_3 == 1 or select_player_4==1) and (selection_player1==4 or selection_player1 ==5
+                        if (selection_player2 == 1 or selection_player3 == 1 or selection_player4==1) and (selection_player1==4 or selection_player1 ==5
                             or selection_player1 ==6 or selection_player1==7):
                             
-                            if select_player_2 ==1 and select_player_3 !=1 and select_player_4 !=1:
+                            if selection_player2 ==1 and selection_player3 !=1 and selection_player4 !=1:
                                 random_1 = 2
-                            elif select_player_2 !=1 and select_player_3 ==1 and select_player_4 !=1:
+                            elif selection_player2 !=1 and selection_player3 ==1 and selection_player4 !=1:
                                 random_1 =3
-                            elif select_player_2 !=1 and select_player_3 !=1 and select_player_4 ==1:
+                            elif selection_player2 !=1 and selection_player3 !=1 and selection_player4 ==1:
                                 random_1 =4
-                            elif select_player_2 ==1 and select_player_3 ==1 and select_player_4 !=1:
-                                print("Who will challenge the player1, will be chosen at random")
+                            elif selection_player2 ==1 and selection_player3 ==1 and selection_player4 !=1:
+                                print("Whoever challenges player1, will be chosen at random")
                                 random_1 = random.randint(2,3)
-                            elif select_player_2 ==1 and select_player_3 !=1 and select_player_4 ==1:
-                                print("Who will challenge the player1, will be chosen at random")
+                            elif selection_player2 ==1 and selection_player3 !=1 and selection_player4 ==1:
+                                print("Whoever challenges player1, will be chosen at random")
                                 random_1 = random.randint(2,3)
                                 if random_1 ==3:
                                     random_1 =4
-                            elif select_player_2 !=1 and select_player_3 ==1 and select_player_4 ==1:
-                                print("Who will challenge the player1, will be chosen at random")
+                            elif selection_player2 !=1 and selection_player3 ==1 and selection_player4 ==1:
+                                print("Whoever challenges player1, will be chosen at random")
                                 random_1 = random.randint(3,4)
-                            elif select_player_2 ==1 and select_player_3 ==1 and select_player_4 ==1:
-                                print("Who will challenge the player1, will be chosen at random")
+                            elif selection_player2 ==1 and selection_player3 ==1 and selection_player4 ==1:
+                                print("Whoever challenges player1, will be chosen at random")
                                 random_1 =random.randint(2,4)
                             list_situation_player1_challenge =[]
                             challenge_player1(number_players,random_1,list_cards_player1,list_cards_player2,
@@ -2289,29 +3054,29 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
 
 
                         #esta es la parte del contraattaque para 4 jugadores en el turno del player1
-                        if (select_player_2 ==2 or select_player_3 ==2 or select_player_4 ==2 ) and (selection_player1 ==2 or 
+                        if (selection_player2 ==2 or selection_player3 ==2 or selection_player4 ==2 ) and (selection_player1 ==2 or 
                             selection_player1 ==5 or selection_player1 ==6) and situation_player1_challenge != "lose":
-                                print("contraataqueee")
-                                if select_player_2 ==2 and select_player_3 !=2 and select_player_4 !=2:
+                                print("Counterattack!")
+                                if selection_player2 ==2 and selection_player3 !=2 and selection_player4 !=2:
                                     random_1 =2
-                                if select_player_2 !=2 and select_player_3 ==2 and select_player_4 !=2:
+                                if selection_player2 !=2 and selection_player3 ==2 and selection_player4 !=2:
                                     random_1 =3
-                                if select_player_2 !=2 and select_player_3 !=2 and select_player_4 ==2:
+                                if selection_player2 !=2 and selection_player3 !=2 and selection_player4 ==2:
                                     random_1 =4
-                                if select_player_2 ==2 and select_player_3 ==2 and select_player_4 !=2:
-                                    print("Who will counterattack the player1, will be chosen at random")
+                                if selection_player2 ==2 and selection_player3 ==2 and selection_player4 !=2:
+                                    print("Whoever counterattacks player1, will be chosen at random")
                                     random_1 =random.randint(2,3)
-                                if select_player_2 ==2 and select_player_3 !=2 and select_player_4 ==2:
-                                    print("Who will counterattack the player1, will be chosen at random")
+                                if selection_player2 ==2 and selection_player3 !=2 and selection_player4 ==2:
+                                    print("Whoever counterattacks player1, will be chosen at random")
                                     random_1 =random.randint(2,3)
                                     if random_1 ==3:
                                         random_1 = 4
-                                if select_player_2 !=2 and select_player_3 ==2 and select_player_4 ==2:
-                                    print("Who will counterattack the player1, will be chosen at random")
+                                if selection_player2 !=2 and selection_player3 ==2 and selection_player4 ==2:
+                                    print("Whoever counterattacks player1, will be chosen at random")
                                     random_1 =random.randint(3,4)
 
-                                if select_player_2 ==2 and select_player_3 ==2 and select_player_4 ==2:
-                                    print("Who will counterattack the player1, will be chosen at random")
+                                if selection_player2 ==2 and selection_player3 ==2 and selection_player4 ==2:
+                                    print("Whoever counterattacks player1, will be chosen at random")
                                     random_1 =random.randint(2,4)
 
                                 list_situation_player1_counterattack = []
@@ -2356,19 +3121,27 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
 
         #aqui inicia el turno del player2
         if list_players[1].live_game =="yes":
-            print("turno del jugador2")
-            game_player2()
+            print("Player2, it's your turn:")
+            game_player2(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
+        list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
         #aqui inicia el turno del player3
         if list_players[2].live_game =="yes":
-            print("turno del jugador3")
-            game_player3()
+            print("Player3, it's your turn:")
+            game_player3(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
+        list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+        if number_players==4:
         #aqui inicia el turno del player4
-        if  number_players ==4:
+            
             if list_players[3].live_game =="yes":
-                print("turno del jugador4")
-                game_player4()
-        break
-        
+                print("Player4, it's your turn:")
+                game_player4(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
+        list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+        else: 
+            print("Player1 has won the game!")
+            break
 
 
     
@@ -2482,14 +3255,17 @@ def main():
     deck.deck_cards()
     deck.deck_random_cards()
 
-    #agregar el while true
-    number_players = int(input("how many players will play this game? 3 or 4, using a number : "))
-    print("The cards can only be seen by the player of the turn")
-    if number_players == 3:
-        three_players(deck,number_players)
-    elif number_players ==4:
-        four_players(deck,number_players)
-
+    while True:
+        number_players = int(input("How many players will play this game? Type 3 or 4, using a number : "))
+        print("The cards can only be seen by the player of the turn")
+        if number_players == 3:
+            three_players(deck,number_players)
+            break
+        if number_players ==4:
+            four_players(deck,number_players)
+            break
+        else:
+            print("The number you typed is not valid, please try again.")
     
 
     
