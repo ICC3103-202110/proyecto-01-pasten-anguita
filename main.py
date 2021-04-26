@@ -1,6 +1,7 @@
 from card import Card
 from person import Person
 import random
+import sys
 
 def print_space():
     for i in range (0,20):
@@ -2334,8 +2335,8 @@ def game_player4(list_players,number_players,list_cards_player1,list_cards_playe
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
         list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
         else:
-            print("Player4 has won the game!")
-            break
+            sys.exit("Player4 has won the game!")
+            
 
 def game_player3(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
@@ -2613,8 +2614,8 @@ def game_player3(list_players,number_players,list_cards_player1,list_cards_playe
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
         list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
         else:
-            print("Player3 has won the game!")
-            break
+            sys.exit("Player3 has won the game!")
+            
 
 def game_player2(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
@@ -2892,8 +2893,8 @@ def game_player2(list_players,number_players,list_cards_player1,list_cards_playe
         list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
         
         else:
-            print("Player2 has won the game!")
-            break
+            sys.exit("Player2 has won the game!")
+           
 
 def game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
@@ -3159,8 +3160,8 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
             else:
                 print("Player4 is no longer in the game.")
         else: 
-            print("Player1 has won the game!")
-            break
+            sys.exit("Player1 has won the game!")
+            
 
 
     
