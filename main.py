@@ -46,12 +46,14 @@ def print_eliminated_cards(list_eliminated_cards_player1,list_eliminated_cards_p
     if len(list_eliminated_cards_player1) >0:
         for i in range(0,len(list_eliminated_cards_player1)):
             print(list_eliminated_cards_player1[i],end=' ')
+    print()
     print("player2: ")
     if len(list_eliminated_cards_player2) ==0:
         print()
     if len(list_eliminated_cards_player2) >0:
         for i in range(0,len(list_eliminated_cards_player2)):
             print(list_eliminated_cards_player2[i],end=' ')
+    print()
     print("player3: ")
     if len(list_eliminated_cards_player3) ==0:
         print()
@@ -60,12 +62,14 @@ def print_eliminated_cards(list_eliminated_cards_player1,list_eliminated_cards_p
             print(list_eliminated_cards_player3[i],end=' ')
 
     if number_players ==4:
+        print()
         print("player4: ")
         if len(list_eliminated_cards_player4) ==0:
             print()
         if len(list_eliminated_cards_player4) >0:
             for i in range(0,len(list_eliminated_cards_player4)):
                 print(list_eliminated_cards_player4[i],end=' ')
+        print()
 
 def life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players):
     if len(list_cards_player1) ==0:
@@ -130,7 +134,7 @@ def distribution_of_cards(list_players,list_cards_player1,list_cards_player2,lis
         print(list_players[i].name_person,"look the cards, are up")
         print()
         
-    print_coins_players(list_players)
+    
 
 def players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3,list_cards_player4,list_rest_of_deck, number_players):
     count = 0
@@ -164,7 +168,7 @@ def players_cards(deck,list_cards_player1,list_cards_player2, list_cards_player3
 
 def player1_actions(selection_player1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                     list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                    list_eliminated_cards_player3, list_eliminated_cards_player4):
+                    list_eliminated_cards_player3, list_eliminated_cards_player4,number_players):
     if list_players[0].live_game =="yes":
         
         if selection_player1 == 2:
@@ -388,7 +392,7 @@ def player1_actions(selection_player1,list_players, list_cards_player1,list_card
 
 def player2_actions(selection_player2,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                     list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                    list_eliminated_cards_player3, list_eliminated_cards_player4):
+                    list_eliminated_cards_player3, list_eliminated_cards_player4,number_players):
     if list_players[1].live_game =="yes":
         if selection_player2 == 2:
             list_players[1].coins_game +=2
@@ -613,7 +617,7 @@ def player2_actions(selection_player2,list_players, list_cards_player1,list_card
 
 def player3_actions(selection_player3,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                     list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                    list_eliminated_cards_player3, list_eliminated_cards_player4):
+                    list_eliminated_cards_player3, list_eliminated_cards_player4,number_players):
     if list_players[2].live_game =="yes":
         if selection_player3 == 2:
             list_players[2].coins_game +=2
@@ -838,10 +842,10 @@ def player3_actions(selection_player3,list_players, list_cards_player1,list_card
 
 def player4_actions(selection_player4,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                     list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                    list_eliminated_cards_player3, list_eliminated_cards_player4):
+                    list_eliminated_cards_player3, list_eliminated_cards_player4,number_players):
   if number_players==4:  
     if list_players[3].live_game =="yes":
-        if selection_player3 == 2:
+        if selection_player4 == 2:
             list_players[3].coins_game +=2
             print("2 coins have been added for player4")
             print_coins_players(list_players)
@@ -933,7 +937,7 @@ def player4_actions(selection_player4,list_players, list_cards_player1,list_card
                 print("player3, scroll up to see your cards.")
                 eliminate_card_player3 = int(input("player3, select the card that you want delete, using a number : "))
                 list_eliminated_cards_player3.append(list_cards_player3[eliminate_card_player3-1])
-                list_cards_player3.pop(eliminate_card_player4-1)
+                list_cards_player3.pop(eliminate_card_player3-1)
 
         if selection_player4 ==6:
             print_coins_players(list_players)
@@ -2122,11 +2126,17 @@ def challenge_player4(number_players,random_4,list_cards_player1,list_cards_play
     return(list_cards_player1, list_cards_player2, list_cards_player3, list_cards_player4,list_eliminated_cards_player1,
             list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4, list_situation_player4_challenge)
 
-
+def final_game_situations_players(number_players,list_situation_players_game,list_players):
+    if number_players ==3:
+        list_situation_players_game = [list_players[0].live_game,list_players[1].live_game,list_players[2].live_game]
+    if number_players ==4:
+        list_situation_players_game = [list_players[0].live_game,list_players[1].live_game,list_players[2].live_game,
+                                        list_players[3].live_game]
+    return list_situation_players_game
 
 def game_player4(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
-        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4):
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4,list_situation_players_game):
     list_all_actions = ["income","foreign help","Coup","Duke-Taxes","Assassin-Assassination",
                                    "Captain-Extortion", "Ambassador-Change"]
     i = 0
@@ -2136,6 +2146,8 @@ def game_player4(list_players,number_players,list_cards_player1,list_cards_playe
             
         if list_players[3].live_game =="yes":
             
+            print_coins_and_eliminated_cards(list_players,list_eliminated_cards_player1,list_eliminated_cards_player2,list_eliminated_cards_player3,
+                        list_eliminated_cards_player4, number_players)
             if list_players[3].coins_game < 10:
                 print_actions()
                 print()
@@ -2149,7 +2161,13 @@ def game_player4(list_players,number_players,list_cards_player1,list_cards_playe
                         list_players[3].coins_game -=7
                         player4_actions(selection_player4,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                         list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                        list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                        list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
+
+                        life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+                        final_game_situations_players(number_players,list_situation_players_game,list_players)
+                        if number_players - list_situation_players_game.count("no") <=1:
+                            print("The game its over")
+                            break
                     else:
                         while True:
                             selection_player4 = int(input("Player4, you dont have the coins for this action. \nSelect another action, using a number: "))
@@ -2243,11 +2261,17 @@ def game_player4(list_players,number_players,list_cards_player1,list_cards_playe
                                                 list_eliminated_cards_player1,list_eliminated_cards_player2, 
                                                 list_eliminated_cards_player3, list_eliminated_cards_player4, list_situation_player4_challenge)
                             life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-
+                
                             situation_player4_challenge = list_situation_player4_challenge[0]
                             list_situation_player4_challenge =[]
                             life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-
+                            if list_players[3].live_game =="no":
+                                print("Player4 was removed from the game.")
+                                break
+                            final_game_situations_players(number_players,list_situation_players_game,list_players)
+                            if number_players - list_situation_players_game.count("no") <=1:
+                                print("The game its over")
+                                break
 
                         #esta es la parte del contraattaque para 4 jugadores en el turno del player3
                         if (selection_player1 ==2 or selection_player2 ==2 or selection_player3 ==2 ) and (selection_player4 ==2 or 
@@ -2287,27 +2311,39 @@ def game_player4(list_players,number_players,list_cards_player1,list_cards_playe
                                 situation_player4_counterattack = list_situation_player4_counterattack[0]
                                 list_situation_player4_counterattack = []
                                 life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-
+                                if list_players[3].live_game =="no":
+                                    print("Player4 was removed from the game.")
+                                    break
+                                final_game_situations_players(number_players,list_situation_players_game,list_players)
+                                if number_players - list_situation_players_game.count("no") <=1:
+                                    print("The game its over")
+                                    break
                     #aca se ven las acciones del player4 despues de los desafios o contraataques, hay que revisarlo
                     
                     if situation_player4_challenge == "win" and situation_player4_counterattack =="win":
                         player4_actions(selection_player4,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
                     if situation_player4_challenge =="win" and situation_player4_counterattack =="":
                         player4_actions(selection_player4,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
                     if situation_player4_challenge =="" and situation_player4_counterattack =="win":
                         player4_actions(selection_player4,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
                     if situation_player4_challenge =="" and situation_player4_counterattack =="":
                         player4_actions(selection_player4,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
                     life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-                    
+                    if list_players[3].live_game =="no":
+                        print("Player4 was removed from the game.")
+                        break
+                    final_game_situations_players(number_players,list_situation_players_game,list_players)
+                    if number_players - list_situation_players_game.count("no") <=1:
+                        print("The game its over")
+                        break
                     if selection_player4 ==5 and situation_player4_challenge =="lose":
                         list_players[3].coins_game +=3
 
@@ -2316,11 +2352,16 @@ def game_player4(list_players,number_players,list_cards_player1,list_cards_playe
                 list_players[3].coins_game -=7
                 player4_actions(selection_player4,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
+                life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+                final_game_situations_players(number_players,list_situation_players_game,list_players)
+                if number_players - list_situation_players_game.count("no") <=1:
+                    print("The game its over")
+                    break
 
-       
+            break
         
-    
+    """
          #aqui inicia el turno del player1
         if list_players[0].live_game =="yes":
             print("It's player1's turn")
@@ -2343,13 +2384,14 @@ def game_player4(list_players,number_players,list_cards_player1,list_cards_playe
                 game_player3(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
         list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
-        else:
-            sys.exit("Player4 has won the game!")
-            
+        #else:
+            #sys.exit("Player4 has won the game!")
+            #aca tal vez hacer un print en vez de sys
+    """
 
 def game_player3(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
-        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4):
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4,list_situation_players_game):
     list_all_actions = ["income","foreign help","Coup","Duke-Taxes","Assassin-Assassination",
                                    "Captain-Extortion", "Ambassador-Change"]
     i = 0
@@ -2358,7 +2400,9 @@ def game_player3(list_players,number_players,list_cards_player1,list_cards_playe
         #sigue vivo el player3?:
             
         if list_players[2].live_game =="yes":
-            
+
+            print_coins_and_eliminated_cards(list_players,list_eliminated_cards_player1,list_eliminated_cards_player2,list_eliminated_cards_player3,
+                        list_eliminated_cards_player4, number_players)
             if list_players[2].coins_game < 10:
                 print_actions()
                 print()
@@ -2372,7 +2416,13 @@ def game_player3(list_players,number_players,list_cards_player1,list_cards_playe
                         list_players[2].coins_game -=7
                         player3_actions(selection_player3,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                         list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                        list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                        list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
+
+                        life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+                        final_game_situations_players(number_players,list_situation_players_game,list_players)
+                        if number_players - list_situation_players_game.count("no") <=1:
+                            print("The game its over")
+                            break
                     else:
                         while True:
                             selection_player3 = int(input("Player3, you dont have the coins for this action. \nSelect another action, using a number: "))
@@ -2458,7 +2508,13 @@ def game_player3(list_players,number_players,list_cards_player1,list_cards_playe
                             situation_player3_challenge =list_situation_player3_challenge[0]
                             list_situation_player3_challenge =[]
                             life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-
+                            if list_players[2].live_game =="no":
+                                print("The player3 was removed from the game")
+                                break
+                            final_game_situations_players(number_players,list_situation_players_game,list_players)
+                            if number_players - list_situation_players_game.count("no") <=1:
+                                print("The game its over")
+                                break
                         #aqui comienza el contraatque para el jugador3
                         if (selection_player1 ==2 or selection_player2 ==2) and (selection_player3 ==2 or selection_player3 ==5 or 
                                 selection_player3 ==6) and situation_player3_challenge != "lose":
@@ -2481,7 +2537,13 @@ def game_player3(list_players,number_players,list_cards_player1,list_cards_playe
                                 situation_player3_counterattack = list_situation_player3_counterattack[0]
                                 list_situation_player3_counterattack = []
                                 life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-
+                                if list_players[2].live_game =="no":
+                                    print("The player3 was removed of the game")
+                                    break
+                                final_game_situations_players(number_players,list_situation_players_game,list_players)
+                                if number_players - list_situation_players_game.count("no") <=1:
+                                    print("The game its over")
+                                    break
                     if number_players == 4:
                         #esta es la parte del desafio para 4 jugadores en el turno del jugador3
                         if (selection_player1 == 1 or selection_player2 == 1 or selection_player4==1) and (selection_player3==4 or selection_player3 ==5
@@ -2523,7 +2585,13 @@ def game_player3(list_players,number_players,list_cards_player1,list_cards_playe
                             situation_player3_challenge = list_situation_player3_challenge[0]
                             list_situation_player3_challenge =[]
                             life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-
+                            if list_players[2].live_game =="no":
+                                print("The player3 was removed of the game")
+                                break
+                            final_game_situations_players(number_players,list_situation_players_game,list_players)
+                            if number_players - list_situation_players_game.count("no") <=1:
+                                print("The game its over")
+                                break
 
                         #esta es la parte del contraattaque para 4 jugadores en el turno del player3
                         if (selection_player1 ==2 or selection_player2 ==2 or selection_player4 ==2 ) and (selection_player3 ==2 or 
@@ -2566,27 +2634,35 @@ def game_player3(list_players,number_players,list_cards_player1,list_cards_playe
                                 situation_player3_counterattack = list_situation_player3_counterattack[0]
                                 list_situation_player3_counterattack = []
                                 life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-
+                                if list_players[2].live_game =="no":
+                                    print("The player3 was removed of the game")
+                                final_game_situations_players(number_players,list_situation_players_game,list_players)
+                                if number_players - list_situation_players_game.count("no") <=1:
+                                    print("The game its over")
+                                    break
                     #aca se ven las acciones del player3 despues de los desafios o contra_ataques, hay que revisarlo
                     
                     if situation_player3_challenge == "win" and situation_player3_counterattack =="win":
                         player3_actions(selection_player3,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
                     if situation_player3_challenge =="win" and situation_player3_counterattack =="":
                         player3_actions(selection_player3,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
                     if situation_player3_challenge =="" and situation_player3_counterattack =="win":
                         player3_actions(selection_player3,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
                     if situation_player3_challenge =="" and situation_player3_counterattack =="":
                         player3_actions(selection_player3,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
                     life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-                    
+                    final_game_situations_players(number_players,list_situation_players_game,list_players)
+                    if number_players - list_situation_players_game.count("no") <=1:
+                        print("The game its over")
+                        break
                     if selection_player3 ==5 and situation_player3_challenge =="lose":
                         list_players[2].coins_game +=3
 
@@ -2595,10 +2671,14 @@ def game_player3(list_players,number_players,list_cards_player1,list_cards_playe
                 list_players[2].coins_game -=7
                 player3_actions(selection_player3,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                list_eliminated_cards_player3, list_eliminated_cards_player4)
-
-       
-        
+                                list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
+                life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+                final_game_situations_players(number_players,list_situation_players_game,list_players)
+                if number_players - list_situation_players_game.count("no") <=1:
+                    print("The game its over")
+                    break
+            break
+    """    
         #aqui inicia el turno del player4
         if  number_players ==4:
             if list_players[3].live_game =="yes":
@@ -2622,13 +2702,13 @@ def game_player3(list_players,number_players,list_cards_player1,list_cards_playe
             game_player2(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
         list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
-        else:
-            sys.exit("Player3 has won the game!")
-            
+        #else:
+            #sys.exit("Player3 has won the game!")
+    """      
 
 def game_player2(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
-        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4):
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4,list_situation_players_game):
     list_all_actions = ["income","foreign help","Coup","Duke-Taxes","Assassin-Assassination",
                                    "Captain-Extortion", "Ambassador-Change"]
     i = 0
@@ -2637,7 +2717,9 @@ def game_player2(list_players,number_players,list_cards_player1,list_cards_playe
         #sigue vivo el player2?:
             
         if list_players[1].live_game =="yes":
-            
+
+            print_coins_and_eliminated_cards(list_players,list_eliminated_cards_player1,list_eliminated_cards_player2,list_eliminated_cards_player3,
+                        list_eliminated_cards_player4, number_players)
             if list_players[1].coins_game < 10:
                 print_actions()
                 print()
@@ -2651,7 +2733,12 @@ def game_player2(list_players,number_players,list_cards_player1,list_cards_playe
                         list_players[1].coins_game -=7
                         player2_actions(selection_player2,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                         list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                        list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                        list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
+                        life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+                        final_game_situations_players(number_players,list_situation_players_game,list_players)
+                        if number_players - list_situation_players_game.count("no") <=1:
+                            print("The game its over")
+                            break
                     else:
                         while True:
                             selection_player2 = int(input("Player2, you dont have the coins for this action. \nSelect another action, using a number: "))
@@ -2738,7 +2825,13 @@ def game_player2(list_players,number_players,list_cards_player1,list_cards_playe
                             situation_player2_challenge =list_situation_player2_challenge[0]
                             list_situation_player2_challenge =[]
                             life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-
+                            if list_players[1].live_game =="no":
+                                print("The player2 was removed of the game")
+                                break
+                            final_game_situations_players(number_players,list_situation_players_game,list_players)
+                            if number_players - list_situation_players_game.count("no") <=1:
+                                print("The game its over")
+                                break
                         #aqui comienza el contraatque para el jugador2
                         if (selection_player1 ==2 or selection_player3 ==2) and (selection_player2 ==2 or selection_player2 ==5 or 
                                 selection_player2 ==6) and situation_player2_challenge != "lose":
@@ -2762,7 +2855,13 @@ def game_player2(list_players,number_players,list_cards_player1,list_cards_playe
                                 situation_player2_counterattack = list_situation_player2_counterattack[0]
                                 list_situation_player2_counterattack = []
                                 life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-
+                                if list_players[1].live_game =="no":
+                                    print("The player2 was removed of the game")
+                                    break
+                                final_game_situations_players(number_players,list_situation_players_game,list_players)
+                                if number_players - list_situation_players_game.count("no") <=1:
+                                    print("The game its over")
+                                    break
                     if number_players == 4:
                         #esta es la parte del desafio para 4 jugadores en el turno del jugador2
                         if (selection_player1 == 1 or selection_player3 == 1 or selection_player4==1) and (selection_player2==4 or selection_player2 ==5
@@ -2803,8 +2902,13 @@ def game_player2(list_players,number_players,list_cards_player1,list_cards_playe
                             situation_player2_challenge = list_situation_player2_challenge[0]
                             list_situation_player2_challenge =[]
                             life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-
-
+                            if list_players[1].live_game =="no":
+                                print("The player2 was removed of the game")
+                                break
+                            final_game_situations_players(number_players,list_situation_players_game,list_players)
+                            if number_players - list_situation_players_game.count("no") <=1:
+                                print("The game its over")
+                                break
                         #esta es la parte del contraattaque para 4 jugadores en el turno del player2
                         if (selection_player1 ==2 or selection_player3 ==2 or selection_player4 ==2 ) and (selection_player2 ==2 or 
                             selection_player2 ==5 or selection_player2 ==6) and situation_player2_challenge != "lose":
@@ -2845,27 +2949,36 @@ def game_player2(list_players,number_players,list_cards_player1,list_cards_playe
                                 situation_player2_counterattack = list_situation_player2_counterattack[0]
                                 list_situation_player2_counterattack = []
                                 life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-
+                                if list_players[1].live_game =="no":
+                                    print("The player2 was removed of the game")
+                                    break
+                                final_game_situations_players(number_players,list_situation_players_game,list_players)
+                                if number_players - list_situation_players_game.count("no") <=1:
+                                    print("The game its over")
+                                    break
                     #aca se ven las acciones del player2 despues de los desafios o contra_ataques, hay que revisarlo
                     
                     if situation_player2_challenge == "win" and situation_player2_counterattack =="win":
                         player2_actions(selection_player2,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
                     if situation_player2_challenge =="win" and situation_player2_counterattack =="":
                         player2_actions(selection_player2,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
                     if situation_player2_challenge =="" and situation_player2_counterattack =="win":
                         player2_actions(selection_player2,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
                     if situation_player2_challenge =="" and situation_player2_counterattack =="":
                         player2_actions(selection_player2,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
                     life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-                    
+                    final_game_situations_players(number_players,list_situation_players_game,list_players)
+                    if number_players - list_situation_players_game.count("no") <=1:
+                        print("The game its over")
+                        break
                     if selection_player2 ==5 and situation_player2_challenge =="lose":
                         list_players[1].coins_game +=3
 
@@ -2874,9 +2987,14 @@ def game_player2(list_players,number_players,list_cards_player1,list_cards_playe
                 list_players[1].coins_game -=7
                 player2_actions(selection_player2,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                list_eliminated_cards_player3, list_eliminated_cards_player4)
-
-       
+                                list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
+                life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+                final_game_situations_players(number_players,list_situation_players_game,list_players)
+                if number_players - list_situation_players_game.count("no") <=1:
+                    print("The game its over")
+                    break
+            break
+    """    
         #aqui inicia el turno del player3
         if list_players[2].live_game =="yes":
             print("Player3, it's your turn:")
@@ -2901,13 +3019,13 @@ def game_player2(list_players,number_players,list_cards_player1,list_cards_playe
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
         list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
         
-        else:
-            sys.exit("Player2 has won the game!")
-           
+        #else:
+            #sys.exit("Player2 has won the game!")
+    """     
 
 def game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
-        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4):
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4,list_situation_players_game):
 
     list_all_actions = ["income","foreign help","Coup","Duke-Taxes","Assassin-Assassination",
                                    "Captain-Extortion", "Ambassador-Change"]
@@ -2916,8 +3034,10 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
 
         #sigue vivo el player1?:
             
-        if list_players[0].live_game =="yes":
-            
+        while list_players[0].live_game =="yes":
+
+            print_coins_and_eliminated_cards(list_players,list_eliminated_cards_player1,list_eliminated_cards_player2,list_eliminated_cards_player3,
+                        list_eliminated_cards_player4, number_players)
             if list_players[0].coins_game < 10:
                 print_actions()
                 print()
@@ -2931,7 +3051,12 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                         list_players[0].coins_game -=7
                         player1_actions(selection_player1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                         list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                        list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                        list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
+                        life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+                        final_game_situations_players(number_players,list_situation_players_game,list_players)
+                        if number_players - list_situation_players_game.count("no") <=1:
+                            print("The game its over")
+                            break
                     else:
                         while True:
                             selection_player1 = int(input("Player1, you dont have the coins for this action. \nSelect another action, using a number: "))
@@ -3016,7 +3141,13 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                             situation_player1_challenge =list_situation_player1_challenge[0]
                             list_situation_player1_challenge =[]
                             life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-
+                            if list_players[0].live_game =="no":
+                                print("The player1 was removed of the game")
+                                break
+                            final_game_situations_players(number_players,list_situation_players_game,list_players)
+                            if number_players - list_situation_players_game.count("no") <=1:
+                                print("The game its over")
+                                break
                         #aqui comienza el contraatque para el jugador1
                         if (selection_player2 ==2 or selection_player3 ==2) and (selection_player1 ==2 or selection_player1 ==5 or 
                                 selection_player1 ==6) and situation_player1_challenge != "lose":
@@ -3038,7 +3169,13 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                                 situation_player1_counterattack = list_situation_player1_counterattack[0]
                                 list_situation_player1_counterattack = []
                                 life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-
+                                if list_players[0].live_game =="no":
+                                    print("The player1 was removed of the game")
+                                    break
+                                final_game_situations_players(number_players,list_situation_players_game,list_players)
+                                if number_players - list_situation_players_game.count("no") <=1:
+                                    print("The game its over")
+                                    break
                     if number_players == 4:
                         #esta es la parte del desafio para 4 jugadores en el turno del jugador1
                         if (selection_player2 == 1 or selection_player3 == 1 or selection_player4==1) and (selection_player1==4 or selection_player1 ==5
@@ -3074,7 +3211,13 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                             situation_player1_challenge = list_situation_player1_challenge[0]
                             list_situation_player1_challenge =[]
                             life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-
+                            if list_players[0].live_game =="no":
+                                print("The player1 was removed of the game")
+                                break
+                            final_game_situations_players(number_players,list_situation_players_game,list_players)
+                            if number_players - list_situation_players_game.count("no") <=1:
+                                print("The game its over")
+                                break
 
                         #esta es la parte del contraattaque para 4 jugadores en el turno del player1
                         if (selection_player2 ==2 or selection_player3 ==2 or selection_player4 ==2 ) and (selection_player1 ==2 or 
@@ -3111,27 +3254,36 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                                 situation_player1_counterattack = list_situation_player1_counterattack[0]
                                 list_situation_player1_counterattack = []
                                 life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-
+                                if list_players[0].live_game =="no":
+                                    print("The player1 was removed of the game")
+                                    break
+                                final_game_situations_players(number_players,list_situation_players_game,list_players)
+                                if number_players - list_situation_players_game.count("no") <=1:
+                                    print("The game its over")
+                                    break
                     #aca se ven las acciones del player1 despues de los desafios o contra_ataques, hay que revisarlo
                     
                     if situation_player1_challenge == "win" and situation_player1_counterattack =="win":
                         player1_actions(selection_player1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
                     if situation_player1_challenge =="win" and situation_player1_counterattack =="":
                         player1_actions(selection_player1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
                     if situation_player1_challenge =="" and situation_player1_counterattack =="win":
                         player1_actions(selection_player1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
                     if situation_player1_challenge =="" and situation_player1_counterattack =="":
                         player1_actions(selection_player1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
                     life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
-                    
+                    final_game_situations_players(number_players,list_situation_players_game,list_players)
+                    if number_players - list_situation_players_game.count("no") <=1:
+                        print("The game its over")
+                        break
                     if selection_player1 ==5 and situation_player1_challenge =="lose":
                         list_players[0].coins_game +=3
 
@@ -3140,24 +3292,30 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                 list_players[0].coins_game -=7
                 player1_actions(selection_player1,list_players, list_cards_player1,list_cards_player2,list_cards_player3,
                                 list_cards_player4,list_rest_of_deck, list_eliminated_cards_player1, list_eliminated_cards_player2,
-                                list_eliminated_cards_player3, list_eliminated_cards_player4)
+                                list_eliminated_cards_player3, list_eliminated_cards_player4,number_players)
+                life_players(list_players,list_cards_player1,list_cards_player2,list_cards_player3,list_cards_player4,number_players)
+                final_game_situations_players(number_players,list_situation_players_game,list_players)
+                if number_players - list_situation_players_game.count("no") <=1:
+                    print("The game its over")
+                    break
+            break
 
         #aqui inicia el turno del player2
         if list_players[1].live_game =="yes":
             print("Player2, it's your turn:")
             game_player2(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
-        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
-        else:
-            print("Player2 is no longer in the game.")
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4,list_situation_players_game)
+        #else:
+            #print("Player2 is no longer in the game.")
         #aqui inicia el turno del player3
         if list_players[2].live_game =="yes":
             print("Player3, it's your turn:")
             game_player3(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
-        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
-        else:
-            print("Player3 is no longer in the game.")
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4,list_situation_players_game)
+        #else:
+            #print("Player3 is no longer in the game.")
         if number_players==4:
         #aqui inicia el turno del player4
             
@@ -3165,15 +3323,28 @@ def game(list_players,number_players,list_cards_player1,list_cards_player2,list_
                 print("Player4, it's your turn:")
                 game_player4(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards,list_eliminated_cards_player1,
-        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4,list_situation_players_game)
+            #else:
+                #print("Player4 is no longer in the game.")
+        #else: 
+            #sys.exit("Player1 has won the game!")
+            #tal vez aqui poner un print y un break
+        
+        if number_players ==3:
+            list_situation_players_game = [list_players[0].live_game,list_players[1].live_game,list_players[2].live_game]
+        if number_players ==4:
+            list_situation_players_game = [list_players[0].live_game,list_players[1].live_game,list_players[2].live_game,
+                                            list_players[3].live_game]
+        count_end_game =0
+        for i in range(1,len(list_situation_players_game)+1):
+            if list_situation_players_game[i-1] =="no":
+                count_end_game +=1
             else:
-                print("Player4 is no longer in the game.")
-        else: 
-            sys.exit("Player1 has won the game!")
-            
+                winner = "player" + str(i)
+        if number_players - count_end_game <=1:
+            print("the winner is:", winner)
+            break
 
-
-    
 
 
 def three_players(deck,number_players):
@@ -3220,10 +3391,15 @@ def three_players(deck,number_players):
     list_eliminated_cards_player2 = []
     list_eliminated_cards_player3 = []
     list_eliminated_cards_player4 = []
+    if number_players ==3:
+        list_situation_players_game = [list_players[0].live_game,list_players[1].live_game,list_players[2].live_game]
+    if number_players ==4:
+        list_situation_players_game = [list_players[0].live_game,list_players[1].live_game,list_players[2].live_game,
+                                            list_players[3].live_game]
     #en game se  inicia los turnos de los jugadores con sus respectivas acciones
     game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards, list_eliminated_cards_player1,
-        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4,list_situation_players_game)
 
 
 
@@ -3269,10 +3445,15 @@ def four_players(deck,number_players):
     list_eliminated_cards_player2 = []
     list_eliminated_cards_player3 = []
     list_eliminated_cards_player4 = []
+    if number_players ==3:
+        list_situation_players_game = [list_players[0].live_game,list_players[1].live_game,list_players[2].live_game]
+    if number_players ==4:
+        list_situation_players_game = [list_players[0].live_game,list_players[1].live_game,list_players[2].live_game,
+                                            list_players[3].live_game]
     #en game se inicia los turnos de los jugadores con sus respectivas acciones
     game(list_players,number_players,list_cards_player1,list_cards_player2,list_cards_player3,
         list_cards_player4,list_rest_of_deck,list_all_cards, list_eliminated_cards_player1,
-        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4)
+        list_eliminated_cards_player2, list_eliminated_cards_player3, list_eliminated_cards_player4,list_situation_players_game)
     
 
     
